@@ -2,6 +2,31 @@
 
 This repository is the work of Group 2 for GI in Society at the WWU Münster (WiSe 20/21)
 
+### Prerequisites
+
+To make sure everything is running fine, install following software on your operating system. You will find the used version of each tool. Feel free to use other versions but there is no guarantee that no further problems will arise.
+What you need:
+
+- nodeJS (v12.16.3)
+
+### Installing
+
+To get the app running after cloning or downloading it, make sure, that all fileconnections are correct.
+
+Then change to the console and navigate to the repositorys folder. Then run:
+
+```
+npm install
+```
+
+and
+
+```
+npm run dev
+```
+
+Go to localhost:9000 in your favourite browser and see the resulting application.
+
 ## Tutorials
 
 ### Github in VisualStudio Code
