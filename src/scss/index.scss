@@ -1,0 +1,234 @@
+$primary: #cf9007;
+$secondary: #343a40;
+$info: #29cfd4;
+
+body {
+  margin-top: 64px;
+  height: unquote("calc(100vh - 89px)");
+}
+.modal-90w {
+  max-width: 90% !important;
+}
+
+.startpageheader {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 5px;
+}
+
+.collapseUserPage {
+  margin-bottom: 20px;
+  width: 90vw;
+  padding: 15px;
+}
+.collapseButton {
+  margin-bottom: 5px;
+  width: 100vw;
+  border-radius: 0 !important;
+}
+.navbar {
+  height: 64px;
+  font-size: large;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#navbarSupportedContent {
+  background-color: white;
+}
+
+.sr-only {
+  display: none;
+}
+
+.leaflet-container {
+  width: 100vw;
+  height: unquote("calc(100vh - 89px)");
+  margin-top: 64px;
+}
+.main-container {
+  width: 100vw;
+  margin-top: 64px;
+}
+.jumbotron {
+  width: 100vw;
+  height: unquote("calc(100vh - 89px)");
+  margin-top: 64px;
+  border-radius: 0 !important;
+}
+#progress-bar {
+  width: 100%;
+  height: 70px;
+  background-color: $secondary;
+  border: 0;
+  border-radius: 0px;
+}
+#logo {
+  height: 50px;
+}
+#logo-div {
+  height: 50px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.loader {
+  backdrop-filter: blur(1px);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+.loader-spinner {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  top: 50%;
+  left: 50%;
+}
+#updateButtonDiv {
+  margin-bottom: 104px;
+  background-color: "rgba(255, 100, 100, 0.0)";
+}
+
+.buttonheader {
+  margin-right: 5px;
+  width: 150px;
+}
+.updateButton {
+  margin-top: 4px;
+  width: 90vw;
+  height: 70px;
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+}
+
+.buttonload {
+  margin-top: 4px;
+  width: 90vw;
+  height: 70px;
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+
+  animation-name: color-transition;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+/*This is the animation used to change colors; In this instance, I made sure to have the same color at 0% as I did at 100% */
+@keyframes color-transition {
+  0% {
+    font-size: 14px;
+    margin-top: 4px;
+    width: 90vw;
+    height: 70px;
+  }
+  50% {
+    font-size: 18px;
+    margin-top: 0px;
+    width: 92vw;
+    height: 78px;
+  }
+
+  100% {
+    font-size: 14px;
+    margin-top: 4px;
+    width: 90vw;
+    height: 70px;
+  }
+}
+#userIconNav {
+  height: 30px;
+}
+.form-group {
+  margin-top: 10px;
+}
+.errorForm {
+  border-color: #ff0000;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+.errorForm-message {
+  color: #ff6565;
+  height: 1em;
+  font-size: 0.8em;
+}
+#spinner_aoa {
+  margin-right: 5px;
+}
+#footer {
+  height: 25px;
+}
+
+.footer-elem {
+  color: black;
+}
+.tryout {
+  text-align: right;
+}
+.modal-backdrop {
+  backdrop-filter: blur(30px);
+  background-color: #01223770;
+}
+.modal-backdrop.in {
+  opacity: 1 !important;
+}
+
+.modal-body {
+  background-color: white;
+}
+.modal-header {
+  background-color: white;
+}
+.modal-footer {
+  background-color: white;
+}
+button.close {
+  color: $secondary;
+}
+
+button.close:hover {
+  color: $primary;
+}
+#navigation-collapse {
+  background: $secondary;
+  padding: 5px;
+}
+
+// change the theme
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "danger": #ff4136,
+);
+
+// Import Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap.scss";
+
+@import "~leaflet/dist/leaflet.css";
+
+:export {
+  primarycolor: $primary;
+  secondarycolor: $secondary;
+}
