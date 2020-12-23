@@ -1,34 +1,98 @@
 # Data Structure of Recycling Points Dataset
 
-Much needs to be done, however, a very first example is:
+A first example is:
 
-|id |description |object\_type |name |address |hours |shop\_type |telephone |site\_type |recycling\_type |location\_desc |
-|---|---|---|---|---|---|---|---|---|---|---|
-| - |additional info like name or provider |{container, givebox} | - | - | - |{unverpacktladen, second hand store} | - |{shop, sharing, recycling} |{glass, clothes} |navigation info |
-|836 |Malteser Hilfsdienst |container |https://www.malteser.de/altkleider.html |false |false |false |false |false |recycling |clothing |false |
+| id  | description                           | object\_type         | name                                    | address | hours | shop\_type                           | telephone | recycling\_type  | location\_desc  |
+| --- | ------------------------------------- | -------------------- | --------------------------------------- | ------- | ----- | ------------------------------------ | --------- | ---------------- | --------------- |
+| -   | additional info like name or provider | {container, givebox} | -                                       | -       | -     | {unverpacktladen, second hand store} | -         | {glass, clothes} | navigation info |
+| 836 | Malteser Hilfsdienst                  | container            | https://www.malteser.de/altkleider.html | false   | false | false                                | false     | false            | clothing        | false |
 
 ```
-{ "type":"FeatureCollection",
-	"features": [
-		{"type":"Feature","properties": {
-			"id":"node/5051507836",
-			"description":"Malteser Hilfsdienst",
-			"object_type":"container",
-			"website":"https://www.malteser.de/altkleider.html",
-			"name":false,
-			"address":false,
-			"hours":false,
-			"shop_type":false,
-			"telephone":false,
-			"site_type":"recycling",
-			"recycling_type":"clothing",
-			"location_desc":false},
-			"geometry":{
-				"type":"Point",
-				"coordinates":[7.6099,51.9883]
-				}
-			}
-		]
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 1,
+                "address": "Westerheide",
+                "location_desc": "vor Schule",
+                "recycling_type": "glass",
+                "object_type": "container"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.676,
+                    52.0285
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 4,
+                "address": "Kristiansandstraße",
+                "location_desc": "Hst. Rektoratsweg (Richtung Grevener Straße)",
+                "recycling_type": "individual waste",
+                "object_type": "waste basket",
+                "hours": "all day, every day",
+                "shop_type": false,
+                "telephone": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.6081,
+                    51.9974
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 1,
+                "address": "FALSE",
+                "location_desc": "FALSE",
+                "recycling_type": "clothes",
+                "object_type": "container",
+                "name": "FALSE",
+                "hours": "all day, every day",
+                "shop_type": false,
+                "telephone": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.5496,
+                    51.9999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 1,
+                "address": "FALSE",
+                "location_desc": "Skagerrakstraße gegenüber Ska-Treff, Skagerrakstraße",
+                "recycling_type": "FALSE",
+                "object_type": "Givebox",
+                "description": "FALSE",
+                "website": "https://hvghirten.jimdofree.com/-/sozialraumaktivit%C3%A4ten/ska-treff/",
+                "name": "Danziger Freiheit",
+                "hours": "immer",
+                "shop_type": false,
+                "telephone": false
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.6583,
+                    51.967
+                ]
+            }
+        }
+    ]
 }
 ```
 
@@ -39,5 +103,4 @@ Much needs to be done, however, a very first example is:
 
 ### TODO
 
-* coordinate `object\_type` and `site\_type`, might be duplicate
 * handling of duplicates, e.g. a recycling yard that has an entry from the yard dataset and also from the "glass" dataset`
