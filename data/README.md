@@ -2,10 +2,10 @@
 
 A first example is:
 
-| id  | description                           | object\_type         | name                                    | address | hours | shop\_type                           | telephone | recycling\_type  | location\_desc  |
-| --- | ------------------------------------- | -------------------- | --------------------------------------- | ------- | ----- | ------------------------------------ | --------- | ---------------- | --------------- |
-| -   | additional info like name or provider | {container, givebox} | -                                       | -       | -     | {unverpacktladen, second hand store} | -         | {glass, clothes} | navigation info |
-| 836 | Malteser Hilfsdienst                  | container            | https://www.malteser.de/altkleider.html | false   | false | false                                | false     | false            | clothing        | false |
+| id | object\_type | recycling\_type | shop\_type | description | name | address | location\_desc | hours | telephone |
+| --- | ------------- | ------ | ------------- | ------- | ----- | ----------- | --------- | ------- | ------ |
+| -   | {container, shop, givebox...} | {glass, clothes, paper...} | given when `object\_type` is `shop`, {unverpacktladen, second hand store} | additional info | - | - | nagigational help | - | - |
+
 
 ```
 {
@@ -104,3 +104,6 @@ A first example is:
 ### TODO
 
 * handling of duplicates, e.g. a recycling yard that has an entry from the yard dataset and also from the "glass" dataset`
+* `false` and `"FALSE"` - whats up with that?
+* avoid missing attributes
+* `recycling\_type`: should it be a list?
