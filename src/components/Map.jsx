@@ -7,6 +7,7 @@ import {
   TileLayer,
   Popup,
   LayersControl,
+  GeoJSON
 } from "react-leaflet";
 const { BaseLayer, Overlay } = LayersControl;
 import L from "leaflet";
@@ -23,10 +24,21 @@ L.Icon.Default.mergeOptions({
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/marker-shadow.png",
 });
 import Button from "react-bootstrap/Button";
-
+const recyclingPoints = require('../../data/recycling_points_example.geojson');
 
 const Leaflet = () => {
   
+  const geoJSONstyle = () => {
+    return {
+      // the fillColor is adapted from a property which can be changed by the user (segment)
+      fillColor: colors.primarycolor,
+      //stroke-width: to have a constant width on the screen need to adapt with scale
+      opacity: 1,
+      color: colors.primarycolor,
+      fillOpacity: 0.5,
+    };
+  };
+
   return (
 
 
@@ -38,6 +50,10 @@ const Leaflet = () => {
             url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           />
         </BaseLayer>
+        <Overlay checked key={JSON.stringify(recyclingPoints)} name="recycling-points">
+          {" "}
+          <GeoJSON data={recyclingPoints} style={geoJSONstyle()} />
+        </Overlay>
         </LayersControl>
     </Map>
 

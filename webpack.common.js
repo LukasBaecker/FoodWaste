@@ -20,6 +20,10 @@ let clientConfig = {
         loader: "babel-loader",
       },
       {
+        test: /\.(json|geojson)$/,
+        loader: 'json-loader'
+      },
+      {
         // Loads the javacript into html template provided.
         // Entry point is set below in HtmlWebPackPlugin in Plugins
         test: /\.html$/,
