@@ -9,11 +9,11 @@ const Container = () => {
   
   return (
 
-    <div class="infoContainer"       
+    <div className="infoContainer"       
       style={{
         backgroundColor: '#223344'
     }}>
-        <h1>Hello, world!</h1>
+        <h1>Hello, world! Infobox 1 </h1>
         <p>
           This is a simple hero unit, a simple jumbotron-style component for calling
           extra attention to featured content or information.
@@ -21,9 +21,7 @@ const Container = () => {
         <p>
           <Button variant="primary">Learn more</Button>
         </p>
-
     </div>
-    
 
   );
 };

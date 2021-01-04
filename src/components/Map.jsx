@@ -24,7 +24,7 @@ L.Icon.Default.mergeOptions({
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/marker-shadow.png",
 });
 import Button from "react-bootstrap/Button";
-const recyclingPoints = require('../../data/recycling_points_example.geojson');
+const recyclingPoints = require('../../data/recycling_points.geojson');
 
 const Leaflet = () => {
   

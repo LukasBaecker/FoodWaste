@@ -25,6 +25,7 @@ const App = () => {
           <Route exact path="/">
             <Home />
             <Infobox />
+            <Infobox />
           </Route>
           <Route exact path="/map" component={Map} />
         </Switch>
