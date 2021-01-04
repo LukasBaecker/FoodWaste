@@ -17,7 +17,7 @@ function footer() {
         <Nav className="justify-content-end" activeKey="/home">
           <Nav.Item>
             <Nav.Link eventKey="disabled" disabled>
-              © group 2 - WWU Münster 2020
+              © group 2 - WWU Münster 2021
             </Nav.Link>
           </Nav.Item>
         </Nav>
