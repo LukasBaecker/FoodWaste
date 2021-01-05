@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Navigation from "./components/Navbar.jsx";
 import Map from "./components/Map.jsx";
+import Selection from "./components/Selection.jsx";
 import Home from "./components/Home.jsx";
 import Infobox from "./components/Infobox.jsx";
 import Footer from "./components/Footer.jsx";
@@ -27,7 +28,10 @@ const App = () => {
             <Infobox />
             <Infobox />
           </Route>
-          <Route exact path="/map" component={Map} />
+          <Route exact path="/map">
+            <Map />
+            <Selection />
+          </Route>
         </Switch>
         <Footer />
       </Router>
