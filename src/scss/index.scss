@@ -65,6 +65,7 @@ body {
   height: unquote("calc(100vh - 99px)") !important;
   margin-top: 64px;
   border-radius: 0 !important;
+  text-align: center;
 }
 #progress-bar {
   width: 100%;
@@ -115,6 +116,14 @@ body {
   position: absolute;
   left: 50%;
   transform: translatex(-50%);
+}
+
+.boxgroesse {
+  //width: 250px;
+  //height: 175px;
+  //font-size: 30pt;
+  color: white;
+  opacity: 0.5;
 }
 
 .buttonload {
@@ -236,4 +245,14 @@ $theme-colors: (
 :export {
   primarycolor: $primary;
   secondarycolor: $secondary;
+}
+
+// Bigger heading hbig
+//hbig{
+ // font-size: 60px;
+//}
+
+// Paragraph bigger
+p{
+  font-size: 30px;
 }

@@ -12,7 +12,7 @@ function footer() {
     <>
       <Navbar fixed="bottom" bg="dark" variant="dark" id="footer">
         <Nav className="mr-auto">
-          <Nav.Link onClick={handleShow}>imprint</Nav.Link>
+          <Nav.Link onClick={handleShow}>Impressum</Nav.Link>
         </Nav>
         <Nav className="justify-content-end" activeKey="/home">
           <Nav.Item>
@@ -25,18 +25,17 @@ function footer() {
 
       <Modal show={show} onHide={handleClose} dialogClassName="modal-90w">
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Impressum</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+         
           <Imprint />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-secondary" onClick={handleClose}>
-            Close
+            Schließen
           </Button>
-          <Button variant="outline-secondary" onClick={handleClose}>
-            Save Changes
-          </Button>
+    
         </Modal.Footer>
       </Modal>
     </>

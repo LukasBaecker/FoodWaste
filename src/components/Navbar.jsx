@@ -8,7 +8,7 @@ import Image from "react-bootstrap/Image";
 import Dropdown from "react-bootstrap/Dropdown";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import logo from "../img/favicon.png";
+import logo from "../img/recyclingPoints.png";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -111,7 +111,8 @@ function navigation() {
         <Navbar.Collapse id="navigation-collapse">
           <Nav className="mr-auto">
             <Nav.Link href="/">Start</Nav.Link>
-            <Nav.Link onClick={handleShow}>Info</Nav.Link>
+            <Nav.Link onClick={handleShow}>Story</Nav.Link>
+            <Nav.Link onClick={handleShow}>Map</Nav.Link>
             <Nav.Link onClick={handleShowFAQ}>FAQ</Nav.Link>
             {navElements}
           </Nav>
