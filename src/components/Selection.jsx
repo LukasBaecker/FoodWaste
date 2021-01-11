@@ -2,75 +2,33 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Form from 'react-bootstrap/Form'
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import NavItem from "react-bootstrap/NavItem";
+import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import { useDispatch, useSelector } from "react-redux";
 import { setCategory, setPoints } from "../actions";
 
-const classes = ['glass', 'individualWaste', 'clothes', 'Givebox',
-                'open bookshelf', 'store', 'sharing', 'repair',
-                'organisation', 'multiple']
+const classes = ["individualWaste", "clothes", "EverydayObjects", "books", "store", "foodsharing", "repair", "furniture", "diverse", "clothes, toys", "multimedia", 
+                "clothes, electronics, green waste, glass, plastics, wood, metal, paper, problematic waste, packaging waste, furniture", 
+                "clothes, electronics, green waste, glass, plastics, wood, metal, paper, problematic waste, packaging waste, furniture, bicycle batteries",
+                "clothes, electronics, green waste, glass, plastics, wood, metal, paper, problematic waste, packaging waste, furniture, demolition waste, bicycle batteries, plate glass, treated wood"]
 
-const Selection = () => {
+const Selection = (category) => {
     const categories = useSelector((state) => state.categories);
     const dispatch = useDispatch();
 
-    console.log(categories)
-
     return (
-        <Navbar fixed="bottom" id="selectionDiv">
-        <Nav className="mr-auto">
-        <NavItem>
-
-                {['glass', 'individualWaste'].map((type) => (
-                    <div key={`${type}`} className="mb-3">
-                    <Form.Check 
-                        type={'switch'}
-                        id={`${type}`}
-                        label={`${type}`}
-                        //checked={true}
-                        onChange={() => {dispatch(setCategory(`${type}`))
-                                        dispatch(setPoints(categories))
-                                        }}
-                    />
-                    </div>
-                ))}
-
-                {['clothes', 'Givebox', 'open bookshelf'].map((type) => (
-                    <div key={`${type}`} className="mb-3">
-                    <Form.Check 
-                        type={'switch'}
-                        id={`${type}`}
-                        label={`${type}`}
-                    />
-                    </div>
-                ))}
-
-                {[ 'store', 'sharing', 'repair'].map((type) => (
-                    <div key={`${type}`} className="mb-3">
-                    <Form.Check 
-                        type={'switch'}
-                        id={`${type}`}
-                        //checked={true}
-                        label={`${type}`}
-                    />
-                    </div>
-                ))}
-
-                {['organisation', 'multiple'].map((type) => (
-                    <div key={`${type}`} className="mb-3">
-                    <Form.Check 
-                        type={'switch'}
-                        id={`${type}`}
-                        label={`${type}`}
-                    />
-                    </div>
-                ))}
-
-        </NavItem>
-        </Nav>
-        </Navbar>
+                        <NavItem eventKey={"categories/"+`${category}`}>
+                            <NavText>
+                                <Form.Check 
+                                    type={'switch'}
+                                    id={`${category}`}
+                                    label={`${category}`}
+                                    //checked={true}
+                                    onChange={() => {dispatch(setCategory(`${category}`))
+                                                    dispatch(setPoints(categories))
+                                                    }}
+                                />
+                            </NavText>
+                        </NavItem>
     )
 };
 

@@ -1,5 +1,7 @@
 # Data Structure of Recycling Points Dataset
 
+![structure example](./example_struct.png)
+
 A first example is:
 
 | id  | object\_type                  | recycling\_type            | shop\_type                                                                | description     | name | address | location\_desc    | hours | telephone |
