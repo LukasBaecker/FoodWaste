@@ -21,26 +21,26 @@ const Container = () => {
       marginBottom: "0px"      
     }}
   >
-        <h1> Hallo Münster!</h1> <br/>
+        <h1> Hello Münster!</h1> <br/>
         <p>
-          Lasst uns zusammen mehr sein. <br/>
-          Lasst uns nachhaltig, umweltbewusst, sauber und sozial sein. <br/>
-          Lasst uns zusammen ein besseres Münster werden!
+        Let's be more together.<br/>
+        Let's be sustainable, environmentally conscious, clean and social.<br/>
+        Let's become a better Münster together!
         </p>
         <br/>
         <p > 
-          Wie viel schmeißen wir eigentlich weg? <br/>
-          <Button variant="primary">Zeig mir die Fakten</Button>
+          How much do we actually throw away? <br/>
+          <Button variant="primary">Show me the facts</Button>
         </p>
         <br/>
         <p> 
-          Wo kann ich einkaufen, ohne Plastik zu verschwenden? <br/>
-          <Button variant="primary">Zeig mir meine Möglichkeiten</Button>
+          Where can I shop without wasting plastic? <br/>
+          <Button variant="primary">Show me my possibilities</Button>
         </p>
         <br/>
         <p>
-          Wo kann ich in meiner Nähe recyceln? <br/>
-          <Button variant="primary">Zeig mir die Karte</Button>
+          Where can I recycle near me? <br/>
+          <Button variant="primary">Show me the map</Button>
         </p>
       </Jumbotron>
 
