@@ -1,7 +1,9 @@
-$primary: #cf9007;
-$secondary: #343a40;
-$info: #29cfd4;
+@import "./corporate-design.scss";
+@import "./leaflet-marker-cluster.scss";
 
+.sidenav {
+  margin-top: 64 px;
+}
 body {
   margin-top: 64px;
   height: unquote("calc(100vh - 89px)");
@@ -20,10 +22,7 @@ body {
   padding-left: 20px;
   border-radius: 5px;
 }
-#selectionDiv {
-  margin-bottom: 104px;
-  background-color: "rgba(255, 100, 100, 0.0)";
-}
+
 .collapseUserPage {
   margin-bottom: 20px;
   width: 90vw;
@@ -102,10 +101,6 @@ body {
   height: 50vw;
   top: 50%;
   left: 50%;
-}
-#updateButtonDiv {
-  margin-bottom: 104px;
-  background-color: "rgba(255, 100, 100, 0.0)";
 }
 
 .buttonheader {
@@ -233,6 +228,11 @@ button.close:hover {
   padding: 5px;
 }
 
+polygon {
+  color: $primary;
+  fillcolor: $primary;
+}
+
 // change the theme
 $theme-colors: (
   "primary": $primary,
@@ -240,10 +240,17 @@ $theme-colors: (
   "danger": #ff4136,
 );
 
+.sidenav---sidenav---_2tBP {
+  background: $primare_opac;
+}
 // Import Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap.scss";
 
 @import "~leaflet/dist/leaflet.css";
+
+@import "~react-leaflet-markercluster/dist/styles.min.css";
+
+@import "~@trendmicro/react-sidenav/dist/react-sidenav.css";
 
 :export {
   primarycolor: $primary;
@@ -252,10 +259,14 @@ $theme-colors: (
 
 // Bigger heading hbig
 //hbig{
- // font-size: 60px;
+// font-size: 60px;
 //}
 
 // Paragraph bigger
-p{
+p {
   font-size: 30px;
+}
+
+.leaflet-left {
+  margin-left: 64px;
 }

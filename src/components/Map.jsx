@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import colors from "../scss/index.scss";
-import {
-  MapContainer,
-  Map,
-  Marker,
-  TileLayer,
-  Popup,
-  LayersControl,
-  GeoJSON
-} from "react-leaflet";
-const { BaseLayer, Overlay } = LayersControl;
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+
+import { MapContainer, TileLayer, Marker} from 'react-leaflet'
+
 import L from "leaflet";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -80,20 +74,16 @@ const Leaflet = () => {
   };
 
   return (
-    //{getTheMap()}
-    <Map center={[51.960667, 7.626135]} zoom={13}>
-      <LayersControl>          
-        <BaseLayer checked name="OpenStreetMap.Mapnik">
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-          />
-        </BaseLayer>
-      </LayersControl>
-      {console.log(points)}
-      {points.features.map(p => OwnMarker(p))}
-      {/*setMarkers(points)*/}
-    </Map>
+    <MapContainer center={[51.960667, 7.626135]} zoom={13} >
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+      />
+      <MarkerClusterGroup polygonOptions= {geoJSONstyle()}>
+        {points.features.map(p => OwnMarker(p))}
+      </MarkerClusterGroup>
+
+    </MapContainer>
 
   );
 };

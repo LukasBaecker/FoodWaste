@@ -14,6 +14,7 @@ import Selection from "./components/Selection.jsx";
 import Home from "./components/Home.jsx";
 import Infobox from "./components/Infobox.jsx";
 import Footer from "./components/Footer.jsx";
+import Sidebar from "./components/Sidebar.jsx"
 import { useSelector } from "react-redux";
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
             <Infobox />
           </Route>
           <Route exact path="/map">
+            <Sidebar />
             <Map />
             <Selection />
           </Route>
