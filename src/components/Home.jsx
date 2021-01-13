@@ -21,6 +21,8 @@ const Container = () => {
       marginBottom: "0px"      
     }}
   >
+    <div class="background">
+    <div class="transbox">
         <h1> Hello Münster!</h1> <br/>
         <p>
         Let's be more together.<br/>
@@ -42,6 +44,8 @@ const Container = () => {
           Where can I recycle near me? <br/>
           <Button variant="primary">Show me the map</Button>
         </p>
+        </div>
+    </div>
       </Jumbotron>
 
     
