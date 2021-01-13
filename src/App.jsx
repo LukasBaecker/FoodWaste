@@ -14,7 +14,8 @@ import Selection from "./components/Selection.jsx";
 import Home from "./components/Home.jsx";
 import Infobox from "./components/Infobox.jsx";
 import Footer from "./components/Footer.jsx";
-import Sidebar from "./components/Sidebar.jsx"
+import Sidebar from "./components/Sidebar.jsx";
+import Plots from "./components/Plots.jsx";
 import { useSelector } from "react-redux";
 const App = () => {
 
@@ -33,6 +34,9 @@ const App = () => {
             <Sidebar />
             <Map />
             <Selection />
+          </Route>
+          <Route exact path="/plots">
+            <Plots />
           </Route>
         </Switch>
         <Footer />
