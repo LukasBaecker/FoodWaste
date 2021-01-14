@@ -25,12 +25,32 @@ const Container = () => {
     <div className="background">
     <div className="transbox">
         <h1> Hello Münster!</h1> <br/>
-        <p>
+        {/*<p>
         Let's be more together.<br/>
         Let's be sustainable, environmentally conscious, clean and social.<br/>
         Let's become a better Münster together!
+        </p>*/}
+        <p>
+          Waste is a recurring topic in the public discussion. It is often forgotten otherwise. 
+          <br/>
+          <br/>
+          <br/>
+          But what is the actual situation, in Europe, in Germany and in NRW?
+          <br/>
+          <Button variant="secondary"><HashLink smooth to="/#test">Explore Map Data</HashLink></Button>
+          <br/>
+          <br/>
+          How much and what do we throw away each year?
+          <br/>
+          <Button variant="secondary"><HashLink smooth to="/#test">Explore Münster Waste Data</HashLink></Button>
+          <br/>
+          <br/>
+          And how can we do better?
+          <br/>
+          <Button variant="secondary"><HashLink smooth to="/map">Recycle Map Münster</HashLink></Button>
         </p>
         <br/>
+        {/*}
         <p > 
           How much do we actually throw away? <br/>
           <Button variant="secondary"><HashLink smooth to="/#test">Show me the facts</HashLink></Button>
@@ -44,7 +64,7 @@ const Container = () => {
         <p>
           Where can I recycle near me? <br/>
           <Button variant="secondary"><HashLink smooth to="/map">Show me the map with awesome locations.</HashLink></Button>
-        </p>
+      </p>*/}
         </div>
     </div>
       </Jumbotron>
