@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import background from "../img/pexels-lisa-fotios-1933386.jpg"
 //import bgimage from "../../src/img/pexels-lisa-fotios-1933386.jpg";
 import bgimage from "../../src/img/pexels-emmet-128421.jpg";
+import { HashLink } from 'react-router-hash-link';
 
 const Container = () => {
   
@@ -30,17 +31,17 @@ const Container = () => {
         <br/>
         <p > 
           Wie viel schmeißen wir eigentlich weg? <br/>
-          <Button variant="primary">Zeig mir die Fakten</Button>
+          <Button variant="secondary"><HashLink smooth to="/#test">Start the story</HashLink></Button>
         </p>
         <br/>
         <p> 
           Wo kann ich einkaufen, ohne Plastik zu verschwenden? <br/>
-          <Button variant="primary">Zeig mir meine Möglichkeiten</Button>
+          <Button variant="secondary"><HashLink smooth to="/#test">Something else</HashLink></Button>
         </p>
         <br/>
         <p>
           Wo kann ich in meiner Nähe recyceln? <br/>
-          <Button variant="primary">Zeig mir die Karte</Button>
+          <Button variant="secondary"><HashLink smooth to="/map">Show me the map with awesome locations.</HashLink></Button>
         </p>
       </Jumbotron>
 

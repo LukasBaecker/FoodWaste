@@ -1,26 +1,45 @@
+import { constant } from "underscore";
 import {
   SET_CATEGORY,
+  SET_WHOLE_GROUP
 } from "../actions";
 
-const initialState = {
+const recyclingPoints = require('../../data/recycling_points.geojson');
+
+const initialState={"recycling":{
+    "status": false,
     "glass": false,
     "individualWaste": false,
     "clothes": false,
-    "givebox": false,
-    "openBookshelf": false,
+    "EverydayObject": false,
+    "books": false,
+    "organization": false,
+  },
+  "shop":{
+    "status": false,
     "store": false,
-    "sharing": false,
     "repair": false,
-    "organisation": false,
-    "mutliple": false
-}
+    "clothes": false,
+    "clothes, toys": false,  
+    "diverse": false,
+    "multimedia": false,
+    "furniture": false
+  },
+  "yard":{
+    "status": false
+  },
+  }
 
 const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CATEGORY:
       let cat = action.payload.category
-      state[cat] = !state[cat]
+      let group = action.payload.group
+      state[group][cat] = !state[group][cat]
       return state;
+    case SET_WHOLE_GROUP:
+      state[action.payload.group].status = !state[action.payload.group].status
+      return state
     default:
       return state;
   }

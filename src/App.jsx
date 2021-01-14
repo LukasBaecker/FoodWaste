@@ -9,10 +9,9 @@ import {
   Switch,
 } from "react-router-dom";
 import Navigation from "./components/Navbar.jsx";
-import Map from "./components/Map.jsx";
+import MapPage from "./components/MapPage.jsx";
 import Selection from "./components/Selection.jsx";
-import Home from "./components/Home.jsx";
-import Infobox from "./components/Infobox.jsx";
+import HomePage from "./components/HomePage.jsx";
 import Footer from "./components/Footer.jsx";
 import Sidebar from "./components/Sidebar.jsx"
 import { useSelector } from "react-redux";
@@ -25,13 +24,11 @@ const App = () => {
         <Navigation />
         <Switch>
           <Route exact path="/">
-            <Home />
-            <Infobox />
-            <Infobox />
+            <HomePage />
           </Route>
           <Route exact path="/map">
             <Sidebar />
-            <Map />
+            <MapPage />
             <Selection />
           </Route>
         </Switch>
