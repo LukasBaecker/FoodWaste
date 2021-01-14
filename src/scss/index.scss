@@ -55,8 +55,9 @@ body {
 }
 .infoContainer {
   width: 100vw;
-  height: unquote("calc(100vh - 64px)");
+  height: 100vh;
   padding: 4rem 2rem;
+  padding-top: 80px;
 }
 .main-container {
   width: 100vw;
@@ -270,3 +271,58 @@ p {
 .leaflet-left {
   margin-left: 64px;
 }
+
+.column {
+  float: left;
+  padding: 2px;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+ 
+
+
+.div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+
+.div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+//.leaflet-popup-content {
+ // background-color: #ff6565;
+  //width:auto;
+  //}

@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import background from "../img/pexels-lisa-fotios-1933386.jpg"
 //import bgimage from "../../src/img/pexels-lisa-fotios-1933386.jpg";
 import bgimage from "../../src/img/pexels-emmet-128421.jpg";
+import { HashLink } from 'react-router-hash-link';
 
 const Container = () => {
   
@@ -21,27 +22,31 @@ const Container = () => {
       marginBottom: "0px"      
     }}
   >
-        <h1> Hallo Münster!</h1> <br/>
+    <div className="background">
+    <div className="transbox">
+        <h1> Hello Münster!</h1> <br/>
         <p>
-          Lasst uns zusammen mehr sein. <br/>
-          Lasst uns nachhaltig, umweltbewusst, sauber und sozial sein. <br/>
-          Lasst uns zusammen ein besseres Münster werden!
+        Let's be more together.<br/>
+        Let's be sustainable, environmentally conscious, clean and social.<br/>
+        Let's become a better Münster together!
         </p>
         <br/>
         <p > 
-          Wie viel schmeißen wir eigentlich weg? <br/>
-          <Button variant="primary">Zeig mir die Fakten</Button>
+          How much do we actually throw away? <br/>
+          <Button variant="secondary"><HashLink smooth to="/#test">Show me the facts</HashLink></Button>
         </p>
         <br/>
         <p> 
-          Wo kann ich einkaufen, ohne Plastik zu verschwenden? <br/>
-          <Button variant="primary">Zeig mir meine Möglichkeiten</Button>
+          Where can I shop without wasting plastic? <br/>
+          <Button variant="secondary"><HashLink smooth to="/#test">Show me my possibilities</HashLink></Button>
         </p>
         <br/>
         <p>
-          Wo kann ich in meiner Nähe recyceln? <br/>
-          <Button variant="primary">Zeig mir die Karte</Button>
+          Where can I recycle near me? <br/>
+          <Button variant="secondary"><HashLink smooth to="/map">Show me the map with awesome locations.</HashLink></Button>
         </p>
+        </div>
+    </div>
       </Jumbotron>
 
     
