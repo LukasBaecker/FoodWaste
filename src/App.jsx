@@ -14,7 +14,7 @@ import Selection from "./components/Selection.jsx";
 import HomePage from "./components/HomePage.jsx";
 import Footer from "./components/Footer.jsx";
 import Sidebar from "./components/Sidebar.jsx";
-import Plots from "./components/Plots.jsx";
+import Plots from "./components/Plots.jsx"; // for working on plots
 import { useSelector } from "react-redux";
 const App = () => {
 
