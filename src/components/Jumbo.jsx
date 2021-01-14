@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import background from "../img/pexels-lisa-fotios-1933386.jpg"
 //import bgimage from "../../src/img/pexels-lisa-fotios-1933386.jpg";
 import bgimage from "../../src/img/pexels-emmet-128421.jpg";
+import { HashLink } from 'react-router-hash-link';
 
 const Container = () => {
   

@@ -11,7 +11,6 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../img/recyclingPoints.png";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import FAQ from "./info/FAQ.jsx";
 import HowTo from "./info/HowTo.jsx";
 
@@ -110,9 +109,9 @@ function navigation() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="navigation-collapse">
           <Nav className="mr-auto">
-            <Nav.Link href="/">Start</Nav.Link>
-            <Nav.Link onClick={handleShow}>Story</Nav.Link>
-            <Nav.Link onClick={handleShow}>Map</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/#test"> Story</Nav.Link>
+            <Nav.Link href="/map">Map</Nav.Link>
             <Nav.Link onClick={handleShowFAQ}>FAQ</Nav.Link>
             {navElements}
           </Nav>
