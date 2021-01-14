@@ -25,7 +25,7 @@ const OwnMarker = (point) => {
             
             
              <Popup>
-             <div class="row" style={{backgroundColor:'orange'}}>
+             <div className="row" style={{backgroundColor:'orange'}}>
 
                 <table>
                     <tr>

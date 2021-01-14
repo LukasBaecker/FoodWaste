@@ -22,8 +22,8 @@ const Container = () => {
       marginBottom: "0px"      
     }}
   >
-    <div class="background">
-    <div class="transbox">
+    <div className="background">
+    <div className="transbox">
         <h1> Hello Münster!</h1> <br/>
         <p>
         Let's be more together.<br/>
@@ -33,17 +33,17 @@ const Container = () => {
         <br/>
         <p > 
           How much do we actually throw away? <br/>
-          <Button variant="primary">Show me the facts</Button>
+          <Button variant="secondary"><HashLink smooth to="/#test">Show me the facts</HashLink></Button>
         </p>
         <br/>
         <p> 
           Where can I shop without wasting plastic? <br/>
-          <Button variant="primary">Show me my possibilities</Button>
+          <Button variant="secondary"><HashLink smooth to="/#test">Show me my possibilities</HashLink></Button>
         </p>
         <br/>
         <p>
           Where can I recycle near me? <br/>
-          <Button variant="primary">Show me the map</Button>
+          <Button variant="secondary"><HashLink smooth to="/map">Show me the map with awesome locations.</HashLink></Button>
         </p>
         </div>
     </div>
