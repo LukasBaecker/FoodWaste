@@ -264,9 +264,9 @@ $theme-colors: (
 //}
 
 // Paragraph bigger
-p {
-  font-size: 30px;
-}
+//p {
+//  font-size: 30px;
+//}
 
 .leaflet-left {
   margin-left: 64px;
@@ -315,12 +315,16 @@ th {
 .div.transbox {
   margin: 30px;
   background-color: #ffffff;
-  border: 1px solid black;
-  opacity: 0.6;
+  border: 5px solid black;
+  opacity: 0.7;
+  //position: center;
+  width: 60%;
+  height: 80%;
+  margin: 5% 20%;
 }
 
-.div.transbox p {
-  margin: 5%;
+div.transbox p {
+  //margin: 1%;
   font-weight: bold;
   color: #000000;
 }
@@ -328,3 +332,18 @@ th {
 // background-color: #ff6565;
 //width:auto;
 //}
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.button1 {background-color: #dd591b;} /* Green */
+.button2 {background-color: #008CBA;} /* Blue */

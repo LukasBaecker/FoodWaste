@@ -1,6 +1,7 @@
 import React from "react";
 import Jumbo from "./Jumbo.jsx"
 import Infobox from "./Infobox.jsx"
+import Plots from "./Plots.jsx"
 
 const Home = () => {
   
@@ -10,7 +11,7 @@ const Home = () => {
       <div id="test">
         <Infobox/>
       </div>
-      <Infobox />
+      <Plots />
     </>
   );
 };
