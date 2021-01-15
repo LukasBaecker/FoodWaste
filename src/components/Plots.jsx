@@ -4,12 +4,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "react-bootstrap/Button";
 import Plot from 'react-plotly.js';
+import "react-bootstrap";
+import {Container, Row, Col} from 'react-bootstrap';
 
-const Container = () => {
+const Example = () => {
     return (
       <>
-      <div>
-      <Plot
+      <Container fluid>
+        <Row>
+          <Col>
+          <p>
+            The following plot portrays the amount of waste generated in kg by each inhabitant per year. 
+            The displayed plot shows two main categories that includes the general waste and recyclable 
+            waste materials. It is observed from the trend of the graph that the general waste 
+            generated per inhabitant per year had a significant decrease over the years which is 
+            fairly similar to that of the trend line of waste generation from recyclable materials. 
+            Both the observations have a parallel trend. They also show a peak in 2014, the year of
+            the big rain events and following floods.
+          </p>
+          </Col>
+          <Col>
+          <Plot
       data={[
         {
           type: 'scatter', 
@@ -35,9 +50,23 @@ const Container = () => {
     }
     }}
       />
-      </div>
-      <div>
-      <Plot
+          </Col>
+          </Row>
+          <Row>
+          <Col>
+          <p>
+          The pie-chart describes the types of wastes generated from private households 
+          with a percentage of values representing each category of waste in tonnes. 
+          Types of waste materials such as household waste without recyclables (general waste) 
+          quantifies the maximum, comprising 38.8% among the total waste generated. 
+          Subsequently paper waste accounts for about 21.6%, followed by biodegredable 
+          waste constituting 15.8% from the total waste. Other waste products include 
+          materials like packaging waste, glass, wood and electronics that covers 
+          about 10%, 8%, 4% and 2% respectively. 
+          </p>
+          </Col>
+          <Col>
+          <Plot
       data={[
         {
          type: 'pie',
@@ -49,9 +78,14 @@ const Container = () => {
      ]}
      layout={{width: 700, height: 700, title: 'Waste of Private Households', showlegend: false}}
       />
-      </div>
-      <div>
-      <Plot
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+          <p>Here goes the desc.</p>
+          </Col>
+          <Col>
+          <Plot
       data={[
         {
           type: 'scatter', 
@@ -91,12 +125,23 @@ const Container = () => {
         }
 
      ]}
-     layout={{width: 700, height: 700, title: 'Waste Amount Development', showlegend: false}}
+     layout={{width: 700, height: 700, title: 'Waste Amount Development', 
+     xaxis: {
+      title: 'Year',
+      showgrid: false,
+      zeroline: false
+    },
+    yaxis: {
+      title: 'Waste in tonnes',
+      showline: true
+    },
+    showlegend: false}}
       />
-      
-      </div>
+          </Col>
+        </Row>
+      </Container>
       </>
       );
 };
 
-export default Container;
+export default Example;
