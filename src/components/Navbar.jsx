@@ -13,6 +13,8 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import FAQ from "./info/FAQ.jsx";
 import HowTo from "./info/HowTo.jsx";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 
 function navigation() {
   //const dispatch = useDispatch();
@@ -25,71 +27,12 @@ function navigation() {
   const handleCloseFAQ = () => setShowFAQ(false);
   const handleShowFAQ = () => setShowFAQ(true);
 
-  //useEffect(() => {
-  //}, []);
 
-  let logginbuttons;
-  let navElements;
-
-  const buttonLabel = () => {
-      return <>{"select a project"}</>;
-    }
-
-
-    navElements = (
-      <NavDropdown title="Admin tools" id="basic-nav-dropdown">
-        <NavDropdown.Item>
-          <Button
-            className="buttonheader"
-            variant="outline-primary"
-            onClick={() => {
-              console.log("something");
-            }}
-          >
-            console.log
-          </Button>
-        </NavDropdown.Item>
-        <NavDropdown.Item>
-          {" "}
-          <Button
-            className="buttonheader"
-            variant={"primary"}
-            onClick={() => {
-              console.log("somethinge else")
-            }}
-          >
-            console.log else
-          </Button>
-        </NavDropdown.Item>
-      </NavDropdown>
-    );
-    logginbuttons = (
+  let upperRightItems = (
       <>
-        <NavDropdown title="Admin tools" id="basic-nav-dropdown">
-        <NavDropdown.Item>
-          <Button
-            className="buttonheader"
-            variant="outline-primary"
-            onClick={() => {
-              console.log("something");
-            }}
-          >
-            console.log
-          </Button>
-        </NavDropdown.Item>
-        <NavDropdown.Item>
-          {" "}
-          <Button
-            className="buttonheader"
-            variant={"primary"}
-            onClick={() => {
-              console.log("somethinge else")
-            }}
-          >
-            console.log else
-          </Button>
-        </NavDropdown.Item>
-      </NavDropdown>
+        <Nav.Link onClick={handleShow}>
+          <FontAwesomeIcon icon={faQuestionCircle} style={{ fontSize: '1em' }}/>
+        </Nav.Link>
       </>
     );
   
@@ -113,9 +56,8 @@ function navigation() {
             <Nav.Link href="/#test"> Story</Nav.Link>
             <Nav.Link href="/map">Map</Nav.Link>
             <Nav.Link onClick={handleShowFAQ}>FAQ</Nav.Link>
-            {navElements}
           </Nav>
-          {logginbuttons}
+          {upperRightItems}
         </Navbar.Collapse>
       </Navbar>
 

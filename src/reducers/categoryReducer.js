@@ -14,6 +14,7 @@ const initialState={"recycling":{
     "EverydayObject": false,
     "books": false,
     "organization": false,
+    "foodsharing":false
   },
   "shop":{
     "status": false,

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCategory, setPoints, setWholeGroup } from "../actions";
 import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
-const recycling = ["glass","individualWaste", "clothes", "EverydayObjects", "books", "organization"]
+const recycling = ["glass","individualWaste", "clothes", "EverydayObjects", "books", "organization", "foodsharing"]
 
 const shops = ["store", "repair", "clothes", "clothes, toys", "diverse", "multimedia", "furniture"]
 
@@ -31,7 +31,7 @@ const Sidebar = () => {
             <NavText>
                 recycling
             </NavText>
-            <NavItem eventKey={"recyclingswitch"} key={"recyclingswitch"}>
+        {/*            <NavItem eventKey={"recyclingswitch"} key={"recyclingswitch"}>
                 <NavText>
                 <Form.Check
                         style={{marginTop:'5px'}} 
@@ -49,6 +49,7 @@ const Sidebar = () => {
                 <Dropdown.Divider />
                 </NavText>
             </NavItem>
+        */}
             {recycling.map(p => Selection(p, "recycling"))}
         </NavItem>
         <NavItem eventKey="shop" key="shop">
@@ -58,6 +59,7 @@ const Sidebar = () => {
             <NavText>
                 shops
             </NavText>
+            {/*
             <NavItem eventKey={"recyclingswitch"} key={"recyclingswitch"}>
                 <NavText>
                     <Form.Check
@@ -76,6 +78,7 @@ const Sidebar = () => {
                 <Dropdown.Divider />
                 </NavText>
             </NavItem>
+            */}
             {shops.map(p => Selection(p, "shop"))}
         </NavItem>
         <NavItem eventKey="yard" key="yard">

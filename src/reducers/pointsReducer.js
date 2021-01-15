@@ -39,13 +39,15 @@ const getPoints = (cat) => {
   }
   if(cat.shop.status!=true){
     for (var prop in cat.shop) {
-        if(cat[prop] == true){  
-          if(prop=="diverse"|| prop =="clothes"){    
-            let current = recyclingPoints.features.filter(element => element.properties.recycling_type == prop && element.properties.object_type == secondHandStore)
+      console.log(prop)
+        if(cat.shop[prop] == true){  
+          if(prop=="diverse"||prop =="clothes"){  
+            console.log("yes got it")  
+            let current = recyclingPoints.features.filter(element => element.properties.recycling_type == prop && element.properties.object_type == "secondHandStore")
             array=array.concat(current);
           }
           else{
-            let current = recyclingPoints.features.filter(element => element.properties.recycling_type == prop && element.properties.object_type == secondHandStore)
+            let current = recyclingPoints.features.filter(element => element.properties.recycling_type == prop)
             array=array.concat(current); 
           }
         }
