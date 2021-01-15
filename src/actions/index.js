@@ -21,7 +21,6 @@ export const setWholeGroup = (group) => {
 
 //action to update the current point pool depending on the activated groups or categories
 export const setPoints = (categories) => {
-    console.log("action", categories)
     return {
       type: "SET_POINTS",
       payload: {categories: categories},

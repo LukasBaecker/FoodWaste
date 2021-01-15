@@ -58,9 +58,7 @@ const getPoints = (cat) => {
     array=array.concat(current);
   }
   if(cat.yard.status==true){
-    console.log("yes")
     let current = recyclingPoints.features.filter(element => element.properties.object_type=="recyclingYard")
-    console.log(current)
     array=array.concat(current);
   }
   return array

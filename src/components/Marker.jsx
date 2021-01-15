@@ -10,7 +10,7 @@ const OwnMarker = (point) => {
 
     
 
-    var greenIcon = L.icon({
+    var orangeIcon = L.icon({
         iconUrl: '../static/marker-icon.png',
         iconSize:     [25, 41], // size of the icon
         iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
@@ -21,11 +21,11 @@ const OwnMarker = (point) => {
     
     return (
         
-        <Marker position ={relative} icon={greenIcon} key={"key" + point.geometry.coordinates + point.properties.id} position={[point.geometry.coordinates[1],point.geometry.coordinates[0]]}>
+        <Marker position ={relative} icon={orangeIcon} key={"key" + point.geometry.coordinates + point.properties.id} position={[point.geometry.coordinates[1],point.geometry.coordinates[0]]}>
             
             
              <Popup>
-             <div className="row" style={{backgroundColor:'orange'}}>
+             <div className="row popupDiv">
 
                 <table>
                     <tr>
@@ -46,7 +46,6 @@ const OwnMarker = (point) => {
                     </tr>
                 </table>
             </div>           
-                
             </Popup>
         </Marker>
     )

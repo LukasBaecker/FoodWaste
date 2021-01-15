@@ -33,17 +33,17 @@ const Container = () => {
         <br/>
         <p > 
           How much do we actually throw away? <br/>
-          <Button variant="secondary"><HashLink smooth to="/#test">Show me the facts</HashLink></Button>
+          <HashLink smooth to="/#test"><Button variant="primary">Show me the facts</Button></HashLink>
         </p>
         <br/>
         <p> 
           Where can I shop without wasting plastic? <br/>
-          <Button variant="secondary"><HashLink smooth to="/#test">Show me my possibilities</HashLink></Button>
+          <HashLink smooth to="/#test"><Button variant="primary">Show me my possibilities</Button></HashLink>
         </p>
         <br/>
         <p>
           Where can I recycle near me? <br/>
-          <Button variant="secondary"><HashLink smooth to="/map">Show me the map with awesome locations.</HashLink></Button>
+          <HashLink smooth to="/map"><Button variant="primary">Show me the map with awesome locations.</Button></HashLink>
         </p>
         </div>
     </div>
