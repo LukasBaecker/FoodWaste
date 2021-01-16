@@ -19,13 +19,15 @@ const getPoints = (cat) => {
             let current = recyclingPoints.features.filter(element => element.properties.recycling_type == prop && element.properties.object_type == "container")
             array=array.concat(current);
           }
-          if(prop=="organization"){
-            let current = recyclingPoints.features.filter(element => element.properties.object_type == prop)
-            array=array.concat(current);
-          } 
-          else{ 
-            let current = recyclingPoints.features.filter(element => element.properties.recycling_type == prop)
-            array=array.concat(current);
+          else{
+            if(prop=="organization"){
+              let current = recyclingPoints.features.filter(element => element.properties.object_type == prop)
+              array=array.concat(current);
+            } 
+            else{ 
+              let current = recyclingPoints.features.filter(element => element.properties.recycling_type == prop)
+              array=array.concat(current);
+            }
           }
         }
     }  

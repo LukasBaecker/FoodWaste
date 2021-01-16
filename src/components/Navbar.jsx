@@ -17,7 +17,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 
 function navigation() {
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const scrollTop = useSelector((state) => state.scrollTop.scrollTop);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -36,13 +37,14 @@ function navigation() {
       </>
     );
   
-  return (
-    <>
-      <Navbar
+  const renderAtPosition = (scrollTop)=>{
+    if(scrollTop < 80||scrollTop==null){
+      return (
+        <Navbar
         collapseOnSelect
         fixed="top"
-        bg="dark"
-        variant="dark"
+        className="transparentNav"
+        style={{"backgroundColor": "rgba(255, 255, 255, 0)"}}
         id="navbar"
         expand="xl"
       >
@@ -60,7 +62,39 @@ function navigation() {
           {upperRightItems}
         </Navbar.Collapse>
       </Navbar>
+      )
+    }
+    else{
+      return(
+      <Navbar
+        collapseOnSelect
+        fixed="top"
+        id="navbar"
+        bg="dark"
+        variant="dark"
+        expand="xl"
+      >
+        <Navbar.Brand href="/" id="logo-div">
+          <img src={logo} alt="Logo" id="logo" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="navigation-collapse">
+          <Nav className="mr-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/#test"> Story</Nav.Link>
+            <Nav.Link href="/map">Map</Nav.Link>
+            <Nav.Link onClick={handleShowFAQ}>FAQ</Nav.Link>
+          </Nav>
+          {upperRightItems}
+        </Navbar.Collapse>
+      </Navbar>
+      )
+    }
+  }
 
+  return (
+    <>
+      {renderAtPosition(scrollTop)}
       <Modal
         show={show}
         size="xl"

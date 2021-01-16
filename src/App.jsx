@@ -15,8 +15,13 @@ import HomePage from "./components/HomePage.jsx";
 import Footer from "./components/Footer.jsx";
 import Sidebar from "./components/Sidebar.jsx";
 import Plots from "./components/Plots.jsx"; // for working on plots
-import { useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
+import { setScrollTop} from "./actions";
+import RSC from "react-scrollbars-custom";
+
 const App = () => {
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -25,7 +30,7 @@ const App = () => {
         <Navigation />
         <Switch>
           <Route exact path="/">
-            <HomePage />
+              <HomePage/>
           </Route>
           <Route exact path="/map">
             <Sidebar />

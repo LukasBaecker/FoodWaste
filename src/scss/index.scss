@@ -1,5 +1,6 @@
 @import "./corporate-design.scss";
 @import "./leaflet-marker-cluster.scss";
+@import "./storymap.scss";
 
 .sidenav {
   margin-top: 64 px;
@@ -39,7 +40,9 @@ body {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-
+.transparentNav {
+  background-color: rgba(255, 255, 255, 0);
+}
 #navbarSupportedContent {
   background-color: white;
 }
@@ -65,8 +68,8 @@ body {
 }
 .jumbotron {
   width: 100vw;
-  height: unquote("calc(100vh - 99px)") !important;
-  margin-top: 64px;
+  height: unquote("calc(100vh - 35px)") !important;
+  padding-top: 64px;
   border-radius: 0 !important;
   text-align: center;
 }
@@ -225,8 +228,11 @@ button.close:hover {
   color: $primary;
 }
 #navigation-collapse {
-  background: $secondary;
+  background: rgba(255, 255, 255, 0);
   padding: 5px;
+}
+.show {
+  background: $secondary !important;
 }
 
 polygon {
@@ -345,5 +351,9 @@ div.transbox p {
   opacity: 1;
 }
 
-.button1 {background-color: #dd591b;} /* Green */
-.button2 {background-color: #008CBA;} /* Blue */
+.button1 {
+  background-color: #dd591b;
+} /* Green */
+.button2 {
+  background-color: #008cba;
+} /* Blue */

@@ -32,15 +32,15 @@ const Container = () => {
         </p> <br/>
         <p style={{fontSize: 25, fontFamily:'Arial', float:'center', color:'black'}}> 
           How much do we actually throw away? <br/>{/*Story*/}
-          <button class='button button1'>Show me the facts</button>
+          <button className='button button1'>Show me the facts</button>
         </p> <br/>
         <p style={{fontSize: 25, fontFamily:'Arial', float:'center', color:'black'}}> 
           Where can I shop without wasting plastic? <br/>{/*Map Unverpackt läden*/}
-          <button class='button button1'>Show me my possibilities</button>
+          <button className='button button1'>Show me my possibilities</button>
         </p> <br/>
         <p style={{fontSize: 25, fontFamily:'Arial', float:'center', color:'black'}}>
           Where can I recycle near me? <br/> {/*Map with containers*/}
-          <button class='button button1'>Show me the map</button>
+          <button className='button button1'>Show me the map</button>
         </p>
         <br/>
         <p > 
