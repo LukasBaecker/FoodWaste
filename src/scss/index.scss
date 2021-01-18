@@ -362,3 +362,13 @@ div.transbox p {
 .container {
   padding: 10%;
 }
+
+.request-popup .leaflet-popup-content-wrapper {
+  border-radius: 0px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

@@ -2,6 +2,9 @@ import { relative } from "path";
 import React, { useState } from "react";
 import {Marker} from "react-leaflet";
 import {Popup} from "react-leaflet";
+import { popupContent, popupHead, popupText, okText } from "./PopupStyles";
+import logo from "../img/BinPoints.png";
+import Image from "react-bootstrap/Image";
 
 
 
@@ -19,14 +22,17 @@ const OwnMarker = (point) => {
     });
 
     
+    
     return (
         
         <Marker position ={relative} icon={greenIcon} key={"key" + point.geometry.coordinates + point.properties.id} position={[point.geometry.coordinates[1],point.geometry.coordinates[0]]}>
             
             
-             <Popup>
-             <div className="row" style={{backgroundColor:'orange'}}>
-
+             <Popup className="request-popup">
+                 
+             <img className="center"
+              src="https://img.icons8.com/bubbles/100/000000/waste-separation.png"
+            />
                 <table>
                     <tr>
                         <td><p style={{fontSize: 15, fontWeight:'bold', fontFamily:'Arial', float:'left'}}>Recycling Type:</p></td>
@@ -45,7 +51,6 @@ const OwnMarker = (point) => {
                         <td><p style={{float:'right',fontSize: 15, fontFamily:'Arial'}}>{point.properties.location_desc}</p></td>
                     </tr>
                 </table>
-            </div>           
                 
             </Popup>
         </Marker>
