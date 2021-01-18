@@ -338,3 +338,16 @@ div.transbox p {
 
 .button1 {background-color: #dd591b;} /* Green */
 .button2 {background-color: #008CBA;} /* Blue */
+
+//.leaflet-popup-content-wrapper {
+//  background-color: rgba(250, 220, 210, 0.9);
+//}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
