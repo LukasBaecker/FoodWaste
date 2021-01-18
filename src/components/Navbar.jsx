@@ -38,7 +38,7 @@ function navigation() {
     );
   
   const renderAtPosition = (scrollTop)=>{
-    if(scrollTop < 80||scrollTop==null){
+    if(scrollTop < 80||scrollTop==null && window.location.href.slice(-3) != "map"){
       return (
         <Navbar
         collapseOnSelect

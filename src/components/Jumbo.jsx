@@ -32,7 +32,7 @@ const Container = () => {
         </p> <br/>
         <p style={{fontSize: 25, fontFamily:'Arial', float:'center', color:'black'}}> 
           How much do we actually throw away? <br/>{/*Story*/}
-          <button className='button button1'>Show me the facts</button>
+          <HashLink smooth to="/#test"><button className='button button1'>Show me the facts</button></HashLink>
         </p> <br/>
         <p style={{fontSize: 25, fontFamily:'Arial', float:'center', color:'black'}}> 
           Where can I shop without wasting plastic? <br/>{/*Map Unverpackt läden*/}
@@ -40,25 +40,11 @@ const Container = () => {
         </p> <br/>
         <p style={{fontSize: 25, fontFamily:'Arial', float:'center', color:'black'}}>
           Where can I recycle near me? <br/> {/*Map with containers*/}
-          <button className='button button1'>Show me the map</button>
+          <HashLink smooth to="/map"><button className='button button1'>Show me the map</button></HashLink>
         </p>
-        <br/>
-        <p > 
-          How much do we actually throw away? <br/>
-          <HashLink smooth to="/#test"><Button variant="primary">Show me the facts</Button></HashLink>
-        </p>
-        <br/>
-        <p> 
-          Where can I shop without wasting plastic? <br/>
-          <HashLink smooth to="/#test"><Button variant="primary">Show me my possibilities</Button></HashLink>
-        </p>
-        <br/>
-        <p>
-          Where can I recycle near me? <br/>
-          <HashLink smooth to="/map"><Button variant="primary">Show me the map with awesome locations.</Button></HashLink>
-        </p>
-        </div>
-        </div>
+
+      </div>
+    </div>
         
       </Jumbotron>
 
