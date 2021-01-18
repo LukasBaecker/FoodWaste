@@ -282,8 +282,8 @@ $theme-colors: (
 
 .column {
   float: left;
-  padding: 2px;
-  width: 50%;
+  padding: 10px;
+  width: 33%;
 }
 
 /* Clear floats after the columns */
@@ -367,4 +367,16 @@ div.transbox p {
   width: 33%;
   padding: 10px;
   height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  position: center;
+}
+
+.container {
+  padding: 10%;
 }

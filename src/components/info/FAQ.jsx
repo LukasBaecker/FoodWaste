@@ -6,20 +6,30 @@ const FAQ = () => {
   return (
     <>
       {" "}
-      <Collapse defaultActiveKey={["1"]}>
-        <Panel header="first question?" key="1">
+      <Collapse defaultActiveKey={[""]}>
+        <Panel header="Where do you got the map data from?" key="1">
           <p>
-          Answer
+            The data of the points on the map were exported from openStreetMap. They are regularly updated by us.
           </p>
         </Panel>
-        <Panel header="second?" key="2">
+        <Panel header="Where do you got the chart data from?" key="2">
           <p>
-           Answer
+            The data used for the various charts come from the following sources:
+          </p>
+          <ul>
+            <li>Waste in Münster over the years:</li>
+            <li>Waste of Private Households: </li>
+            <li>Waste Amount Development:</li>
+          </ul>
+        </Panel>
+        <Panel header="Will the app remain free of charge?" key="3">
+          <p>
+            The app is free for everyone and can be used without advertising. This will continue to be the case.
           </p>
         </Panel>
-        <Panel header="Got any further questions?" key="3" disabled>
+        <Panel header="Got any further questions?" key="4">
           <p>
-            Answer
+            Contact us here!
           </p>
         </Panel>
       </Collapse>
