@@ -18,7 +18,7 @@ import Plots from "./components/Plots.jsx"; // for working on plots
 import { useDispatch} from "react-redux";
 import { setScrollTop} from "./actions";
 import RSC from "react-scrollbars-custom";
-
+import ScrollamaEx from "./components/ScrollamaEx.jsx"
 const App = () => {
 
   const dispatch = useDispatch();
@@ -39,6 +39,9 @@ const App = () => {
           </Route>
           <Route exact path="/plots">
             <Plots />
+          </Route>
+          <Route exact path="/scrollama">
+            <ScrollamaEx/>
           </Route>
         </Switch>
         <Footer />

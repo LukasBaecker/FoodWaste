@@ -36,7 +36,22 @@
 }
 
 .storymap {
+  width: 100vw;
+  height: unquote("calc(100vh - 25px)") !important;
   z-index: 0;
-  width: 70vw !important;
-  height: 70vh !important;
+  margin-top: 0px !important;
+}
+.storymap-text {
+  width: 50vw;
+  height: unquote("calc(100vh - 89px)");
+  margin-top: 64px;
+  margin-left: 100px;
+  position: absolute;
+  z-index: 1;
+}
+.scrollama-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 50vh 0;
+  border: 2px dashed skyblue;
 }

@@ -76,8 +76,13 @@ const pointReducer = (state = recyclingPoints, action) => {
           {
               "type":"FeatureCollection",
               "features": getPoints(cat)
-          }               
-      return points;
+          }
+      if(points.features.length == 0){
+        return recyclingPoints
+      }
+      else{
+        return points
+      }                   
     default:
       return state;
   }

@@ -5,7 +5,7 @@ import Plots from "./Plots.jsx"
 import StoryMap from "./StoryMap.jsx"
 import { setScrollTop } from "../actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
-
+import ScrollamaEx from "./ScrollamaEx.jsx"
 const HomePage =()=> {
   const scrollTop = useSelector((state) => state.scrollTop);
   const dispatch = useDispatch();
@@ -29,8 +29,9 @@ const HomePage =()=> {
       <div id="test">
         <Infobox/>
       </div>
-      <Plots />
       <StoryMap/>
+      <Plots />
+
     </>
     );
 };
