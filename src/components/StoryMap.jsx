@@ -27,7 +27,9 @@ L.Icon.Default.mergeOptions({
 
 //const categories = useSelector((state) => state.categories);
 
-const europe = [51.960667, 7.626135]
+const europe = [51.960667, 7.626135];
+const germany = [51.960667, 7.626135];
+const nrw = [51.960667, 7.626135];
 const muenster = [51.960667, 7.626135];
 
  const StoryMap=()=> {
@@ -39,7 +41,19 @@ const muenster = [51.960667, 7.626135];
     // data prop of the step, which in this demo stores the index of the step.
     const onStepEnter = ({ data }) => {
       setCurrentStepIndex(data);
+      if(data==0||data==1){
+        setCurrentCenter(europe)
+        setCurrentZoom(5)
+      }
       if(data==2){
+        setCurrentCenter(germany)
+        setCurrentZoom(7)
+      }
+      if(data==3){
+        setCurrentCenter(nrw)
+        setCurrentZoom(9)
+      }
+      if(data==4){
         setCurrentCenter(muenster)
         setCurrentZoom(13)
       }
@@ -64,38 +78,67 @@ const muenster = [51.960667, 7.626135];
                     <div
                       style={{
                         marginTop: '50vh',
+                        marginLeft: '100px',
                         border: '1px solid gray',
                         backgroundColor: 'white',
-                        opacity: currentStepIndex === 3 ? 1 : 0.2,
+                        opacity: 0.9,
                       }}
                     >
-                      I'm a Scrollama Step of index 1
+                      I'm a Scrollama Step of index 1 and it is currently {currentStepIndex}
                     </div>
                   </Step>
                   <Step data={2} key={2}>
                     <div
                       style={{
                         marginTop: '50vh',
+                        marginLeft: '100px',
                         border: '1px solid gray',
                         backgroundColor: 'white',
-                        opacity: currentStepIndex === 2 ? 1 : 0.2,
+                        opacity: 0.9,
                       }}
                     >
-                      I'm a Scrollama Step of index 2
+                      I'm a Scrollama Step of index 2 and it is currently {currentStepIndex}
                     </div>
                   </Step>
                   <Step data={3} key={3}>
                     <div
                       style={{
                         marginTop: '50vh',
+                        marginLeft: '100px',
                         border: '1px solid gray',
                         backgroundColor: 'white',
-                        opacity: currentStepIndex === 3 ? 1 : 0.2,
+                        opacity: 0.9
                       }}
                     >
-                      I'm a Scrollama Step of index 3
+                      I'm a Scrollama Step of index 3 and it is currently {currentStepIndex}
                     </div>
-                  </Step>    
+                  </Step>
+                  <Step data={4} key={4}>
+                    <div
+                      style={{
+                        marginTop: '50vh',
+                        marginLeft: '100px',
+                        border: '1px solid gray',
+                        backgroundColor: 'white',
+                        opacity: 0.9,
+                      }}
+                    >
+                      I'm a Scrollama Step of index 4 and it is currently {currentStepIndex}
+                    </div>
+                  </Step>
+                  <Step data={5} key={5}>
+                    <div
+                      style={{
+                        marginTop: '50vh',
+                        marginLeft: '100px',
+                        border: '1px solid gray',
+                        backgroundColor: 'white',
+                        opacity: 0.0,
+                      }}
+                    >
+                      This is the End
+                    </div>
+                  </Step>      
               </Scrollama>
             </div>
   
