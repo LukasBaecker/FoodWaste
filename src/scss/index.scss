@@ -62,20 +62,22 @@ body {
   width: 100vw;
   height: 100vh;
   padding: 4rem 2rem;
-  padding-top: 30vh;
+  padding-top: unquote("calc(100vh/3 - 10vh)");
   color: #223344;
-  font-size: large;
+  font-size: x-large;
   background-color: white;
+  text-align: center;
 }
 
 .infoContainerDark {
   width: 100vw;
   height: 100vh;
   padding: 4rem 2rem;
-  padding-top: 30vh;
+  padding-top: unquote("calc(100vh/6)");
   color: white;
-  font-size: large;
+  font-size: x-large;
   background-color: #223344;
+  text-align: center;
 }
 
 .main-container {
