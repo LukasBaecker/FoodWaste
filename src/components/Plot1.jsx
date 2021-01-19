@@ -13,19 +13,20 @@ const ExportThis = () => {
 
     <div className="infoContainer"       
       style={{
-        backgroundColor: '#223344'
     }}>
      <Container fluid>
         <Row>
           <Col>
           <p>
-            The following plot portrays the amount of waste generated in kg by each inhabitant per year. 
-            The displayed plot shows two main categories that includes the general waste and recyclable 
-            waste materials. It is observed from the trend of the graph that the general waste 
-            generated per inhabitant per year had a significant decrease over the years which is 
-            fairly similar to that of the trend line of waste generation from recyclable materials. 
-            Both the observations have a parallel trend. They also show a peak in 2014, the year of
-            the big rain events and following floods.
+              Let's have a look at some waste numbers from Münster. Here, the waste produced 
+              by an average citizen is depicted for the last 13 years. Even after flooring the numbers, 
+              they add up to <b>400 kilograms of waste per inhabitant and year</b>. As we can observe, recycable materials 
+              outweigh the not reusable trash by about 100 kilograms. The promising downwards trend
+              is however missing for the general waste, a kind of waste that is burned after several sorting
+              procedures.
+              <br></br>
+              In 2014, a peak can be observed. It is likely due to the heavy rain events taking place
+              in the summer of that year, supposedly leading to a lot of flood damage.
           </p>
           </Col>
           <Col>
@@ -43,7 +44,7 @@ const ExportThis = () => {
           name: "Recycable waste per citizen"
         }
      ]}
-     layout={{width: 900, height: 400, title: 'Waste in Münster over the years',
+     layout={{width: 900, height: 400, font: {size: 18}, title: 'Waste in Münster over the years',
      xaxis: {
       title: 'Year',
       showgrid: false,

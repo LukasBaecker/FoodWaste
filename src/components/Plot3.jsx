@@ -13,12 +13,15 @@ const ExportThis = () => {
 
     <div className="infoContainer"       
       style={{
-        backgroundColor: '#223344'
     }}>
      <Container fluid>
      <Row>
           <Col>
-          <p>Here goes the desc.</p>
+          <p>
+              Lastly, we observe the development of specific kinds of waste over the years (2013 to 2017).
+              This plot is dominated by paper and plastic packaging. To get a closer look at the categories
+              close to the x-axis, you can just <b>drag a rectangle on the canvas to zoom in</b>.
+          </p>
           </Col>
           <Col>
           <Plot
@@ -61,7 +64,7 @@ const ExportThis = () => {
         }
 
      ]}
-     layout={{width: 700, height: 700, title: 'Waste Amount Development', 
+     layout={{width: 900, height: 700, font: {size: 18}, title: 'Waste Amount Development', 
      xaxis: {
       title: 'Year',
       showgrid: false,

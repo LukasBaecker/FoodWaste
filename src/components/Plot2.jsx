@@ -6,30 +6,28 @@ import Button from "react-bootstrap/Button";
 import Plot from 'react-plotly.js';
 import "react-bootstrap";
 import {Container, Row, Col} from 'react-bootstrap';
+import { withRouter } from "react-router-dom";
 
 const ExportThis = () => {
   
   return (
 
-    <div className="infoContainer"       
-      style={{
-        backgroundColor: '#223344'
-    }}>
-     <Container fluid>
-          <Row>
-          <Col>
+    <div className="infoContainerDark">
+
+      <div class="d-flex align-items-center">
+     <div class="container-fluid">
+          <div class="row">
+          
+          <div class="col">
           <p>
-          The pie-chart describes the types of wastes generated from private households 
-          with a percentage of values representing each category of waste in tonnes. 
-          Types of waste materials such as household waste without recyclables (general waste) 
-          quantifies the maximum, comprising 38.8% among the total waste generated. 
-          Subsequently paper waste accounts for about 21.6%, followed by biodegredable 
-          waste constituting 15.8% from the total waste. Other waste products include 
-          materials like packaging waste, glass, wood and electronics that covers 
-          about 10%, 8%, 4% and 2% respectively. 
+            If we take a closer look at what exactly is thrown away (2019), we again observe a large amount
+            of non reusable substances. The next contributors are, in that order, paper, biodegredable waste and
+            packaging (also known as "yellow trash bag" or "yellow can"). <b>You can interact with the plot to
+            get to know the absolute amounts of waste</b>. How many tonnes of electronics were thrown away
+            in Münster in 2019?
           </p>
-          </Col>
-          <Col>
+          </div>
+          <div class="col">
           <Plot
       data={[
         {
@@ -40,12 +38,12 @@ const ExportThis = () => {
          domain: {column: 0},
         }
      ]}
-     layout={{width: 700, height: 700, title: 'Waste of Private Households', showlegend: false}}
+     layout={{height: 700, width: 900, font: {size: 18}, title: 'Waste of Private Households, in percent and tonnes', showlegend: false}}
       />
-          </Col>
-        </Row>
-          </Container>
-
+          </div>
+        </div>
+          </div>
+</div>
     </div>
 
   );
