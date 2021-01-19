@@ -1,7 +1,9 @@
 import React from "react";
 import Jumbo from "./Jumbo.jsx"
 import Infobox from "./Infobox.jsx"
-import Plots from "./Plots.jsx"
+import Plot1 from "./Plot1.jsx"
+import Plot2 from "./Plot2.jsx"
+import Plot3 from "./Plot3.jsx"
 import StoryMap from "./StoryMap.jsx"
 import { setScrollTop } from "../actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -30,7 +32,9 @@ const HomePage =()=> {
         <Infobox/>
       </div>
       <StoryMap/>
-      <Plots />
+      <Plot1/>
+      <Plot2/>
+      <Plot3/>
 
     </>
     );
