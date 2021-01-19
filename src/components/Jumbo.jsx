@@ -8,12 +8,12 @@ import background from "../img/pexels-lisa-fotios-1933386.jpg"
 //import bgimage from "../../src/img/pexels-lisa-fotios-1933386.jpg";
 import bgimage from "../../src/img/pexels-emmet-128421.jpg";
 import { HashLink } from 'react-router-hash-link';
-import { BreakpointProvider } from 'react-socks';
+import { Breakpoint, BreakpointProvider } from 'react-socks';
 
 const Container = () => {
 
 return (
-<BreakpointProvider small>
+
 
 <Jumbotron className="jumbotron-container" style={{
       backgroundImage: `url(${bgimage})`,
@@ -48,7 +48,6 @@ return (
 
 </Jumbotron>
 
-</BreakpointProvider>
 
 );
 };
