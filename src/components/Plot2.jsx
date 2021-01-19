@@ -6,18 +6,18 @@ import Button from "react-bootstrap/Button";
 import Plot from 'react-plotly.js';
 import "react-bootstrap";
 import {Container, Row, Col} from 'react-bootstrap';
+import { withRouter } from "react-router-dom";
 
 const ExportThis = () => {
   
   return (
 
-    <div className="infoContainer"       
+    <div className="infoContainerDark"       
       style={{
-        backgroundColor: '#223344'
     }}>
      <Container fluid>
           <Row>
-          <Col>
+          <div class="col-sm">
           <p>
           The pie-chart describes the types of wastes generated from private households 
           with a percentage of values representing each category of waste in tonnes. 
@@ -28,8 +28,8 @@ const ExportThis = () => {
           materials like packaging waste, glass, wood and electronics that covers 
           about 10%, 8%, 4% and 2% respectively. 
           </p>
-          </Col>
-          <Col>
+          </div>
+          <div class="col-sm">
           <Plot
       data={[
         {
@@ -40,9 +40,9 @@ const ExportThis = () => {
          domain: {column: 0},
         }
      ]}
-     layout={{width: 700, height: 700, title: 'Waste of Private Households', showlegend: false}}
+     layout={{width: '50vw', height: '50vh', title: 'Waste of Private Households', showlegend: false}}
       />
-          </Col>
+          </div>
         </Row>
           </Container>
 

@@ -13,7 +13,6 @@ const ExportThis = () => {
 
     <div className="infoContainer"       
       style={{
-        backgroundColor: '#223344'
     }}>
      <Container fluid>
         <Row>
@@ -43,7 +42,7 @@ const ExportThis = () => {
           name: "Recycable waste per citizen"
         }
      ]}
-     layout={{width: 900, height: 400, title: 'Waste in Münster over the years',
+     layout={{width: '50vw', height: 400, title: 'Waste in Münster over the years',
      xaxis: {
       title: 'Year',
       showgrid: false,

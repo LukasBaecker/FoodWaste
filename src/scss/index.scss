@@ -62,10 +62,22 @@ body {
   width: 100vw;
   height: 100vh;
   padding: 4rem 2rem;
-  padding-top: 80px;
+  padding-top: 30vh;
+  color: #223344;
+  font-size: large;
+  background-color: white;
+}
+
+.infoContainerDark {
+  width: 100vw;
+  height: 100vh;
+  padding: 4rem 2rem;
+  padding-top: 30vh;
   color: white;
   font-size: large;
+  background-color: #223344;
 }
+
 .main-container {
   width: 100vw;
   margin-top: 64px;

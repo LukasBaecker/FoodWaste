@@ -13,7 +13,6 @@ const ExportThis = () => {
 
     <div className="infoContainer"       
       style={{
-        backgroundColor: '#223344'
     }}>
      <Container fluid>
      <Row>
