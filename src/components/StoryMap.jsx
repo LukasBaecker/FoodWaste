@@ -1,12 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Scrollama, Step } from 'react-scrollama';
-import Jumbo from "./Jumbo.jsx"
-import Infobox from "./Infobox.jsx"
-import Plots from "./Plots.jsx"
-import { setScrollTop } from "../actions/index.js";
-import RSC from "react-scrollbars-custom";
-import colors from "../scss/index.scss";
-import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { MapContainer, TileLayer, Marker} from 'react-leaflet'
 import L from "leaflet";
 import ChangeView from './ChangeView.jsx';
@@ -64,7 +57,7 @@ const muenster = [51.960667, 7.626135];
           <>
             <div className="" style={{ margin: '0 0'}}>
               <div className="storymap-container" style={{ position: 'sticky', top: 0 }}>
-                <MapContainer className="storymap" center={europe} zoom={5} scrollWheelZoom={false} zoomControl={false} >
+                <MapContainer className="storymap" center={europe} zoom={5} scrollWheelZoom={false} zoomControl={false} dragging={false} tap= {false}>
                   <ChangeView center={currentCenter} zoom={currentZoom} /> 
                                 <TileLayer
                                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

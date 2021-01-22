@@ -1,12 +1,5 @@
-import React, { useState } from "react";
-import colors from "../scss/index.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "react-bootstrap/Button";
+import React from "react";
 import Plot from 'react-plotly.js';
-import "react-bootstrap";
-import {Container, Row, Col} from 'react-bootstrap';
-import { withRouter } from "react-router-dom";
 
 const ExportThis = () => {
   
@@ -14,11 +7,11 @@ const ExportThis = () => {
 
     <div className="infoContainerDark">
 
-      <div class="d-flex align-items-center">
-     <div class="container-fluid">
-          <div class="row">
+      <div className="d-flex align-items-center">
+     <div className="container-fluid">
+          <div className="row">
           
-          <div class="col">
+          <div className="col">
           <p>
             If we take a closer look at what exactly is thrown away (2019), we again observe a large amount
             of non reusable substances. The next contributors are, in that order, paper, biodegredable waste and
@@ -27,7 +20,7 @@ const ExportThis = () => {
             in Münster in 2019?
           </p>
           </div>
-          <div class="col">
+          <div className="col">
           <Plot
       data={[
         {

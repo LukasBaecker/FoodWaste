@@ -2,9 +2,6 @@ import { relative } from "path";
 import React, { useState } from "react";
 import {Marker} from "react-leaflet";
 import {Popup} from "react-leaflet";
-import { popupContent, popupHead, popupText, okText } from "./PopupStyles";
-import logo from "../img/BinPoints.png";
-import Image from "react-bootstrap/Image";
 
 
 

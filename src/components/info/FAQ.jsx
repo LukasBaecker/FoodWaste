@@ -1,5 +1,6 @@
 import React from "react";
-import { Collapse } from "antd";
+import Collapse from 'react-bootstrap/Collapse'
+//import { Collapse } from "antd";
 const { Panel } = Collapse;
 
 const FAQ = () => {

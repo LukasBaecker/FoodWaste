@@ -1,6 +1,6 @@
 import {SET_SCROLL_TOP} from "../actions";
 
-let initialState = 0
+let initialState = true
 
 const scrollTopReducer = (state = initialState, action) => {
     switch (action.type) {

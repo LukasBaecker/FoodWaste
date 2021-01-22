@@ -1,10 +1,5 @@
-import React, { useState } from "react";
-import colors from "../scss/index.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "react-bootstrap/Button";
+import React from "react";
 import Plot from 'react-plotly.js';
-import "react-bootstrap";
 import {Container, Row, Col} from 'react-bootstrap';
 
 const ExportThis = () => {

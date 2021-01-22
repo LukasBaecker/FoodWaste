@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import colors from "../scss/index.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from "react-bootstrap/Button";
-import background from "../img/pexels-lisa-fotios-1933386.jpg"
 //import bgimage from "../../src/img/pexels-lisa-fotios-1933386.jpg";
-import bgimage from "../../src/img/pexels-emmet-128421.jpg";
+import bgimage from "../img/pexels-emmet-128421.jpg";
 import { HashLink } from 'react-router-hash-link';
 import { Breakpoint, BreakpointProvider } from 'react-socks';
 

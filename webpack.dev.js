@@ -1,11 +1,15 @@
 const merge = require("webpack-merge");
 const webpack = require("webpack");
 const common = require("./webpack.common.js");
-var hotMiddlewareScript = "webpack-hot-middleware/client";
+const path = require("path");
 
 let clientConfig = {
   entry: {
     main: ["./src/index.jsx"],
+  },
+  output: {
+    path: path.join(__dirname, "dist"),
+    filename: "[name].js",
   },
   mode: "development",
   devtool: "inline-source-map",
@@ -14,6 +18,36 @@ let clientConfig = {
     historyApiFallback: true,
     hot: true,
     port:9000
+  },
+  module: {
+    rules: [
+    {
+      test: /\.css$/,
+      use: ["style-loader", "css-loader"],
+    },
+    {
+      test: /\.(scss)$/,
+      use: [
+        {
+          loader: "style-loader",
+        },
+        {
+          loader: "css-loader",
+        },
+        {
+          loader: "postcss-loader",
+          options: {
+            plugins: function () {
+              return [require("autoprefixer")];
+            },
+          },
+        },
+        {
+          loader: "sass-loader",
+        },
+      ],
+    },
+    ]
   },
   plugins: [
     // OccurrenceOrderPlugin is needed for webpack 1.x only

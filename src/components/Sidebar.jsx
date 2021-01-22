@@ -1,12 +1,12 @@
 import React from "react";
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import SideNav, {NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import Selection from "./Selection.jsx"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRecycle, faShoppingCart, faDumpster } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from "react-redux";
-import { setCategory, setPoints, setWholeGroup } from "../actions";
+import {setPoints, setWholeGroup } from "../actions";
 import Form from 'react-bootstrap/Form'
-import Dropdown from 'react-bootstrap/Dropdown'
+
 const recycling = ["glass","individualWaste", "clothes", "EverydayObjects", "books", "organization", "foodsharing"]
 
 const shops = ["store", "repair", "clothes", "clothes, toys", "diverse", "multimedia", "furniture"]

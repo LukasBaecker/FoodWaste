@@ -1,5 +1,5 @@
 import React from "react";
-
+import Selection from "./Selection.jsx"
 import Sidebar from "./Sidebar.jsx";
 import Map from "./Map.jsx"
 
@@ -9,6 +9,7 @@ const MapPage = () => {
     <>
       <Sidebar/>
       <Map/>
+      <Selection />
     </>
   );
 };

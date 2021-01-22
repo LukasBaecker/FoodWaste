@@ -1,0 +1,48 @@
+$duration: 300ms;
+
+.navbar {
+  font-size: large;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.transparentNav {
+  background-color: rgba(255, 255, 255, 0);
+  height: 119px;
+
+  -webkit-transition: background-color $duration linear;
+  -ms-transition: background-color $duration linear;
+  transition: background-color $duration linear;
+
+  -webkit-transition: height $duration linear;
+  -ms-transition: height $duration linear;
+  transition: height $duration linear;
+}
+.darkNav {
+  background-color: $secondary !important;
+  height: 64px;
+  -webkit-transition: background-color $duration linear;
+  -ms-transition: background-color $duration linear;
+  transition: background-color $duration linear;
+
+  -webkit-transition: height $duration linear;
+  -ms-transition: height $duration linear;
+  transition: height $duration linear;
+}
+#navbarSupportedContent {
+  background-color: white;
+}
+
+.logoHuge {
+  height: 110px;
+
+  -webkit-transition: height $duration linear;
+  -ms-transition: height $duration linear;
+  transition: height $duration linear;
+}
+.logoSmall {
+  height: 55px;
+
+  -webkit-transition: height $duration linear;
+  -ms-transition: height $duration linear;
+  transition: height $duration linear;
+}

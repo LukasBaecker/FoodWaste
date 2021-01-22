@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import colors from "../scss/index.scss";
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 
-import { MapContainer, TileLayer, Marker} from 'react-leaflet'
+import { MapContainer, TileLayer} from 'react-leaflet'
 
 import L from "leaflet";
 import {useSelector } from "react-redux";
