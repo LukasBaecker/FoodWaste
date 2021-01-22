@@ -11,9 +11,6 @@ const HomePage =()=> {
   return (
     <>
       <Jumbo />
-      <div id="test">
-        <Infobox/>
-      </div>
       <StoryMap/>
       <Plot1/>
       <Plot2/>
