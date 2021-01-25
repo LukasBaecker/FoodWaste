@@ -12,6 +12,8 @@ const ExportThis = () => {
           <div className="row">
           
           <div className="col">
+          <div className="vertical-center">
+
           <p>
             If we take a closer look at what exactly is thrown away (2019), we again observe a large amount
             of non reusable substances. The next contributors are, in that order, paper, biodegredable waste and
@@ -19,6 +21,7 @@ const ExportThis = () => {
             get to know the absolute amounts of waste</b>. How many tonnes of electronics were thrown away
             in Münster in 2019?
           </p>
+          </div>
           </div>
           <div className="col">
           <Plot

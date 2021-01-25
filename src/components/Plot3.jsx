@@ -12,11 +12,14 @@ const ExportThis = () => {
      <Container fluid>
      <Row>
           <Col>
+          <div className="vertical-center">
+
           <p>
               Lastly, we observe the development of specific kinds of waste over the years (2013 to 2017).
               This plot is dominated by paper and plastic packaging. To get a closer look at the categories
               close to the x-axis, you can just <b>drag a rectangle on the canvas to zoom in</b>.
           </p>
+          </div>
           </Col>
           <Col>
           <Plot
