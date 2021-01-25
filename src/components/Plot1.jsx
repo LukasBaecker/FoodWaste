@@ -23,12 +23,10 @@ const ExportThis = () => {
           <Col xs={12} md={6} className={isTabletOrMobile ? "plot-col-mobile text-col" : "plot-col text-col"} >
           <div className="vertical-center">
           <p>
-              Let's have a look at some waste numbers from Münster. Here, the waste produced 
-              by an average citizen is depicted for the last 13 years. Even after flooring the numbers, 
-              they add up to <b>400 kilograms of waste per inhabitant and year</b>. As we can observe, recycable materials 
-              outweigh the not reusable trash by about 100 kilograms. The promising downwards trend
-              is however missing for the general waste, a kind of waste that is burned after several sorting
-              procedures.
+              Even after flooring the numbers, <b>400 kilograms of waste per inhabitant and year</b> 
+              is produced in Münster. As we can observe, recycable materials 
+              bring about 100 kilograms more to the sum than not resusable trash, a kind of waste 
+              that is ultimately burned after several sorting procedures.
               <br></br>
               In 2014, a peak can be observed. It is likely due to the heavy rain events taking place
               in the summer of that year, supposedly leading to a lot of flood damage.
@@ -55,8 +53,13 @@ const ExportThis = () => {
      useResizeHandler
     style={{ width: "100%", height: "100%" }}
     layout={{
-              autosize: true
-            ,  title: 'Waste in Münster over the years',
+              autosize: true,
+              title: {
+                text: 'Waste in Münster over the years',
+                font: {
+                  size: 20
+                }
+              },
      xaxis: {
       title: 'Year',
       showgrid: false,
@@ -65,6 +68,11 @@ const ExportThis = () => {
     yaxis: {
       title: 'Waste in kilograms',
       showline: true
+    },
+    legend: {
+      x: 1,
+      xanchor: "right",
+      y: 0.5
     }
     }}
       />

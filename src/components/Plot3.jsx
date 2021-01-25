@@ -76,7 +76,12 @@ const ExportThis = () => {
      style={{ width: "100%", height: "100%" }}
     layout={{
               autosize: true
-            , title: 'Waste Amount Development', 
+            , title: {
+              text: 'Waste Amount Development', 
+              font: {
+                size: 20
+              }
+            },
      xaxis: {
       title: 'Year',
       showgrid: false,
@@ -86,7 +91,10 @@ const ExportThis = () => {
       title: 'Waste in tonnes',
       showline: true
     },
-    showlegend: true}}
+    showlegend: true,
+    legend: {
+      "orientation": "h"
+    }}}
       />
                 </div>
           </Col>

@@ -36,7 +36,13 @@ const ExportThis = () => {
               ref={plotRef}
               useResizeHandler
               layout={{
-                        autosize: true, title: 'Waste of Private Households, in percent and tonnes', showlegend: false}}
+                        autosize: true, 
+                        title: {
+                          text: 'Waste of Private Households, <br>in percent and tonnes',
+                          font: {
+                            size: 20
+                          }}, 
+                        showlegend: false}}
                 />
           </div>
           </Col>
