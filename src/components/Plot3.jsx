@@ -1,24 +1,52 @@
-import React from "react";
+import React, {useState} from "react";
 import Plot from 'react-plotly.js';
 import {Container, Row, Col} from 'react-bootstrap';
+import { useSelector } from "react-redux";
+
+
+
 
 const ExportThis = () => {
+  const viewportWidth = useSelector((state) => state.viewportWidth);
+
+
+
+  const [viewWidth, setViewWidth] = useState(window.innerWidth);
   
+  const handleResize = (event) => {
+      setViewWidth(window.innerWidth)
+  };
+
+  React.useEffect(() => {
+    window.addEventListener('rezise', handleResize)
+    // cleanup this component
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+  
+    const plotSize = (viewportWidth)=>{
+      if (viewportWidth>=768){
+        var width = viewportWidth/2-30
+      }
+      else{
+        var width = viewportWidth - 30
+      }
+      return width
+    }
+
   return (
 
-    <div className="infoContainer"       
-      style={{
-    }}>
      <Container fluid>
-     <Row>
-          <Col>
+     <Row className="plot-row">
+     <Col xs={12} md={6} className="plot-row" >
           <p>
               Lastly, we observe the development of specific kinds of waste over the years (2013 to 2017).
               This plot is dominated by paper and plastic packaging. To get a closer look at the categories
               close to the x-axis, you can just <b>drag a rectangle on the canvas to zoom in</b>.
           </p>
           </Col>
-          <Col>
+          <Col xs={12} md={6} className="plot-row" >
           <Plot
       data={[
         {
@@ -59,7 +87,10 @@ const ExportThis = () => {
         }
 
      ]}
-     layout={{width: 900, height: 700, font: {size: 18}, title: 'Waste Amount Development', 
+     style={{ width: "100%", height: "100%" }}
+    layout={{
+              autosize: true
+            , title: 'Waste Amount Development', 
      xaxis: {
       title: 'Year',
       showgrid: false,
@@ -75,7 +106,6 @@ const ExportThis = () => {
         </Row>
      </Container>
 
-    </div>
 
   );
 };

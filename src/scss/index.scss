@@ -191,13 +191,7 @@ body {
 #spinner_aoa {
   margin-right: 5px;
 }
-#footer {
-  height: 25px;
-}
 
-.footer-elem {
-  color: black;
-}
 .tryout {
   text-align: right;
 }
@@ -235,7 +229,6 @@ button.close:hover {
 
 polygon {
   color: $primary;
-  fillcolor: $primary;
 }
 
 // change the theme
@@ -384,4 +377,7 @@ div.transbox p {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+.plot-row {
+  height: unquote("calc(100vh - 89px)");
 }

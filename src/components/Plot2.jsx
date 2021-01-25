@@ -1,17 +1,43 @@
-import React from "react";
+import React, {useState} from "react";
 import Plot from 'react-plotly.js';
+import {Container, Row, Col} from 'react-bootstrap';
+import { useSelector } from "react-redux";
+
 
 const ExportThis = () => {
+  const viewportWidth = useSelector((state) => state.viewportWidth);
+
+
+
+  const [viewWidth, setViewWidth] = useState(window.innerWidth);
   
+  const handleResize = (event) => {
+      setViewWidth(window.innerWidth)
+  };
+
+  React.useEffect(() => {
+    window.addEventListener('rezise', handleResize)
+    // cleanup this component
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+  
+    const plotSize = (viewportWidth)=>{
+      if (viewportWidth>=768){
+        var width = viewportWidth/2-30
+      }
+      else{
+        var width = viewportWidth - 30
+      }
+      return width
+    }
   return (
-
-    <div className="infoContainerDark">
-
-      <div className="d-flex align-items-center">
-     <div className="container-fluid">
-          <div className="row">
-          
-          <div className="col">
+// className="container-fluid" className="d-flex align-items-center" 
+      
+       <Container fluid>
+        <Row className="plot-row" >
+          <Col xs={12} md={6} className="plot-row" >
           <p>
             If we take a closer look at what exactly is thrown away (2019), we again observe a large amount
             of non reusable substances. The next contributors are, in that order, paper, biodegredable waste and
@@ -19,8 +45,10 @@ const ExportThis = () => {
             get to know the absolute amounts of waste</b>. How many tonnes of electronics were thrown away
             in Münster in 2019?
           </p>
-          </div>
-          <div className="col">
+        
+          </Col>
+
+          <Col xs={12} md={6} className="plot-row" >
           <Plot
       data={[
         {
@@ -31,13 +59,15 @@ const ExportThis = () => {
          domain: {column: 0},
         }
      ]}
-     layout={{height: 700, width: 900, font: {size: 18}, title: 'Waste of Private Households, in percent and tonnes', showlegend: false}}
+     style={{ width: "100%", height: "100%" }}
+    layout={{
+              autosize: true, title: 'Waste of Private Households, in percent and tonnes', showlegend: false}}
       />
-          </div>
-        </div>
-          </div>
-</div>
-    </div>
+          </Col>
+          </Row>
+          </Container>
+
+
 
   );
 };

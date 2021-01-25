@@ -1,17 +1,19 @@
-import React from "react";
+import React, {useState, useRef } from "react";
 import Plot from 'react-plotly.js';
 import {Container, Row, Col} from 'react-bootstrap';
+import { useSelector } from "react-redux";
+
+ 
 
 const ExportThis = () => {
-  
+
+
   return (
 
-    <div className="infoContainer"       
-      style={{
-    }}>
+
      <Container fluid>
-        <Row>
-          <Col>
+        <Row className="plot-row">
+          <Col xs={12} md={6} className="plot-row" >
           <p>
               Let's have a look at some waste numbers from Münster. Here, the waste produced 
               by an average citizen is depicted for the last 13 years. Even after flooring the numbers, 
@@ -24,7 +26,8 @@ const ExportThis = () => {
               in the summer of that year, supposedly leading to a lot of flood damage.
           </p>
           </Col>
-          <Col>
+          <Col xs={12} md={6} className="plot-row" >
+            <div className="plot-row" > 
           <Plot
       data={[
         {
@@ -39,7 +42,10 @@ const ExportThis = () => {
           name: "Recycable waste per citizen"
         }
      ]}
-     layout={{width: 900, height: 400, font: {size: 18}, title: 'Waste in Münster over the years',
+    style={{ width: "100%", height: "100%" }}
+    layout={{
+              autosize: true
+            ,  title: 'Waste in Münster over the years',
      xaxis: {
       title: 'Year',
       showgrid: false,
@@ -51,11 +57,11 @@ const ExportThis = () => {
     }
     }}
       />
+      </div>
           </Col>
           </Row>
           </Container>
 
-    </div>
 
   );
 };
