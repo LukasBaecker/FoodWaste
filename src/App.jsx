@@ -6,17 +6,22 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import Navigation from "./components/Navbar.jsx";
 import MapPage from "./components/MapPage.jsx";
 import HomePage from "./components/HomePage.jsx";
 import Footer from "./components/Footer.jsx";
 import Plots from "./components/Plots.jsx"; // for working on plots
 import ScrollamaEx from "./components/ScrollamaEx.jsx"
+
+import Breakpoint, { BreakpointProvider } from "react-socks";
+
+const MobileNav = React.lazy(() => import("./components/Mobile/NavbarMobile.jsx"));
+const DesktopNav = React.lazy(() => import("./components/Navbar.jsx"));
+
+
 const App = () => {
   return (
     <>
       <Router basename={"FoodWaste"}>
-        <Navigation />
         <Switch>
           <Route exact path="/">
               <HomePage/>

@@ -2,6 +2,7 @@ const merge = require("webpack-merge");
 const webpack = require("webpack");
 const common = require("./webpack.common.js");
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 let clientConfig = {
   entry: {
@@ -23,13 +24,13 @@ let clientConfig = {
     rules: [
     {
       test: /\.css$/,
-      use: ["style-loader", "css-loader"],
+      use: ["MiniCssExtractPlugin.loader,", "css-loader"],
     },
     {
       test: /\.(scss)$/,
       use: [
         {
-          loader: "style-loader",
+          loader:MiniCssExtractPlugin.loader,
         },
         {
           loader: "css-loader",
@@ -50,6 +51,10 @@ let clientConfig = {
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    }),
     // OccurrenceOrderPlugin is needed for webpack 1.x only
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),

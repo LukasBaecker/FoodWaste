@@ -4,17 +4,15 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import logo from "../img/recyclingPoints.png";
+import logo from "../../img/recyclingPoints.png";
 import { useDispatch, useSelector } from "react-redux";
-import FAQ from "./info/FAQ.jsx";
-import HowTo from "./info/HowTo.jsx";
+import FAQ from "../info/FAQ.jsx";
+import HowTo from "../info/HowTo.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
-import { useMediaQuery } from 'react-responsive'
 
 function navigation(fixed) {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' })
-
+  const [scrollTop, setScrollTop] = useState(fixed ? false : true);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -22,8 +20,7 @@ function navigation(fixed) {
   const [showFAQ, setShowFAQ] = useState(false);
   const handleCloseFAQ = () => setShowFAQ(false);
   const handleShowFAQ = () => setShowFAQ(true);
-  
-  const [scrollTop, setScrollTop] = useState(fixed ? false : true);
+
   const handleScroll = (event) => {
     if (window.scrollY > 50){
       setScrollTop(false)
@@ -61,14 +58,14 @@ function navigation(fixed) {
         collapseOnSelect
         fixed="top"
         id="navbar"
-        className={scrollTop ? (isTabletOrMobile ? "transparentNav-mobile" : "transparentNav") : "darkNav"}
+        className={scrollTop ? "transparentNav" : "darkNav"}
         bg={scrollTop ? "":"dark"}
         variant={scrollTop ? "":"dark"}
         style={scrollTop ? {"backgroundColor": "rgba(255, 255, 255, 0)"}: {}}
         expand="xl"
       >
-        <Navbar.Brand href="/">
-          <img src={logo} alt="Logo" className={scrollTop ? (isTabletOrMobile ? "logoSmall" : "logoHuge" ) : "logoSmall"}/>
+        <Navbar.Brand href="/" className={scrollTop ? "logoDivHuge": "logoDivSmall"}>
+          <img src={logo} alt="Logo" className={scrollTop ? "logoHuge": "logoSmall"}/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="navigation-collapse">

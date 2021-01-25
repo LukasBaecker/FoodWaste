@@ -1,9 +1,11 @@
 $duration: 300ms;
+$navbarHeight: 64px;
 
 .navbar {
   font-size: large;
   padding-top: 5px;
   padding-bottom: 5px;
+  width: 100vw;
 }
 .transparentNav {
   background-color: rgba(255, 255, 255, 0);
@@ -17,9 +19,21 @@ $duration: 300ms;
   -ms-transition: height $duration linear;
   transition: height $duration linear;
 }
+.transparentNav-mobile {
+  background-color: rgba(255, 255, 255, 0);
+  height: $navbarHeight;
+
+  -webkit-transition: background-color $duration linear;
+  -ms-transition: background-color $duration linear;
+  transition: background-color $duration linear;
+
+  -webkit-transition: height $duration linear;
+  -ms-transition: height $duration linear;
+  transition: height $duration linear;
+}
 .darkNav {
   background-color: $secondary !important;
-  height: 64px;
+  height: $navbarHeight;
   -webkit-transition: background-color $duration linear;
   -ms-transition: background-color $duration linear;
   transition: background-color $duration linear;
@@ -40,9 +54,18 @@ $duration: 300ms;
   transition: height $duration linear;
 }
 .logoSmall {
-  height: 55px;
+  height: 46px;
 
   -webkit-transition: height $duration linear;
   -ms-transition: height $duration linear;
   transition: height $duration linear;
+}
+#footer {
+  height: 25px;
+  width: 100vw;
+  font-size: small;
+}
+
+.footer-elem {
+  color: black;
 }

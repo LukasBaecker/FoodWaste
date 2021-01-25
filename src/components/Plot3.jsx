@@ -1,52 +1,36 @@
-import React, {useState} from "react";
+import React, { useState, useRef } from "react";
 import Plot from 'react-plotly.js';
 import {Container, Row, Col} from 'react-bootstrap';
-import { useSelector } from "react-redux";
-
-
-
+import { useMediaQuery } from 'react-responsive'
 
 const ExportThis = () => {
-  const viewportWidth = useSelector((state) => state.viewportWidth);
-
-
-
-  const [viewWidth, setViewWidth] = useState(window.innerWidth);
   
-  const handleResize = (event) => {
-      setViewWidth(window.innerWidth)
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' })
+
+  
+  const [fullWidth, setFullWidth] = useState(true);
+
+  const plotRef = useRef(null);
+  const toggleWidth = () => {
+    setFullWidth(state => !state, () => plotRef.current.resizeHandler());
   };
-
-  React.useEffect(() => {
-    window.addEventListener('rezise', handleResize)
-    // cleanup this component
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }, []);
-  
-    const plotSize = (viewportWidth)=>{
-      if (viewportWidth>=768){
-        var width = viewportWidth/2-30
-      }
-      else{
-        var width = viewportWidth - 30
-      }
-      return width
-    }
 
   return (
 
      <Container fluid>
-     <Row className="plot-row">
-     <Col xs={12} md={6} className="plot-row" >
+     <Row>
+     <Col xs={12} md={6} className={isTabletOrMobile ? "plot-col-mobile text-col" : "plot-col text-col"} >
+          <div className="vertical-center">
+
           <p>
               Lastly, we observe the development of specific kinds of waste over the years (2013 to 2017).
               This plot is dominated by paper and plastic packaging. To get a closer look at the categories
               close to the x-axis, you can just <b>drag a rectangle on the canvas to zoom in</b>.
           </p>
+          </div>
           </Col>
-          <Col xs={12} md={6} className="plot-row" >
+          <Col xs={12} md={6} className={isTabletOrMobile ? "plot-col-mobile" : "plot-col"} >
+          <div className="vertical-center-plot">
           <Plot
       data={[
         {
@@ -87,6 +71,8 @@ const ExportThis = () => {
         }
 
      ]}
+     ref={plotRef}
+     useResizeHandler
      style={{ width: "100%", height: "100%" }}
     layout={{
               autosize: true
@@ -102,6 +88,7 @@ const ExportThis = () => {
     },
     showlegend: true}}
       />
+                </div>
           </Col>
         </Row>
      </Container>

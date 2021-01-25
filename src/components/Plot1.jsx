@@ -1,19 +1,27 @@
-import React, {useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Plot from 'react-plotly.js';
 import {Container, Row, Col} from 'react-bootstrap';
-import { useSelector } from "react-redux";
-
+import { useMediaQuery } from 'react-responsive'
  
 
 const ExportThis = () => {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' })
 
+  const [fullWidth, setFullWidth] = useState(true);
+
+  const plotRef = useRef(null);
+  const toggleWidth = () => {
+    setFullWidth(state => !state, () => plotRef.current.resizeHandler());
+  };
 
   return (
 
+  
 
      <Container fluid>
-        <Row className="plot-row">
-          <Col xs={12} md={6} className="plot-row" >
+        <Row>
+          <Col xs={12} md={6} className={isTabletOrMobile ? "plot-col-mobile text-col" : "plot-col text-col"} >
+          <div className="vertical-center">
           <p>
               Let's have a look at some waste numbers from Münster. Here, the waste produced 
               by an average citizen is depicted for the last 13 years. Even after flooring the numbers, 
@@ -25,9 +33,10 @@ const ExportThis = () => {
               In 2014, a peak can be observed. It is likely due to the heavy rain events taking place
               in the summer of that year, supposedly leading to a lot of flood damage.
           </p>
+          </div>
           </Col>
-          <Col xs={12} md={6} className="plot-row" >
-            <div className="plot-row" > 
+          <Col xs={12} md={6} className={isTabletOrMobile ? "plot-col-mobile" : "plot-col"} >
+          <div className="vertical-center-plot"> 
           <Plot
       data={[
         {
@@ -42,6 +51,8 @@ const ExportThis = () => {
           name: "Recycable waste per citizen"
         }
      ]}
+     ref={plotRef}
+     useResizeHandler
     style={{ width: "100%", height: "100%" }}
     layout={{
               autosize: true
@@ -63,7 +74,7 @@ const ExportThis = () => {
           </Container>
 
 
-  );
+);
 };
 
 export default ExportThis;

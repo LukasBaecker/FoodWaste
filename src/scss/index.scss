@@ -378,6 +378,33 @@ div.transbox p {
   margin-right: auto;
   width: 50%;
 }
-.plot-row {
-  height: unquote("calc(100vh - 89px)");
+.plot-col {
+  height: 50vw;
+}
+.plot-col-mobile {
+  height: 100vw;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: calc(100% - 30px);
+  box-sizing: border-box;
+}
+
+.vertical-center-plot {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-sizing: border-box;
+  width: calc(100% - 30px);
+  height: 100%;
+}
+
+.text-col {
+  background-color: $primary_light;
 }

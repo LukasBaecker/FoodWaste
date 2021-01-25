@@ -15,7 +15,7 @@ return (
       backgroundImage: `url(${bgimage})`,
       backgroundSize: "cover",
       backgroundAttachment: "fixed",
-      marginBottom: "0px"      
+      marginBottom: "0px"
     }}>
 
 
