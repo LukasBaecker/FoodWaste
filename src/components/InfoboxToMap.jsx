@@ -24,8 +24,19 @@ const ContainerToMap = () => {
     <Row style={{marginTop:"50px"}}>
       <Col xs={12} md={12}  >
         <div className="vertical-center">
-          <h1 style={{"font-size": "2.5rem"}}>What can I do to change the world? </h1><br/> 
-          <p style={{'fontSize':'1.5rem'}}>On our map of Münster we collected data etc...</p>
+          <h1 style={{"font-size": "2.5rem"}}>It's a global problem, calling for local solutions</h1><br/> 
+          <p style={{'fontSize':'1.5rem'}}>Each and everyone of us is represented in the numbers shown above. 
+          We all take our part. That also means that none other than ourselves can work to reduce our share.
+          </p>
+          <br/>
+          <h1 style={{"font-size": "2.5rem"}}>Let's see how:</h1>
+          <br/>
+          <p style={{'fontSize':'1.5rem'}}>
+            We collected a number of opprotunities to reduce waste and pollution here in Münster. From 
+            waste baskets for your on-the-run waste, over recycling yards for potentially hazardous 
+            items and zero-waste stores that avoid all packaging to buy in bulk, 
+            to shared bookshelves and give boxes to lengthen the life cycle of some old treasures.
+          </p>
         </div>
       </Col>
     </Row>
