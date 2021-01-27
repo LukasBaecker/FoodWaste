@@ -12,8 +12,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import { useMediaQuery } from 'react-responsive'
 
-function navigation(fixed) {
+function navigation() {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' })
+  const scrollTop = useSelector((state) => state.scrollTop)
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -23,30 +24,6 @@ function navigation(fixed) {
   const handleCloseFAQ = () => setShowFAQ(false);
   const handleShowFAQ = () => setShowFAQ(true);
   
-  const [scrollTop, setScrollTop] = useState(fixed ? false : true);
-  const handleScroll = (event) => {
-    if (window.scrollY > 50){
-      setScrollTop(false)
-    }
-    else{
-      if(!fixed){
-        setScrollTop(true)
-      }
-      else{
-        setScrollTop(false)
-      }
-    }
-  };
-
-  React.useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    // cleanup this component
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
-    
-
   let upperRightItems = (
       <>
         <Nav.Link onClick={handleShow}>

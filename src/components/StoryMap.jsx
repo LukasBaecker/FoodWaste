@@ -65,7 +65,7 @@ const muenster = [51.960667, 7.626135];
                                 />
                 </MapContainer> 
               </div>
-              <Scrollama onStepEnter={onStepEnter} debug>
+              <Scrollama onStepEnter={onStepEnter}>
 
                   <Step data={1} key={1}>
                     <div

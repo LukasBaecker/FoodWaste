@@ -6,9 +6,9 @@
 .sidenav {
   margin-top: 64 px;
 }
-body {
-  margin-top: 64px;
-  height: unquote("calc(100vh - 89px)");
+html, body {
+  height: unquote("calc(100vh - 25px)");
+  overflow-x: hidden;
 }
 .modal-90w {
   max-width: 90% !important;
@@ -51,20 +51,16 @@ body {
   height: 100vh;
   padding: 4rem 2rem;
   padding-top: unquote("calc(100vh/3 - 10vh)");
-  color: #223344;
   font-size: x-large;
-  background-color: white;
   text-align: center;
 }
-
-.infoContainerDark {
+.infoContainer-dark {
   width: 100vw;
   height: 100vh;
   padding: 4rem 2rem;
-  padding-top: unquote("calc(100vh/6)");
+  padding-top: unquote("calc(100vh/3 - 10vh)");
   color: white;
   font-size: x-large;
-  background-color: #223344;
   text-align: center;
 }
 
@@ -72,19 +68,33 @@ body {
   width: 100vw;
   margin-top: 64px;
 }
-.jumbotron {
+.jumbotron-content {
   width: 100vw;
-  height: unquote("calc(100vh - 35px)") !important;
-  padding-top: 64px;
+  height: unquote("calc(100vh - 25px)") !important;
   border-radius: 0 !important;
   text-align: center;
+  background-color: $primare_opac !important;
+  margin: 0px !important;
+  padding: 40vh;
+
 }
-#progress-bar {
-  width: 100%;
-  height: 70px;
-  background-color: $secondary;
-  border: 0;
-  border-radius: 0px;
+
+.jumbotron-div {
+  width: 100vw;
+  height: unquote("calc(100vh - 25px)") !important;
+  text-align: center;
+  margin: 0px;
+  position: relative;
+  display: inline-block;
+}
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: unquote("calc(100vh - 25px)");
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:-1;
 }
 
 .loader {
@@ -104,94 +114,6 @@ body {
   top: 50%;
   left: 50%;
 }
-
-.buttonheader {
-  margin-right: 5px;
-  width: 150px;
-}
-.updateButton {
-  margin-top: 4px;
-  width: 90vw;
-  height: 70px;
-  position: absolute;
-  left: 50%;
-  transform: translatex(-50%);
-}
-
-.boxgroesse {
-  //width: 250px;
-  //height: 175px;
-  //font-size: 30pt;
-  color: white;
-  opacity: 0.5;
-}
-
-.buttonload {
-  margin-top: 4px;
-  width: 90vw;
-  height: 70px;
-  position: absolute;
-  left: 50%;
-  transform: translatex(-50%);
-
-  animation-name: color-transition;
-  animation-duration: 1s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes transitionIn {
-  from {
-    opacity: 0;
-    transform: rotateX(-10deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotateX(0deg);
-  }
-}
-/*This is the animation used to change colors; In this instance, I made sure to have the same color at 0% as I did at 100% */
-@keyframes color-transition {
-  0% {
-    font-size: 14px;
-    margin-top: 4px;
-    width: 90vw;
-    height: 70px;
-  }
-  50% {
-    font-size: 18px;
-    margin-top: 0px;
-    width: 92vw;
-    height: 78px;
-  }
-
-  100% {
-    font-size: 14px;
-    margin-top: 4px;
-    width: 90vw;
-    height: 70px;
-  }
-}
-#userIconNav {
-  height: 30px;
-}
-.form-group {
-  margin-top: 10px;
-}
-.errorForm {
-  border-color: #ff0000;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
-}
-.errorForm-message {
-  color: #ff6565;
-  height: 1em;
-  font-size: 0.8em;
-}
-#spinner_aoa {
-  margin-right: 5px;
-}
-
 .tryout {
   text-align: right;
 }
@@ -378,12 +300,6 @@ div.transbox p {
   margin-right: auto;
   width: 50%;
 }
-.plot-col {
-  height: 50vw;
-}
-.plot-col-mobile {
-  height: 100vw;
-}
 .vertical-center {
   margin: 0;
   position: absolute;
@@ -404,7 +320,60 @@ div.transbox p {
   width: calc(100% - 30px);
   height: 100%;
 }
-
+.plot-col {
+  background-color: rgb(255, 255, 255);
+  height: 50vw;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
+.plot-col-mobile {
+  background-color: rgb(255, 255, 255);
+  height: 100vw;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
 .text-col {
   background-color: $primary_light;
+  height: 50vw;
+  opacity: 1;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
+.text-col-mobile {
+  background-color: $primary_light;
+  height: 100vw;
+  opacity: 1;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
+
+.come-in {
+  transform: translateX(100vw);
+  animation: come-in 0.8s ease-out forwards;
+  animation-delay: 1s;
+}
+.come-in:nth-child(odd) {
+  animation-duration: 1.2s;
+}
+.come-in-left {
+  transform: translateX(-100vw);
+  animation: come-in 0.8s ease-out forwards;
+  animation-delay: 1s;
+}
+.come-in-left:nth-child(odd) {
+  animation-duration: 1.2s;
+}
+@keyframes come-in {
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes come-in-left {
+  to {
+    transform: translateX(0);
+  }
 }

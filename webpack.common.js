@@ -29,6 +29,10 @@ let clientConfig = {
         ],
       },
       {
+        test: /\.mp4$/,
+        use: 'file-loader?name=videos/[name].[ext]',
+      },
+      {
         test: /\.(png|svg|jpg|gif|tif)$/,
         use: [
           { loader: "file-loader", options: { name: "static/[name].[ext]" } },

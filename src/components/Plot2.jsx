@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Plot from 'react-plotly.js';
 import {Container, Row, Col} from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive'
+import { InView } from 'react-intersection-observer';
 
 const ExportThis = () => {
 
@@ -20,7 +21,9 @@ const ExportThis = () => {
       
        <Container fluid>
         <Row>
-          <Col xs={{span:12, order: 2}} md={{span:6, order: 1}} className={isTabletOrMobile ? "plot-col-mobile" : "plot-col"} >
+          <InView triggerOnce={true} threshold={0}>
+          {({ inView, ref, entry }) => (
+          <Col ref={ref} xs={{span:12, order: 2}} md={{span:6, order: 1}} className={isTabletOrMobile ? (inView ? "plot-col-mobile come-in-left" : "plot-col-mobile"): (inView ? "plot-col come-in-left" : "plot-col")} >
           <div className="vertical-center-plot">
             <Plot
                 data={[
@@ -46,18 +49,23 @@ const ExportThis = () => {
                 />
           </div>
           </Col>
-          <Col xs={{span:12, order: 1}} md={{span:6, order: 2}} className={isTabletOrMobile ? "plot-col-mobile text-col" : "plot-col text-col"} >
+          )}
+          </InView>
+          <InView triggerOnce={true} threshold={0}>
+        {({ inView, ref, entry }) => (
+          <Col ref={ref} xs={{span:12, order: 1}} md={{span:6, order: 2}} className={isTabletOrMobile ? "text-col-mobile": "text-col"} >
             <div className="vertical-center">
-            <p>
-              If we take a closer look at what exactly is thrown away (2019), we again observe a large amount
-              of non reusable substances. The next contributors are, in that order, paper, biodegredable waste and
-              packaging (also known as "yellow trash bag" or "yellow can"). <b>You can interact with the plot to
-              get to know the absolute amounts of waste</b>. How many tonnes of electronics were thrown away
-              in Münster in 2019?
-            </p>
+              <p>
+                If we take a closer look at what exactly is thrown away (2019), we again observe a large amount
+                of non reusable substances. The next contributors are, in that order, paper, biodegredable waste and
+                packaging (also known as "yellow trash bag" or "yellow can"). <b>You can interact with the plot to
+                get to know the absolute amounts of waste</b>. How many tonnes of electronics were thrown away
+                in Münster in 2019?
+              </p>
             </div>
           </Col>
-
+        )}
+        </InView>
 
           </Row>
           </Container>

@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Plot from 'react-plotly.js';
 import {Container, Row, Col} from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive'
+import { InView } from 'react-intersection-observer';
 
 const ExportThis = () => {
   
@@ -19,19 +20,25 @@ const ExportThis = () => {
 
      <Container fluid>
      <Row>
-     <Col xs={12} md={6} className={isTabletOrMobile ? "plot-col-mobile text-col" : "plot-col text-col"} >
+     <InView triggerOnce={true} threshold={0}>
+        {({ inView, ref, entry }) => (
+          <Col xs={12} ref={ref} md={6} className={isTabletOrMobile ? "text-col-mobile" : "text-col"} >
           <div className="vertical-center">
-
-          <p>
+          <p >
               Lastly, we observe the development of specific kinds of waste over the years (2013 to 2017).
               This plot is dominated by paper and plastic packaging. To get a closer look at the categories
               close to the x-axis, you can just <b>drag a rectangle on the canvas to zoom in</b>.
           </p>
           </div>
           </Col>
-          <Col xs={12} md={6} className={isTabletOrMobile ? "plot-col-mobile" : "plot-col"} >
+        )}
+        </InView>
+        <InView triggerOnce={true} threshold={0}>
+        {({ inView, ref, entry }) => (
+          <Col xs={12} ref={ref} md={6} className={isTabletOrMobile ? (inView ? "plot-col-mobile come-in" : "plot-col-mobile-pre "): (inView ? "plot-col come-in" : "plot-col-pre")} >
           <div className="vertical-center-plot">
           <Plot
+         
       data={[
         {
           type: 'scatter', 
@@ -98,6 +105,8 @@ const ExportThis = () => {
       />
                 </div>
           </Col>
+        )}
+        </InView>
         </Row>
      </Container>
 

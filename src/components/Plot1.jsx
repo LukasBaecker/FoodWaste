@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Plot from 'react-plotly.js';
 import {Container, Row, Col} from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive'
- 
+import { InView } from 'react-intersection-observer';
 
 const ExportThis = () => {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767px)' })
@@ -16,11 +16,11 @@ const ExportThis = () => {
 
   return (
 
-  
-
-     <Container fluid>
-        <Row>
-          <Col xs={12} md={6} className={isTabletOrMobile ? "plot-col-mobile text-col" : "plot-col text-col"} >
+    <Container fluid>
+     <Row>
+        <InView triggerOnce={true} threshold={0}>
+        {({ inView, ref, entry }) => (
+          <Col xs={12} ref={ref} md={6} className={isTabletOrMobile ? "text-col-mobile" : "text-col"} >
           <div className="vertical-center">
           <p>
               Even after flooring the numbers, <b>400 kilograms of waste per inhabitant and year</b> 
@@ -33,9 +33,14 @@ const ExportThis = () => {
           </p>
           </div>
           </Col>
-          <Col xs={12} md={6} className={isTabletOrMobile ? "plot-col-mobile" : "plot-col"} >
+          )}
+          </InView>
+        <InView triggerOnce={true} threshold={0}>
+         {({ inView, ref, entry }) => (
+          <Col xs={12} ref={ref} md={6} className={isTabletOrMobile ? (inView ? "plot-col-mobile come-in" : "plot-col-mobile"): (inView ? "plot-col come-in" : "plot-col")} >
           <div className="vertical-center-plot"> 
           <Plot
+
       data={[
         {
           type: 'scatter', 
@@ -78,6 +83,8 @@ const ExportThis = () => {
       />
       </div>
           </Col>
+                    )}
+          </InView>
           </Row>
           </Container>
 

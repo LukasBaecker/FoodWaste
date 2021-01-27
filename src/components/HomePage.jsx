@@ -6,35 +6,32 @@ import Plot3 from "./Plot3.jsx"
 import StoryMap from "./StoryMap.jsx"
 import Navbar from "./Navbar.jsx"
 import { useDispatch, useSelector } from "react-redux";
-import { setViewportWidth } from "../actions";
+import { setScrollTop } from "../actions";
+import { InView } from 'react-intersection-observer';
+import Infobox from "./Infobox.jsx"
+import InfoboxToMap from "./InfoboxToMap.jsx"
+import backgroundVideo from "../video/WasteStartseiteSchnelleCod.mp4"
 
 const HomePage =()=> {
-  const viewportWidth = useSelector((state) => state.viewportWidth);
   const dispatch = useDispatch();
-
- 
-  const handleResize = (event) => {
-      dispatch(setViewportWidth(window.innerWidth))
-    }
-
-  React.useEffect(() => {
-    window.addEventListener('rezise', handleResize)
-    // cleanup this component
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }, []);
-  
 
   return (
     <>
-      {Navbar(false)}
-      <Jumbo />
+      <Navbar/>
+      <div className="jumbotron-div">
+        <video id="vid" loop autoPlay muted playsInline className="videoLoaded" key="backgroundVideo">
+          <source className="videoMp4" src={backgroundVideo} type="video/mp4" />
+        </video>   
+        <InView as="div" threshold={0.9} onChange={(inView, entry) => {dispatch(setScrollTop(inView))}}>
+          <Jumbo />
+        </InView>
+      </div>
+      <Infobox/>
       <StoryMap/>
-      
       <Plot1/>
       <Plot2/>
       <Plot3/>
+      <InfoboxToMap/>
 
     </>
     );
