@@ -15,7 +15,7 @@ return (
       <Col xs={12} md={12}  >
         <div className="vertical-center">
           <h1 style={{"color": "white", "font-size": "2.5rem"}}>How can we act responsibly, if we don't know the data?.</h1><br/> 
-          <p style={{"color": "white", 'fontSize':'1.5rem'}}>Reducing waste isn't hard - one you know how.</p>
+          <p style={{"color": "white", 'fontSize':'1.5rem'}}>Reducing waste isn't hard - once you know how.</p>
         </div>
       </Col>
     </Row>
