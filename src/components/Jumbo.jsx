@@ -14,8 +14,8 @@ return (
     <Row>
       <Col xs={12} md={12}  >
         <div className="vertical-center">
-          <h1 style={{"font-size": "2.5rem"}}>Waste is a recurring topic in the public discussion.</h1><br/> 
-          <p style={{'fontSize':'1.5rem'}}>It is often forgotten otherwise.</p>
+          <h1 style={{"color": "white", "font-size": "2.5rem"}}>How can we act responsibly, if we don't know the data?.</h1><br/> 
+          <p style={{"color": "white", 'fontSize':'1.5rem'}}>Reducing waste isn't hard - once you know how.</p>
         </div>
       </Col>
     </Row>
