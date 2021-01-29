@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setScrollTop } from "../actions";
 import { InView } from 'react-intersection-observer';
 const MapPage = () => {
+  const dispatch = useDispatch();
   
   return (
     <>

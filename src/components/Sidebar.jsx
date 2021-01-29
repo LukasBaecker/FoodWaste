@@ -31,25 +31,6 @@ const Sidebar = () => {
             <NavText>
                 recycling
             </NavText>
-        {/*            <NavItem eventKey={"recyclingswitch"} key={"recyclingswitch"}>
-                <NavText>
-                <Form.Check
-                        style={{marginTop:'5px'}} 
-                        type={'checkbox'}
-                        id={'recycling'}
-                        label={'all'}
-                        onChange={() => {dispatch(setWholeGroup('recycling'))
-                                        dispatch(setPoints(categories))
-                                        }}
-                    />
-                </NavText>    
-            </NavItem>
-            <NavItem>
-                <NavText>
-                <Dropdown.Divider />
-                </NavText>
-            </NavItem>
-        */}
             {recycling.map(p => Selection(p, "recycling"))}
         </NavItem>
         <NavItem eventKey="shop" key="shop">
@@ -59,26 +40,6 @@ const Sidebar = () => {
             <NavText>
                 shops
             </NavText>
-            {/*
-            <NavItem eventKey={"recyclingswitch"} key={"recyclingswitch"}>
-                <NavText>
-                    <Form.Check
-                    style={{marginTop:'5px'}} 
-                    type={'checkbox'}
-                    id={'shops'}
-                    label={'all'}
-                    onChange={() => {dispatch(setWholeGroup('shop'))
-                                    dispatch(setPoints(categories))
-                                    }}
-                    />
-                </NavText>    
-            </NavItem>
-            <NavItem>
-                <NavText>
-                <Dropdown.Divider />
-                </NavText>
-            </NavItem>
-            */}
             {shops.map(p => Selection(p, "shop"))}
         </NavItem>
         <NavItem eventKey="yard" key="yard">

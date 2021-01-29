@@ -2,7 +2,7 @@ import { relative } from "path";
 import React, { useState } from "react";
 import {Marker} from "react-leaflet";
 import {Popup} from "react-leaflet";
-
+import marker_ico from "../img/marker-icon.png";
 
 
 
@@ -11,7 +11,7 @@ const OwnMarker = (point) => {
 
 
 var orangeIcon = L.icon({
-iconUrl: '../static/marker-icon.png',
+iconUrl: marker_ico,
 iconSize: [25, 41], // size of the icon
 iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
 shadowAnchor: [4, 62], // the same for the shadow

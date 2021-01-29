@@ -323,6 +323,7 @@ div.transbox p {
 .plot-col {
   background-color: rgb(255, 255, 255);
   height: 50vw;
+  transform: translateX(-100%);
   &:nth-child(even) {
     margin-right: 0;
   }
@@ -330,6 +331,23 @@ div.transbox p {
 .plot-col-mobile {
   background-color: rgb(255, 255, 255);
   height: 100vw;
+  transform: translateX(-100%);
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
+.plot-col-right {
+  background-color: rgb(255, 255, 255);
+  height: 50vw;
+  transform: translateX(100%);
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
+.plot-col-mobile-right {
+  background-color: rgb(255, 255, 255);
+  height: 100vw;
+  transform: translateX(100%);
   &:nth-child(even) {
     margin-right: 0;
   }
@@ -354,25 +372,30 @@ div.transbox p {
 .come-in {
   transform: translateX(100vw);
   animation: come-in 0.8s ease-out forwards;
-  animation-delay: 1s;
+
 }
 .come-in:nth-child(odd) {
   animation-duration: 1.2s;
 }
 .come-in-left {
   transform: translateX(-100vw);
-  animation: come-in 0.8s ease-out forwards;
-  animation-delay: 1s;
+  animation: come-in-left 0.8s ease-out forwards;
 }
 .come-in-left:nth-child(odd) {
   animation-duration: 1.2s;
 }
 @keyframes come-in {
+  from{
+    transform: translateX(100vw);
+  }
   to {
     transform: translateX(0);
   }
 }
 @keyframes come-in-left {
+  from{
+    transform: translateX(-100vw);
+  }
   to {
     transform: translateX(0);
   }

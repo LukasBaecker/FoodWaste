@@ -24,7 +24,7 @@ const ContainerToMap = () => {
     <Row style={{marginTop:"50px"}}>
       <Col xs={12} md={12}  >
         <div className="vertical-center">
-          <h1 style={{"font-size": "2.5rem"}}>What can I do to change the world? </h1><br/> 
+          <h1 style={{"fontSize": "2.5rem"}}>What can I do to change the world? </h1><br/> 
           <p style={{'fontSize':'1.5rem'}}>On our map of Münster we collected data etc...</p>
         </div>
       </Col>

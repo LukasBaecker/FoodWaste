@@ -18,26 +18,10 @@ const ExportThis = () => {
 
     <Container fluid>
      <Row>
-        <InView triggerOnce={true} threshold={0}>
+        <InView triggerOnce={true} threshold={1}>
         {({ inView, ref, entry }) => (
-          <Col xs={12} ref={ref} md={6} className={isTabletOrMobile ? "text-col-mobile" : "text-col"} >
-          <div className="vertical-center">
-          <p>
-              Even after flooring the numbers, <b>400 kilograms of waste per inhabitant and year</b> 
-              is produced in Münster. As we can observe, recycable materials 
-              bring about 100 kilograms more to the sum than not resusable trash, a kind of waste 
-              that is ultimately burned after several sorting procedures.
-              <br></br>
-              In 2014, a peak can be observed. It is likely due to the heavy rain events taking place
-              in the summer of that year, supposedly leading to a lot of flood damage.
-          </p>
-          </div>
-          </Col>
-          )}
-          </InView>
-        <InView triggerOnce={true} threshold={0}>
-         {({ inView, ref, entry }) => (
-          <Col xs={12} ref={ref} md={6} className={isTabletOrMobile ? (inView ? "plot-col-mobile come-in" : "plot-col-mobile"): (inView ? "plot-col come-in" : "plot-col")} >
+          <>
+          <Col  xs={{span:12, order: 2}} md={{span:6, order: 2}} className={isTabletOrMobile ? (inView ? "plot-col-mobile-right come-in" : "plot-col-mobile-right"): (inView ? "plot-col-right come-in" : "plot-col-right")} >
           <div className="vertical-center-plot"> 
           <Plot
 
@@ -83,6 +67,20 @@ const ExportThis = () => {
       />
       </div>
           </Col>
+          <Col xs={{span:12, order: 1}} ref={ref}  md={{span:6, order: 1}} className={isTabletOrMobile ? "text-col-mobile" : "text-col"} >
+          <div className="vertical-center">
+          <p>
+              Even after flooring the numbers, <b>400 kilograms of waste per inhabitant and year</b> 
+              is produced in Münster. As we can observe, recycable materials 
+              bring about 100 kilograms more to the sum than not resusable trash, a kind of waste 
+              that is ultimately burned after several sorting procedures.
+              <br></br>
+              In 2014, a peak can be observed. It is likely due to the heavy rain events taking place
+              in the summer of that year, supposedly leading to a lot of flood damage.
+          </p>
+          </div>
+          </Col>
+          </>
                     )}
           </InView>
           </Row>

@@ -21,8 +21,9 @@ const ExportThis = () => {
       
        <Container fluid>
         <Row>
-          <InView triggerOnce={true} threshold={0}>
+          <InView triggerOnce={true} threshold={1}>
           {({ inView, ref, entry }) => (
+            <>
           <Col ref={ref} xs={{span:12, order: 2}} md={{span:6, order: 1}} className={isTabletOrMobile ? (inView ? "plot-col-mobile come-in-left" : "plot-col-mobile"): (inView ? "plot-col come-in-left" : "plot-col")} >
           <div className="vertical-center-plot">
             <Plot
@@ -49,10 +50,6 @@ const ExportThis = () => {
                 />
           </div>
           </Col>
-          )}
-          </InView>
-          <InView triggerOnce={true} threshold={0}>
-        {({ inView, ref, entry }) => (
           <Col ref={ref} xs={{span:12, order: 1}} md={{span:6, order: 2}} className={isTabletOrMobile ? "text-col-mobile": "text-col"} >
             <div className="vertical-center">
               <p>
@@ -64,9 +61,9 @@ const ExportThis = () => {
               </p>
             </div>
           </Col>
-        )}
-        </InView>
-
+          </>
+          )}
+          </InView>
           </Row>
           </Container>
 

@@ -10,7 +10,6 @@ import MapPage from "./components/MapPage.jsx";
 import HomePage from "./components/HomePage.jsx";
 import Footer from "./components/Footer.jsx";
 import Plots from "./components/Plots.jsx"; // for working on plots
-import ScrollamaEx from "./components/ScrollamaEx.jsx"
 
 import Breakpoint, { BreakpointProvider } from "react-socks";
 
@@ -31,9 +30,6 @@ const App = () => {
           </Route>
           <Route exact path="/plots">
             <Plots />
-          </Route>
-          <Route exact path="/scrollama">
-            <ScrollamaEx/>
           </Route>
         </Switch>
         <Footer />

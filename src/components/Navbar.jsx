@@ -44,7 +44,7 @@ function navigation() {
         style={scrollTop ? {"backgroundColor": "rgba(255, 255, 255, 0)"}: {}}
         expand="xl"
       >
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/FoodWaste">
           <img src={logo} alt="Logo" className={scrollTop ? (isTabletOrMobile ? "logoSmall" : "logoHuge" ) : "logoSmall"}/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
