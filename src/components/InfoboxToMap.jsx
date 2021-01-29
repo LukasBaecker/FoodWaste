@@ -24,12 +24,12 @@ const ContainerToMap = () => {
     <Row style={{marginTop:"50px"}}>
       <Col xs={12} md={12}  >
         <div className="vertical-center">
-          <h1 style={{"font-size": "2.5rem"}}>It's a global problem, calling for local solutions</h1><br/> 
+          <h1 style={{"fontSize": "2.5rem"}}>It's a global problem, calling for local solutions</h1><br/> 
           <p style={{'fontSize':'1.5rem'}}>Each and everyone of us is represented in the numbers shown above. 
           We all take our part. That also means that none other than ourselves can work to reduce our share.
           </p>
           <br/>
-          <h1 style={{"font-size": "2.5rem"}}>Let's see how:</h1>
+          <h1 style={{"fontSize": "2.5rem"}}>Let's see how:</h1>
           <br/>
           <p style={{'fontSize':'1.5rem'}}>
             We collected a number of opprotunities to reduce waste and pollution here in Münster. From 

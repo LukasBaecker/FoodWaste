@@ -11,7 +11,7 @@ import { InView } from 'react-intersection-observer';
 import Infobox from "./Infobox.jsx"
 import InfoboxToMap from "./InfoboxToMap.jsx"
 import backgroundVideo from "../video/WasteStartseiteSchnelleCod.mp4"
-
+import HHWEurope from "./HHWEurope.jsx"
 const HomePage =()=> {
   const dispatch = useDispatch();
 
@@ -27,7 +27,8 @@ const HomePage =()=> {
         </InView>
       </div>
       <Infobox/>
-      <StoryMap/>
+      <HHWEurope/>
+      {/*<StoryMap/>*/}
       <Plot1/>
       <Plot2/>
       <Plot3/>

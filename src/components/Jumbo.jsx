@@ -14,7 +14,7 @@ return (
     <Row>
       <Col xs={12} md={12}  >
         <div className="vertical-center">
-          <h1 style={{"color": "white", "font-size": "2.5rem"}}>How can we act responsibly, if we don't know the data?.</h1><br/> 
+          <h1 style={{"color": "white", "fontSize": "2.5rem"}}>How can we act responsibly, if we don't know the data?.</h1><br/> 
           <p style={{"color": "white", 'fontSize':'1.5rem'}}>Reducing waste isn't hard - once you know how.</p>
         </div>
       </Col>
@@ -25,27 +25,3 @@ return (
 };
 
 export default JumboContainer;
-/*
-<div className='container'>
-<div className='row'>
-  <div style={{textAlign:'center'}}>
-    <h1 style={{fontSize:'3vw'}}>Waste is a recurring topic in the public discussion.</h1><br/> 
-    <p style={{fontSize:'2vw'}}>It is often forgotten otherwise.</p>
-  </div>
-</div>
-
-
-<div className='container' style={{marginTop:'200px'}}>
-  <div className='row'>
-    <div className='column'>
-      <HashLink smooth to="/#test"><Button variant="primary" size="lg" block>Story</Button></HashLink>
-    </div>
-    <div className="column">
-      <HashLink smooth to="/map"><Button variant="primary" size="lg" block>Map</Button></HashLink>
-    </div>
-    <div className="column">
-      <HashLink smooth to="/#test"><Button variant="primary" size="lg" block>Story Map</Button></HashLink>
-    </div>
-  </div>
-</div>
-</div>*/

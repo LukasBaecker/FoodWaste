@@ -14,7 +14,7 @@ let clientConfig = {
         loader: "babel-loader",
       },
       {
-        test: /\.(json|geojson)$/,
+        test: /\.(geojson)$/,
         loader: 'json-loader'
       },
       {
@@ -34,9 +34,7 @@ let clientConfig = {
       },
       {
         test: /\.(png|svg|jpg|gif|tif)$/,
-        use: [
-          { loader: "file-loader", options: { name: "static/[name].[ext]" } },
-        ],
+        use: 'file-loader?name=pics/[name].[ext]',
       },
     ],
   },

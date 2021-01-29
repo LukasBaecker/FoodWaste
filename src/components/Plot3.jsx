@@ -20,9 +20,10 @@ const ExportThis = () => {
 
      <Container fluid>
      <Row>
-     <InView triggerOnce={true} threshold={0}>
+     <InView triggerOnce={true} threshold={1}>
         {({ inView, ref, entry }) => (
-          <Col xs={12} ref={ref} md={6} className={isTabletOrMobile ? "text-col-mobile" : "text-col"} >
+              <>
+          <Col xs={12} ref={ref}  md={6} className={isTabletOrMobile ? "text-col-mobile" : "text-col"} >
           <div className="vertical-center">
           <p >
               Lastly, we observe the development of specific kinds of waste over the years (2013 to 2017).
@@ -31,11 +32,7 @@ const ExportThis = () => {
           </p>
           </div>
           </Col>
-        )}
-        </InView>
-        <InView triggerOnce={true} threshold={0}>
-        {({ inView, ref, entry }) => (
-          <Col xs={12} ref={ref} md={6} className={isTabletOrMobile ? (inView ? "plot-col-mobile come-in" : "plot-col-mobile-pre "): (inView ? "plot-col come-in" : "plot-col-pre")} >
+          <Col xs={12}  md={6} className={isTabletOrMobile ? (inView ? "plot-col-mobile-right come-in" : "plot-col-mobile-right "): (inView ? "plot-col-right come-in" : "plot-col-right")} >
           <div className="vertical-center-plot">
           <Plot
          
@@ -105,6 +102,7 @@ const ExportThis = () => {
       />
                 </div>
           </Col>
+            </>
         )}
         </InView>
         </Row>
