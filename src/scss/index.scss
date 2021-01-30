@@ -368,6 +368,40 @@ div.transbox p {
     margin-right: 0;
   }
 }
+.grid-col-prime {
+  background-color: $primary_light;
+  height: 25vw;
+  opacity: 1;
+  text-align: center;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
+.grid-col-prime-mobile {
+  background-color: $primary_light;
+  height: 100vw;
+  opacity: 1;
+  text-align: center;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
+.grid-col-white {
+  background-color: rgb(255, 255, 255);
+  height: 25vw;
+  opacity: 1;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
+.grid-col-white-mobile {
+  background-color: rgb(255, 255, 255);
+  height: 50vh;
+  opacity: 1;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+}
 
 .come-in {
   transform: translateX(100vw);
