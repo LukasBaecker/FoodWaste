@@ -55,7 +55,7 @@ const ExportThis = () => {
             </p>
           </div>
           </Col>
-          <Col ref={ref} xs={{span:12, order: 1}} md={{span:6, order: 2}} className={isTabletOrMobile ? "grid-col-white": "grid-col-white"} >
+          <Col ref={ref} xs={{span:12, order: 1}} md={{span:6, order: 2}} className={isTabletOrMobile ? "grid-col-white-mobile": "grid-col-white"} >
             <div className="vertical-center">
             <h1 style={{"textAlign": "center"}}>Reducing waste starts with learning about waste.</h1>
             </div>
