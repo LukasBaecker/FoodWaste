@@ -3,6 +3,7 @@ import Jumbo from "./Jumbo.jsx"
 import Plot1 from "./Plot1.jsx"
 import Plot2 from "./Plot2.jsx"
 import Plot3 from "./Plot3.jsx"
+import InfoGrid from "./InfoGrid.jsx"
 import StoryMap from "./StoryMap.jsx"
 import Navbar from "./Navbar.jsx"
 import { useDispatch, useSelector } from "react-redux";
@@ -26,7 +27,7 @@ const HomePage =()=> {
           <Jumbo />
         </InView>
       </div>
-      <Infobox/>
+      <InfoGrid/>
       <HHWEurope/>
       {/*<StoryMap/>*/}
       <Plot1/>
