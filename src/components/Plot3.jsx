@@ -20,7 +20,7 @@ const ExportThis = () => {
 
      <Container fluid>
      <Row>
-     <InView triggerOnce={true} threshold={1}>
+     <InView triggerOnce={true} threshold={0.7}>
         {({ inView, ref, entry }) => (
               <>
           <Col xs={12} ref={ref}  md={6} className={isTabletOrMobile ? "text-col-mobile" : "text-col"} >

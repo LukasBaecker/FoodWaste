@@ -18,7 +18,7 @@ const ExportThis = () => {
 
     <Container fluid>
      <Row>
-        <InView triggerOnce={true} threshold={1}>
+        <InView triggerOnce={true} threshold={0.7}>
         {({ inView, ref, entry }) => (
           <>
           <Col  xs={{span:12, order: 2}} md={{span:6, order: 2}} className={isTabletOrMobile ? (inView ? "plot-col-mobile-right come-in" : "plot-col-mobile-right"): (inView ? "plot-col-right come-in" : "plot-col-right")} >

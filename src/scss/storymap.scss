@@ -37,13 +37,13 @@
 
 .storymap {
   width: 100vw;
-  height: unquote("calc(100vh - 113px)") !important;
+  height: unquote("calc(100vh - 25px)") !important;
   z-index: 0;
   margin-top: 0px !important;
 }
 .storymap-text {
   width: 50vw;
-  height: unquote("calc(100vh - 177px)");
+  height: unquote("calc(100vh - 89px)");
   margin-top: 64px;
   margin-left: 100px;
   position: absolute;
@@ -54,4 +54,42 @@
   height: 100vh;
   margin: 50vh 0;
   border: 2px dashed skyblue;
+}
+.legend-div{
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  z-index: 1006;
+  min-width: 64px;
+  text-align: left;
+  line-height: 18px;
+  color: #555;
+}
+.info {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.info h4 {
+  margin: 0 0 5px;
+  color: rgb(74, 74, 74);
+  font-size: 1rem;
+}
+
+.legend-div i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+.legend-div p{
+  margin: 2px;
+}
+.storymap .leaflet-control{
+  margin-right: 15px;
 }
