@@ -11,7 +11,7 @@ import bin from "../img/bin.png";
 import repair from "../img/repair.png";
 import trash from "../img/trash.png";
 import recyc from "../img/recyclingPoints.png";
-
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 
 const OwnMarker = (point) => {
@@ -126,9 +126,11 @@ var hours_desc = <p style={{fontSize: 15, fontFamily:'Arial', float:'left'}}>
 var hours_desc = <p></p>
 }
 
-// location
+var locString = "" + point.geometry.coordinates[1] + "°N, " + point.geometry.coordinates[0] + "°E";
 var loc = <p style={{fontSize: 15, fontFamily:'Arial', float:'left'}}>
-    Coordinates are: {point.geometry.coordinates[1]} °N, {point.geometry.coordinates[0]} °E
+<CopyToClipboard text={locString}>
+  <p>click here to copy coordinates: {point.geometry.coordinates[1]} °N, {point.geometry.coordinates[0]} °E</p>
+</CopyToClipboard>
 </p>
 
 // website, tel

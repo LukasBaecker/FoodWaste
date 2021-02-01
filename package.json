@@ -29,6 +29,7 @@
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-sidebar": "0.0.1",
+    "react-copy-to-clipboard": "^5.0.3",
     "react-countup": "^4.3.3",
     "react-device-detect": "^1.15.0",
     "react-digital-number": "^1.0.4",
