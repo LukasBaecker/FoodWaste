@@ -1,13 +1,3 @@
-.containerStoryMap {
-  background: rgba(200, 100, 10, 1);
-  width: 100vw;
-  height: 100vh;
-  padding: 4rem 2rem;
-  padding-top: 80px;
-  display: flex;
-  flex-direction: column;
-}
-
 .section {
   margin: 10px;
   background: #2196f3;
@@ -55,7 +45,7 @@
   margin: 50vh 0;
   border: 2px dashed skyblue;
 }
-.legend-div{
+.legend-div {
   position: absolute;
   bottom: 20px;
   right: 0;
@@ -87,9 +77,9 @@
   margin-right: 8px;
   opacity: 0.7;
 }
-.legend-div p{
+.legend-div p {
   margin: 2px;
 }
-.storymap .leaflet-control{
+.storymap .leaflet-control {
   margin-right: 15px;
 }

@@ -125,10 +125,8 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
 
   return (
     <>
-      <div className='' style={{ margin: "0 0" }}>
-        <div
-          className='storymap-container'
-          style={{ position: "sticky", top: 0 }}>
+      <div style={{ margin: "0 0" }}>
+        <div style={{ position: "sticky", top: 0 }}>
           <MapContainer
             className='storymap'
             center={europeCenter}
@@ -180,7 +178,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
             </p>
           </div>
         </div>
-        <Scrollama onStepEnter={onStepEnter} debug>
+        <Scrollama onStepEnter={onStepEnter}>
           <Step data={1} key={1}>
             <div
               style={{
@@ -191,6 +189,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
                 backgroundColor: "white",
                 opacity: "0.99",
                 padding: "30px",
+                borderRadius: "8px",
               }}>
               <h2>This is about Europe</h2>
               <p>
@@ -239,6 +238,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
                 backgroundColor: "white",
                 opacity: "0.99",
                 padding: "30px",
+                borderRadius: "8px",
               }}>
               <h2>This is Germany</h2>
               <p>
@@ -263,6 +263,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
                 backgroundColor: "white",
                 opacity: "0.99",
                 padding: "30px",
+                borderRadius: "8px",
               }}>
               <h2>This is about NRW</h2>
               <p>
@@ -285,6 +286,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
                 backgroundColor: "white",
                 opacity: "0.99",
                 padding: "30px",
+                borderRadius: "8px",
               }}>
               <h2>This is about Münster</h2>
               <p>

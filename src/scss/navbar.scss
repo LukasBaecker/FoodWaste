@@ -7,7 +7,7 @@ $navbarHeight: 64px;
   padding-bottom: 5px;
   width: 100vw;
 }
-.nav-link{
+.nav-link {
   color: white;
 }
 .transparentNav {
@@ -51,28 +51,40 @@ $navbarHeight: 64px;
 
 .logoHuge {
   height: 110px;
-  -webkit-animation:spin 40s linear infinite;
-  -moz-animation:spin 40s linear infinite;
-  animation:spin 40s linear infinite;
+  -webkit-animation: spin 100s linear infinite;
+  -moz-animation: spin 100s linear infinite;
+  animation: spin 100s linear infinite;
 
   -webkit-transition: height $duration linear;
   -ms-transition: height $duration linear;
   transition: height $duration linear;
-
 }
 .logoSmall {
   height: 46px;
-  -webkit-animation:spin 40s linear infinite;
-  -moz-animation:spin 40s linear infinite;
-  animation:spin 40s linear infinite;
+  -webkit-animation: spin 100s linear infinite;
+  -moz-animation: spin 100s linear infinite;
+  animation: spin 100s linear infinite;
 
   -webkit-transition: height $duration linear;
   -ms-transition: height $duration linear;
   transition: height $duration linear;
 }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 
 #footer {
   height: 25px;
