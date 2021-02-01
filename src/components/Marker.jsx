@@ -3,16 +3,64 @@ import React, { useState } from "react";
 import {Marker} from "react-leaflet";
 import {Popup} from "react-leaflet";
 import marker_ico from "../img/marker-icon.png";
+import book from "../img/book.png";
+import exchange from "../img/exchange.png";
+import food from "../img/food.png";
+import money from "../img/money.png";
+import bin from "../img/bin.png";
+import repair from "../img/repair.png";
+import trash from "../img/trash.png";
+import recyc from "../img/recyclingPoints.png";
 
 
 
 const OwnMarker = (point) => {
 
+var iconM = marker_ico
+var xM = 42
+var iconS = [25, 41]
+
+if(point.properties.object_type == "container") {
+    iconM = bin
+    iconS = [xM, xM]
+}
+if(point.properties.object_type == "wasteBasket") {
+    iconM = trash
+    iconS = [xM, xM]
+}
+if(point.properties.object_type == "givebox") {
+    iconM = exchange
+    iconS = [xM, xM]
+}
+if(point.properties.object_type == "publicBookshelf") {
+    iconM = book
+    iconS = [xM, xM]
+}
+if(point.properties.object_type == "store") {
+    iconM = money
+    iconS = [xM, xM]
+}
+if(point.properties.object_type == "pickUpPoint") {
+    iconM = food
+    iconS = [xM, xM]
+}
+if(point.properties.object_type == "repairShop") {
+    iconM = repair
+    iconS = [xM, xM]
+}
+if(point.properties.object_type == "secondHandStore") {
+    iconM = money
+    iconS = [xM, xM]
+}
+if(point.properties.object_type == "recyclingYard") {
+    iconM = recyc
+    iconS = [xM, xM]
+}
 
 
 var orangeIcon = L.icon({
-iconUrl: marker_ico,
-iconSize: [25, 41], // size of the icon
+iconUrl: iconM,
+iconSize: iconS, // size of the icon
 iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
 shadowAnchor: [4, 62], // the same for the shadow
 popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
@@ -78,6 +126,11 @@ var hours_desc = <p style={{fontSize: 15, fontFamily:'Arial', float:'left'}}>
 var hours_desc = <p></p>
 }
 
+// location
+var loc = <p style={{fontSize: 15, fontFamily:'Arial', float:'left'}}>
+    Coordinates are: {point.geometry.coordinates[1]} °N, {point.geometry.coordinates[0]} °E
+</p>
+
 // website, tel
 if(point.properties.website != "FALSE") {
 if(point.properties.telephone != "FALSE") {
@@ -135,11 +188,12 @@ return (
 
     <Popup className="request-popup">
 
-        <img className="center" src="https://img.icons8.com/bubbles/100/000000/waste-separation.png" />
+        <img className="center" src={iconM} />
         {type_desc}
         {name}
         {add_desc}
         {hours_desc}
+        {loc}
         {web_desc}
 
     </Popup>
