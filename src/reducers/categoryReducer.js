@@ -18,7 +18,7 @@ const initialState={"recycling":{
   },
   "shop":{
     "status": false,
-    "store": false,
+    "food": false,
     "repair": false,
     "clothes": false,
     "clothes, toys": false,  

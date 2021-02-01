@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form'
 
 const recycling = ["glass","individualWaste", "clothes", "EverydayObjects", "books", "organization", "foodsharing"]
 
-const shops = ["store", "repair", "clothes", "clothes, toys", "diverse", "multimedia", "furniture"]
+const shops = ["food", "repair", "clothes", "clothes, toys", "diverse", "multimedia", "furniture"]
 
 const Sidebar = () => {
     const categories = useSelector((state) => state.categories);
