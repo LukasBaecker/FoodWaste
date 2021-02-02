@@ -2,10 +2,8 @@
 @import "./leaflet-marker-cluster.scss";
 @import "./storymap.scss";
 @import "./navbar.scss";
+@import "./toMapDiv.scss";
 
-.sidenav {
-  margin-top: 64 px;
-}
 html,
 body {
   height: unquote("calc(100vh - 25px)");
@@ -41,8 +39,10 @@ body {
 }
 
 .leaflet-container {
+  top: 0;
+  left: 0;
   width: 100vw;
-  height: unquote("calc(100vh - 89px)");
+  height: unquote("calc(100vh - 64px)");
   margin-top: 64px;
   z-index: 0;
 }
@@ -79,13 +79,14 @@ body {
   -webkit-transition: 0.5s ease-in-out;
   transition-delay: 1.5s;
 }
+/*
 #jumbo-text:hover .underline-span {
   -webkit-text-decoration-color: $primary;
   text-decoration-color: $primary;
   color: $info;
   transition-delay: 0s;
 }
-
+*/
 video {
   object-fit: cover;
   width: 100vw;
@@ -195,16 +196,6 @@ video {
   font-size: x-large;
   text-align: center;
 }
-.infoContainer-dark {
-  width: 100vw;
-  height: 100vh;
-  padding: 4rem 2rem;
-  padding-top: unquote("calc(100vh/3 - 10vh)");
-  color: white;
-  font-size: x-large;
-  text-align: center;
-}
-
 .tryout {
   text-align: right;
 }
@@ -251,6 +242,11 @@ $theme-colors: (
   "danger": #ff4136,
 );
 
+.sidenav {
+  margin-top: 74px !important;
+  height: 80vh;
+  border-radius: 8px;
+}
 .sidenav---sidenav---_2tBP {
   background: $primare_opac;
 }
@@ -278,8 +274,11 @@ $theme-colors: (
 //  font-size: 30px;
 //}
 
-.leaflet-left {
-  margin-left: 64px;
+.leaflet-right {
+  margin-top: 20px;
+}
+.leaflet-control-layers {
+  background-color: $primare_opac;
 }
 
 .column {

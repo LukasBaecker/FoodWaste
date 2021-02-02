@@ -1,0 +1,146 @@
+@import "./corporate-design.scss";
+
+.infoContainer-dark {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 125px;
+  color: white;
+  text-align: left;
+}
+.textMessage {
+  color: $secondary;
+}
+.textMessage p {
+  text-align: justify;
+  font-size: 1.5rem;
+  padding-right: 60px;
+}
+.textMessage.mobile p {
+  padding-right: 0px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.toMap-text {
+  padding: 28px;
+  border-radius: 8px;
+  margin-right: 60px;
+  background-color: $primary;
+  color: white;
+  margin-bottom: 50px;
+}
+.toMap-text.mobile {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 150px;
+  margin-bottom: 20px;
+  color: white;
+  padding-top: 200px;
+  padding-left: 2rem;
+}
+
+.toMap-image {
+  margin-top: 20px;
+  position: absolute;
+  z-index: -11;
+  margin-left: 30px;
+  top: 0;
+  left: 0;
+}
+.toMap-image.mobile {
+  left: 50vw;
+  margin-left: -120px;
+  margin-top: -25px;
+  z-index: 11;
+}
+.toMap-img {
+  width: 350px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+.toMap-img.mobile {
+  width: 240px;
+}
+
+.iconsBubble {
+  background-color: white;
+  border-radius: 50%;
+  font-size: 2rem;
+}
+.iconsBubble.mobile {
+}
+.bubble-img {
+  width: 100px;
+  height: auto;
+  display: block;
+  scale: unset;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+}
+/*
+#bubble0 {
+  margin-left: 50px;
+  margin-top: 310px;
+}
+
+#bubble1 {
+  margin-left: 350px;
+  margin-top: 350px;
+}
+
+#bubble2 {
+  margin-left: 380px;
+  margin-top: 180px;
+}
+
+#bubble3 {
+  margin-left: 120px;
+  margin-top: 30px;
+}
+
+#bubble4 {
+  margin-left: 0px;
+  margin-top: 170px;
+}
+
+#bubble5 {
+  margin-left: 280px;
+  margin-top: 80px;
+}
+
+#bubble6 {
+  margin-left: 170px;
+  margin-top: 370px;
+}
+*/
+#bubbleShow {
+  width: 180px;
+  height: 180px;
+  background-color: $info;
+  text-align: center;
+  color: white;
+  margin-left: 50%;
+  -ms-transform: translateX(-90px);
+  transform: translateX(-90px);
+}
+#bubbleShow h1 {
+  padding-top: 50%;
+  -ms-transform: translateY(-2.5rem);
+  transform: translateY(-2.5rem);
+}
+#bubblePointCounter {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  z-index: -3;
+  margin-left: 50%;
+  -ms-transform: translateX(-90px);
+  transform: translateX(-90px);
+  width: 180px;
+  height: 180px;
+  padding: 30px;
+  background-color: $primary;
+  color: white;
+  text-align: center;
+}

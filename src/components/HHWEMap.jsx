@@ -3,8 +3,8 @@ import { Scrollama, Step } from "react-scrollama";
 import { TileLayer, MapContainer, GeoJSON } from "react-leaflet";
 import L from "leaflet";
 import ChangeView from "./ChangeView.jsx";
-delete L.Icon.Default.prototype._getIconUrl;
 import legendItems from "../entities/LegendItems.js";
+delete L.Icon.Default.prototype._getIconUrl;
 
 const europeCenter = [51.960667, 7.626135];
 const germanyCenter = [51.746079, 10.601846];
@@ -69,7 +69,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
       const unit = polygon.properties.Units;
       //const HHW2018 = polygon.properties.[2018];
       const HHW2018 = polygon.properties.confirmedText;
-      layer.bindPopup(`${name}<br> ${unit} ${HHW2018}`);
+      layer.bindPopup(`${name}<br> ${unit} ${HHW2018} t`);
     } else {
       if (polygon.properties.POP == undefined) {
         layer.options.fillColor = polygon.properties.color;
@@ -77,14 +77,14 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
         //const unit = fedState.properties.Units;
         //const HHW2019 = fedState.properties.[2018];
         const HHW2019 = polygon.properties.confirmedText;
-        layer.bindPopup(`${name}<br> ${HHW2019}`);
+        layer.bindPopup(`${name}<br> ${HHW2019} t`);
       } else {
         layer.options.fillColor = polygon.properties.color;
         const name = polygon.properties.REGIERUNG;
         //const unit = fedState.properties.Units;
         //const HHW2019 = fedState.properties.[2018];
         const HHW2019 = polygon.properties.confirmedText;
-        layer.bindPopup(`${name}<br> ${HHW2019}`);
+        layer.bindPopup(`${name}<br> ${HHW2019} t`);
       }
     }
   };
@@ -154,7 +154,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
           <div className='legend-div info'>
             <h4>Tonnes of Waste</h4>
             <p>
-              <i style={{ background: "#bd0026" }}></i>
+              <i style={{ background: "#bd0026", opacity: "0.8" }}></i>
               more than 6.746.343
             </p>
             <p>

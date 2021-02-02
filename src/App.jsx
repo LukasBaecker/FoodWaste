@@ -5,9 +5,6 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import MapPage from "./components/MapPage.jsx";
 import HomePage from "./components/HomePage.jsx";
 import Footer from "./components/Footer.jsx";
-import Plots from "./components/Plots.jsx"; // for working on plots
-
-import Breakpoint, { BreakpointProvider } from "react-socks";
 
 const App = () => {
   return (
@@ -19,9 +16,6 @@ const App = () => {
           </Route>
           <Route exact path='/map'>
             <MapPage />
-          </Route>
-          <Route exact path='/plots'>
-            <Plots />
           </Route>
         </Switch>
         <Footer />
