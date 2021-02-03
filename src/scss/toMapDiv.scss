@@ -2,13 +2,16 @@
 
 .infoContainer-dark {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   padding-top: 125px;
   color: white;
   text-align: left;
 }
 .textMessage {
   color: $secondary;
+}
+.textMessage.mobile {
+  padding-top: 150px;
 }
 .textMessage p {
   text-align: justify;
@@ -32,10 +35,10 @@
 .toMap-text.mobile {
   margin-right: auto;
   margin-left: auto;
-  margin-top: 150px;
+  margin-top: 20px;
   margin-bottom: 20px;
   color: white;
-  padding-top: 200px;
+  padding-bottom: 200px;
   padding-left: 2rem;
 }
 
@@ -50,7 +53,7 @@
 .toMap-image.mobile {
   left: 50vw;
   margin-left: -120px;
-  margin-top: -25px;
+  margin-top: 125px;
   z-index: 11;
 }
 .toMap-img {
@@ -66,64 +69,77 @@
 .iconsBubble {
   background-color: white;
   border-radius: 50%;
+  width: 100px;
+  height: 100px;
   font-size: 2rem;
+  animation-name: softfloating;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 .iconsBubble.mobile {
 }
+
 .bubble-img {
   width: 100px;
   height: auto;
   display: block;
   scale: unset;
-  transition: 0.2s ease-in-out;
-  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
+  -webkit-transition: 0.1s ease-in-out;
 }
-/*
+.bubble-img:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  transition: 0.4s ease;
+}
+.bubble-img:active {
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari 3-8 */
+  transform: scale(1);
+  transition: 0s ease-out;
+  -webkit-transition: 0s ease-out;
+}
 #bubble0 {
-  margin-left: 50px;
-  margin-top: 310px;
+  margin-top: 130px;
+  animation-duration: 5s;
 }
 
 #bubble1 {
-  margin-left: 350px;
-  margin-top: 350px;
+  margin-top: 40px;
+  animation-duration: 7s;
 }
 
 #bubble2 {
-  margin-left: 380px;
-  margin-top: 180px;
+  margin-top: 170px;
+  animation-duration: 9s;
 }
 
 #bubble3 {
-  margin-left: 120px;
   margin-top: 30px;
+  animation-duration: 4s;
 }
 
 #bubble4 {
-  margin-left: 0px;
   margin-top: 170px;
+  animation-duration: 12s;
 }
 
 #bubble5 {
-  margin-left: 280px;
   margin-top: 80px;
+  animation-duration: 6s;
 }
 
-#bubble6 {
-  margin-left: 170px;
-  margin-top: 370px;
-}
-*/
 #bubbleShow {
   width: 180px;
   height: 180px;
   background-color: $info;
   text-align: center;
   color: white;
-  margin-left: 50%;
-  -ms-transform: translateX(-90px);
-  transform: translateX(-90px);
+  margin-left: 20%;
 }
+
 #bubbleShow h1 {
   padding-top: 50%;
   -ms-transform: translateY(-2.5rem);
@@ -132,15 +148,70 @@
 #bubblePointCounter {
   position: absolute;
   top: 100px;
-  left: 100px;
+  left: 120px;
   z-index: -3;
-  margin-left: 50%;
-  -ms-transform: translateX(-90px);
-  transform: translateX(-90px);
+  margin-left: 20%;
   width: 180px;
   height: 180px;
   padding: 30px;
   background-color: $primary;
   color: white;
   text-align: center;
+  animation-duration: 10s;
+}
+#bubbleDiv {
+  transition: transform 0.2s;
+  scale: unset;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+}
+#bubbleDiv.mobile {
+  margin-top: 500px;
+  padding-bottom: 40vh;
+}
+#bubbleDiv:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1);
+}
+#bubbleDiv:active {
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari 3-8 */
+  transform: scale(1);
+  transition: 0s ease-out;
+  -webkit-transition: 0s ease-out;
+}
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-top: 5px;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(-0px);
+  }
+}
+
+@keyframes softfloating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(-0px);
+  }
+}
+#bubbleDiv a:hover {
+  text-decoration: none;
 }

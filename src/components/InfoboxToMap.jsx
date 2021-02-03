@@ -26,7 +26,7 @@ const icons = [
 ];
 const ContainerToMap = () => {
   const pointsNumber = useSelector((state) => state.pointNumber);
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 767px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1150px)" });
 
   return (
     <>
@@ -34,7 +34,7 @@ const ContainerToMap = () => {
         {({ inView, ref, entry }) => (
           <>
             <Container ref={ref} fluid className='infoContainer-dark'>
-              <Row style={{ height: "100%" }}>
+              <Row style={{ height: "50vh" }}>
                 <Col xs={12} md={12}>
                   <div
                     className={
@@ -80,155 +80,201 @@ const ContainerToMap = () => {
       <InView triggerOnce={true} threshold={0.5}>
         {({ inView, ref, entry }) => (
           <Container fluid>
-            <Row>
+            <Row style={{ marginBottom: "200px", height: "290px" }}>
               {isTabletOrMobile ? (
                 <>
-                  <Col xs={12} md={4}>
-                    {" "}
-                    <div
-                      ref={ref}
-                      className={
-                        isTabletOrMobile ? "iconsBubble mobile" : "iconsBubble"
-                      }
-                      id='bubblePointCounter'>
-                      <FontAwesomeIcon
-                        icon={faSearchLocation}
-                        style={{ fontSize: "40px" }}
-                      />
-                      <br />
-                      {inView ? (
-                        <CountUp start={0} end={pointsNumber} delay={1} />
-                      ) : (
-                        0
-                      )}
-                      <p style={{ fontSize: "1.5rem" }}>points</p>
-                    </div>
-                    <div
-                      className={
-                        isTabletOrMobile ? "iconsBubble mobile" : "iconsBubble"
-                      }
-                      id='bubbleShow'>
-                      <h1 style={{ fontSize: "2.5rem" }}>Show me how!</h1>
-                    </div>
+                  <Col
+                    xs={12}
+                    md={4}
+                    id='bubbleDiv'
+                    className={isTabletOrMobile ? "mobile" : ""}>
+                    <a href='/FoodWaste/#/map'>
+                      <div
+                        ref={ref}
+                        className={
+                          isTabletOrMobile
+                            ? "iconsBubble mobile"
+                            : "iconsBubble"
+                        }
+                        id='bubblePointCounter'>
+                        <FontAwesomeIcon
+                          icon={faSearchLocation}
+                          style={{ fontSize: "40px" }}
+                        />
+                        <br />
+                        {inView ? (
+                          <CountUp start={0} end={pointsNumber} delay={1} />
+                        ) : (
+                          0
+                        )}
+                        <p style={{ fontSize: "1.5rem" }}>points</p>
+                      </div>
+                    </a>
+                    <a href='/FoodWaste/#/map'>
+                      <div
+                        className={
+                          isTabletOrMobile
+                            ? "iconsBubble floating mobile"
+                            : "floating iconsBubble"
+                        }
+                        id='bubbleShow'>
+                        <h1 style={{ fontSize: "2.5rem" }}>Show me how!</h1>
+                      </div>
+                    </a>
                   </Col>
                 </>
               ) : (
                 <>
                   <Col md={1}></Col>
                   <Col md={1}>
-                    {" "}
-                    <div
-                      key={"bubble0"}
-                      id={"bubble0"}
-                      className={
-                        isTabletOrMobile ? "iconsBubble mobile" : "iconsBubble"
-                      }>
-                      <img
-                        src={icons[0]}
-                        alt='an icon from our map'
-                        className='bubble-img'
-                      />
-                    </div>
+                    <a href='/FoodWaste/#/map'>
+                      <div
+                        key={"bubble0"}
+                        id={"bubble0"}
+                        className={
+                          isTabletOrMobile
+                            ? "iconsBubble mobile"
+                            : "iconsBubble"
+                        }>
+                        <img
+                          src={icons[0]}
+                          alt='an icon from our map'
+                          className='bubble-img'
+                        />
+                      </div>
+                    </a>
                   </Col>
                   <Col md={1}>
-                    <div
-                      key={"bubble1"}
-                      id={"bubble1"}
-                      className={
-                        isTabletOrMobile ? "iconsBubble mobile" : "iconsBubble"
-                      }>
-                      <img
-                        src={icons[1]}
-                        alt='an icon from our map'
-                        className='bubble-img'
-                      />
-                    </div>
+                    <a href='/FoodWaste/#/map'>
+                      <div
+                        key={"bubble1"}
+                        id={"bubble1"}
+                        className={
+                          isTabletOrMobile
+                            ? "iconsBubble mobile"
+                            : "iconsBubble"
+                        }>
+                        <img
+                          src={icons[1]}
+                          alt='an icon from our map'
+                          className='bubble-img'
+                        />
+                      </div>
+                    </a>
                   </Col>
                   <Col md={1}>
-                    {" "}
-                    <div
-                      key={"bubble2"}
-                      id={"bubble2"}
-                      className={
-                        isTabletOrMobile ? "iconsBubble mobile" : "iconsBubble"
-                      }>
-                      <img
-                        src={icons[2]}
-                        alt='an icon from our map'
-                        className='bubble-img'
-                      />
-                    </div>
+                    <a href='/FoodWaste/#/map'>
+                      <div
+                        key={"bubble2"}
+                        id={"bubble2"}
+                        className={
+                          isTabletOrMobile
+                            ? "iconsBubble mobile"
+                            : "iconsBubble"
+                        }>
+                        <img
+                          src={icons[2]}
+                          alt='an icon from our map'
+                          className='bubble-img'
+                        />
+                      </div>
+                    </a>
                   </Col>
-                  <Col xs={12} md={4}>
-                    {" "}
-                    <div
-                      ref={ref}
-                      className={
-                        isTabletOrMobile ? "iconsBubble mobile" : "iconsBubble"
-                      }
-                      id='bubblePointCounter'>
-                      <FontAwesomeIcon
-                        icon={faSearchLocation}
-                        style={{ fontSize: "40px" }}
-                      />
-                      <br />
-                      {inView ? (
-                        <CountUp start={0} end={pointsNumber} delay={1} />
-                      ) : (
-                        0
-                      )}
-                      <p style={{ fontSize: "1.5rem" }}>points</p>
-                    </div>
-                    <div
-                      className={
-                        isTabletOrMobile ? "iconsBubble mobile" : "iconsBubble"
-                      }
-                      id='bubbleShow'>
-                      <h1 style={{ fontSize: "2.5rem" }}>Show me how!</h1>
-                    </div>
+
+                  <Col
+                    xs={12}
+                    md={4}
+                    id='bubbleDiv'
+                    className={isTabletOrMobile ? "mobile" : ""}>
+                    <a href='/FoodWaste/#/map'>
+                      {" "}
+                      <div
+                        ref={ref}
+                        className={
+                          isTabletOrMobile
+                            ? "iconsBubble mobile"
+                            : "iconsBubble"
+                        }
+                        id='bubblePointCounter'>
+                        <FontAwesomeIcon
+                          icon={faSearchLocation}
+                          style={{ fontSize: "40px" }}
+                        />
+                        <br />
+                        {inView ? (
+                          <CountUp start={0} end={pointsNumber} delay={1} />
+                        ) : (
+                          0
+                        )}
+                        <p style={{ fontSize: "1.5rem" }}>points</p>
+                      </div>
+                    </a>
+                    <a href='/FoodWaste/#/map'>
+                      <div
+                        className={
+                          isTabletOrMobile
+                            ? "iconsBubble floating mobile"
+                            : "floating iconsBubble"
+                        }
+                        id='bubbleShow'>
+                        <h1 style={{ fontSize: "2.5rem" }}>Show me how!</h1>
+                      </div>
+                    </a>
                   </Col>
+
                   <Col className='hidden-xs' xs={0} md={1}>
-                    <div
-                      key={"bubble3"}
-                      id={"bubble3"}
-                      className={
-                        isTabletOrMobile ? "iconsBubble mobile" : "iconsBubble"
-                      }>
-                      <img
-                        src={icons[3]}
-                        alt='an icon from our map'
-                        className='bubble-img'
-                      />
-                    </div>
+                    <a href='/FoodWaste/#/map'>
+                      <div
+                        key={"bubble3"}
+                        id={"bubble3"}
+                        className={
+                          isTabletOrMobile
+                            ? "iconsBubble mobile"
+                            : "iconsBubble"
+                        }>
+                        <img
+                          src={icons[3]}
+                          alt='an icon from our map'
+                          className='bubble-img'
+                        />
+                      </div>
+                    </a>
                   </Col>
                   <Col md={1}>
-                    <div
-                      key={"bubble4"}
-                      id={"bubble4"}
-                      className={
-                        isTabletOrMobile ? "iconsBubble mobile" : "iconsBubble"
-                      }>
-                      <img
-                        src={icons[4]}
-                        alt='an icon from our map'
-                        className='bubble-img'
-                      />
-                    </div>
+                    <a href='/FoodWaste/#/map'>
+                      <div
+                        key={"bubble4"}
+                        id={"bubble4"}
+                        className={
+                          isTabletOrMobile
+                            ? "iconsBubble mobile"
+                            : "iconsBubble"
+                        }>
+                        <img
+                          src={icons[4]}
+                          alt='an icon from our map'
+                          className='bubble-img'
+                        />
+                      </div>
+                    </a>
                   </Col>
                   <Col md={1}>
-                    {" "}
-                    <div
-                      key={"bubble5"}
-                      id={"bubble5"}
-                      className={
-                        isTabletOrMobile ? "iconsBubble mobile" : "iconsBubble"
-                      }>
-                      <img
-                        src={icons[5]}
-                        alt='an icon from our map'
-                        className='bubble-img'
-                      />
-                    </div>{" "}
+                    <a href='/FoodWaste/#/map'>
+                      <div
+                        key={"bubble5"}
+                        id={"bubble5"}
+                        className={
+                          isTabletOrMobile
+                            ? "iconsBubble mobile"
+                            : "iconsBubble"
+                        }>
+                        <img
+                          src={icons[5]}
+                          alt='an icon from our map'
+                          className='bubble-img'
+                        />
+                      </div>
+                    </a>
                   </Col>
                   <Col md={1}></Col>
                 </>
