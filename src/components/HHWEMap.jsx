@@ -67,7 +67,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
       const name = polygon.properties.NAME_STATI;
       const HHW2019 = polygon.properties.confirmedText;
       const unit = "kg"
-      layer.bindPopup(`${name.bold().fontsize(4)} <br> ${HHW2019.bold().fontsize(1.7)}<br> of Household waste <br> per inhabitant in 2019.`);
+      layer.bindPopup(`${name.bold().fontsize(4)} <br> ${HHW2019.bold().fontsize(1.7)} ${unit.bold()}<br> of Household waste <br> per inhabitant in 2019.`);
     } else {
       if (polygon.properties.REGIERUNG != undefined) {
         layer.options.fillColor = polygon.properties.color;

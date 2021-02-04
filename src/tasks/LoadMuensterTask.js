@@ -26,7 +26,7 @@ class LoadMuensterTask{
       
         #setCountryColor = (mapMuenster) => {
           const legendItem = legendItems.find((legendItem) =>
-            legendItem.isFor(mapMuenster.properties.HHWINH)
+            legendItem.isFor(mapMuenster.properties.["SUM HHW"])
           );
       
           if (legendItem != null) {

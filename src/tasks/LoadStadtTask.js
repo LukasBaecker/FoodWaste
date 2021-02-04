@@ -6,32 +6,32 @@ class LoadStadtTask{
         this.setState = setState;
 
         for (let i = 0; i < features.length; i++) {
-            const muenster = features[i];
+            const stadt = features[i];
             //console.log(country);
-            const HHMuenster = muenster.properties.["HH WASTE"];
-            muenster.properties.confirmed = 0;
-            muenster.properties.confirmedText = 0;
+            const HHStadt = stadt.properties.["HH WASTE"];
+            stadt.properties.confirmed = 0;
+            stadt.properties.confirmedText = 0;
   
-            if (HHMuenster != null) {
-              muenster.properties.confirmed = HHMuenster;
-              muenster.properties.confirmedText = this.#formatNumberWithCommas(
-                HHMuenster
+            if (HHStadt != null) {
+              stadt.properties.confirmed = HHStadt;
+              stadt.properties.confirmedText = this.#formatNumberWithCommas(
+                HHStadt
               );
             }
   
-            this.#setCountryColor(muenster);
+            this.#setCountryColor(stadt);
           }
       
           this.setState(features);
         };
       
-        #setCountryColor = (mapMuenster) => {
+        #setCountryColor = (mapStadt) => {
           const legendItem = legendItems.find((legendItem) =>
-            legendItem.isFor(mapMuenster.properties.TOTAL_WAST)
+            legendItem.isFor(mapStadt.properties.["HH WASTE"])
           );
       
           if (legendItem != null) {
-            mapMuenster.properties.color = legendItem.color;
+            mapStadt.properties.color = legendItem.color;
           }
         };
   
