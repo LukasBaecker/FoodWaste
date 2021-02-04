@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import { TileLayer, MapContainer, GeoJSON } from "react-leaflet";
-import L, { Polygon } from "leaflet";
+import L from "leaflet";
 import ChangeView from "./ChangeView.jsx";
 import legendItems from "../entities/LegendItems.js";
 import { useMediaQuery } from "react-responsive";
+import Table from "react-bootstrap/Table";
 delete L.Icon.Default.prototype._getIconUrl;
 const europeCenter = [58.5, -25];
 const germanyCenter = [51.8, 3.4];
@@ -20,43 +21,57 @@ const stadtCenterMobile = [51.960667, 7.626135];
 
 const europeLegendVal = {
   heading: "Waste in t",
-  zero: "< 408.103",
-  one: "408.103 - 1.478.967",
+  zero: "> 6.746.344",
+  one: "2.591.188 - 6.746.344",
   two: "1.478.968 - 2.591.187",
-  three: "2.591.188 - 6.746.344",
-  four: "> 6.746.344",
+  three: "408.103 - 1.478.967",
+  four: "< 408.103",
 };
 const germanyLegendVal = {
   heading: "Waste in kg per capita",
-  zero: "< 429",
-  one: "429 - 444",
+  zero: "> 479",
+  one: "458 - 479",
   two: "445 - 457",
-  three: "458 - 479",
-  four: "> 479",
+  three: "429 - 444",
+  four: "< 429",
 };
 const nrwLegendVal = {
   heading: "Waste in kg per capita",
-  zero: "< 448",
-  one: "449 - 458",
+  zero: "> 481",
+  one: "468 - 481",
   two: "459 - 467",
-  three: "468 - 481",
-  four: "> 481",
+  three: "449 - 458",
+  four: "< 448",
 };
 const muensterlandLegendVal = {
   heading: "Waste in kg per capita",
-  zero: "< 112",
-  one: "112 - 125",
+  zero: "> 236",
+  one: "155 - 236",
   two: "125 - 154",
-  three: "155 - 236",
-  four: "> 236",
+  three: "112 - 125",
+  four: "< 112",
 };
 const muensterCityLegendVal = {
   heading: "Waste in kg per capita",
-  zero: "< 529",
-  one: "529 - 845",
+  zero: "> 1327",
+  one: "1080 - 1326",
   two: "846 - 1079",
-  three: "1080 - 1326",
-  four: "> 1327",
+  three: "529 - 845",
+  four: "< 529",
+};
+const legendColorPerCapita = {
+  zero: "#bd0026",
+  one: "#f03b20",
+  two: "#fd8d3c",
+  three: "#fecc5c",
+  four: "#ffffb2",
+};
+const legendColor = {
+  zero: "#00441b",
+  one: "#267b3a",
+  two: "#06aa6e",
+  three: "#caeac3",
+  four: "#f7fcf5",
 };
 
 const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
@@ -68,6 +83,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
   const [currentLegendNumbers, setCurrentLegendNumbers] = useState(
     europeLegendVal
   );
+  const [currentLegendColor, setCurrentLegendColor] = useState(legendColor);
   const [currentZoom, setCurrentZoom] = useState(3);
   const [geoData, setGeoData] = useState(countries);
   const geoJsonLayer = useRef(null);
@@ -177,24 +193,28 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
     setCurrentStepIndex(data);
     if (data === 0 || data === 1) {
       setCurrentLegendNumbers(europeLegendVal);
+      setCurrentLegendColor(legendColor);
       setCurrentCenter(isTabletOrMobile ? europeCenterMobile : europeCenter);
       setCurrentZoom(isTabletOrMobile ? 3 : 3.35);
       setGeoData(countries);
     }
     if (data === 2) {
       setCurrentLegendNumbers(germanyLegendVal);
+      setCurrentLegendColor(legendColorPerCapita);
       setCurrentCenter(isTabletOrMobile ? germanyCenterMobile : germanyCenter);
       setCurrentZoom(isTabletOrMobile ? 5 : 5.9);
       setGeoData(fedStates);
     }
     if (data === 3) {
       setCurrentLegendNumbers(nrwLegendVal);
+      setCurrentLegendColor(legendColorPerCapita);
       setCurrentCenter(isTabletOrMobile ? nrwCenterMobile : nrwCenter);
       setCurrentZoom(isTabletOrMobile ? 7 : 7.5);
       setGeoData(districts);
     }
     if (data === 4) {
       setCurrentLegendNumbers(muensterlandLegendVal);
+      setCurrentLegendColor(legendColorPerCapita);
       setCurrentCenter(
         isTabletOrMobile ? muensterCenterMobile : muensterCenter
       );
@@ -203,6 +223,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
     }
     if (data === 5) {
       setCurrentLegendNumbers(muensterCityLegendVal);
+      setCurrentLegendColor(legendColorPerCapita);
       setCurrentCenter(isTabletOrMobile ? stadtCenterMobile : stadtCenter);
       setCurrentZoom(isTabletOrMobile ? 10.5 : 10.9);
       setGeoData(stadt);
@@ -243,23 +264,23 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
           <div className='legend-div info'>
             <h4>{currentLegendNumbers.heading}</h4>
             <p>
-              <i style={{ background: "#bd0026" }}></i>
+              <i style={{ background: currentLegendColor.zero }}></i>
               {currentLegendNumbers.zero}
             </p>
             <p>
-              <i style={{ background: "#f03b20" }}></i>
+              <i style={{ background: currentLegendColor.one }}></i>
               {currentLegendNumbers.one}
             </p>
             <p>
-              <i style={{ background: "#fd8d3c" }}></i>
+              <i style={{ background: currentLegendColor.two }}></i>
               {currentLegendNumbers.two}
             </p>
             <p>
-              <i style={{ background: "#fecc5c" }}></i>
+              <i style={{ background: currentLegendColor.three }}></i>
               {currentLegendNumbers.three}
             </p>
             <p>
-              <i style={{ background: "#ffffb2" }}></i>
+              <i style={{ background: currentLegendColor.four }}></i>
               {currentLegendNumbers.four}
             </p>
             <p>
@@ -387,10 +408,16 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
           </Step>
 
           <Step data={5} key={5}>
-            <div>
+            <div
+              className={
+                isTabletOrMobile
+                  ? "storymap-description mobile"
+                  : "storymap-description"
+              }>
               <h2>This is about Münster</h2>
-              <p>
-                <table style={{ fontSize: 16 }}>
+
+              <Table striped bordered hover>
+                <thead>
                   <tr style={{ border: "1px solid #000000" }}>
                     <th
                       style={
@@ -419,6 +446,8 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                       <div style={{ color: "#8f9195" }}>Minimum</div>
                     </th>
                   </tr>
+                </thead>
+                <tbody>
                   <tr style={{ border: "1px solid #000000" }}>
                     <td style={{ backgroundColor: "#353a40" }}>
                       <b style={{ color: "#8f9195" }}>Country</b>
@@ -539,8 +568,8 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                     <td style={{ backgroundColor: "#bd0026" }}>2921 kg</td>
                     <td style={{ backgroundColor: "#ffffb2" }}>156 kg</td>
                   </tr>
-                </table>
-              </p>
+                </tbody>
+              </Table>
             </div>
           </Step>
 

@@ -32,6 +32,15 @@
   color: white;
   margin-bottom: 50px;
 }
+.toMap-text.tablet {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 25px;
+  margin-bottom: 250px;
+  color: white;
+  padding-bottom: 200px;
+  padding-left: 2rem;
+}
 .toMap-text.mobile {
   margin-right: auto;
   margin-left: auto;
@@ -49,6 +58,12 @@
   margin-left: 30px;
   top: 0;
   left: 0;
+}
+.toMap-image.tablet {
+  left: 50vw;
+  margin-left: -120px;
+  margin-top: 175px;
+  z-index: 11;
 }
 .toMap-image.mobile {
   left: 50vw;
@@ -156,27 +171,39 @@
   text-align: center;
   animation-duration: 10s;
 }
+
 #bubbleDiv {
-  transition: transform 0.2s;
   scale: unset;
   transition: 0.2s ease-in-out;
   -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
 }
 #bubbleDiv.mobile {
   margin-top: 600px;
   padding-bottom: 40vh;
 }
-#bubbleDiv:hover {
-  -ms-transform: scale(1.1); /* IE 9 */
-  -webkit-transform: scale(1.1); /* Safari 3-8 */
+.bubbleDivDesktop:hover {
+  -ms-transform: scale(1.1);
+  /*IE9*/
   transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
 }
 #bubbleDiv:active {
-  -ms-transform: scale(1); /* IE 9 */
-  -webkit-transform: scale(1); /* Safari 3-8 */
-  transform: scale(1);
+  -ms-transform: scale(0.9);
+  /*Safari3-8*/
+  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -o-transform: scale(0.9);
   transition: 0s ease-out;
   -webkit-transition: 0s ease-out;
+  -moz-transition: 0s ease-out;
+  -ms-transition: 0s ease-out;
+  -o-transition: 0s ease-out;
 }
 .floating {
   animation-name: floating;

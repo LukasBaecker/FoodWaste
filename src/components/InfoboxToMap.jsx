@@ -27,7 +27,7 @@ const icons = [
 const ContainerToMap = () => {
   const pointsNumber = useSelector((state) => state.pointNumber);
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 991px)" });
-
+  const isMobile = useMediaQuery({ query: "(max-width: 452px)" });
   return (
     <>
       <InView triggerOnce={true} threshold={0.5}>
@@ -38,7 +38,11 @@ const ContainerToMap = () => {
                 <Col xs={12} md={12}>
                   <div
                     className={
-                      isTabletOrMobile ? "toMap-text mobile" : "toMap-text"
+                      isTabletOrMobile
+                        ? isMobile
+                          ? "toMap-text mobile"
+                          : "toMap-text tablet"
+                        : "toMap-text"
                     }>
                     <h1 style={{ fontSize: "2rem" }}>
                       A global problem, calling for local solutions
@@ -46,7 +50,11 @@ const ContainerToMap = () => {
                   </div>
                   <div
                     className={
-                      isTabletOrMobile ? "toMap-image mobile" : "toMap-image"
+                      isTabletOrMobile
+                        ? isMobile
+                          ? "toMap-image mobile"
+                          : "toMap-image tablet"
+                        : "toMap-image"
                     }>
                     <img
                       src={picture}
@@ -61,9 +69,7 @@ const ContainerToMap = () => {
                   xs={12}
                   lg={{ span: 8, offset: 4 }}
                   md={12}
-                  className={
-                    isTabletOrMobile ? "textMessage mobile" : "textMessage"
-                  }>
+                  className={isMobile ? "textMessage mobile" : "textMessage"}>
                   <div>
                     <p>
                       "Each and everyone of us is represented in the numbers
@@ -87,7 +93,7 @@ const ContainerToMap = () => {
                     xs={12}
                     md={4}
                     id='bubbleDiv'
-                    className={isTabletOrMobile ? "mobile" : ""}>
+                    className={isTabletOrMobile ? "mobile" : "desktop"}>
                     <a href='/FoodWaste/#/map'>
                       <div
                         ref={ref}
@@ -185,7 +191,9 @@ const ContainerToMap = () => {
                     xs={12}
                     md={4}
                     id='bubbleDiv'
-                    className={isTabletOrMobile ? "mobile" : ""}>
+                    className={
+                      isTabletOrMobile ? "mobile" : "bubbleDivDesktop"
+                    }>
                     <a href='/FoodWaste/#/map'>
                       {" "}
                       <div
