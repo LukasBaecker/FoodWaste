@@ -299,39 +299,16 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
               }>
               <h2>This is about Europe</h2>
               <p>
-                According to the global goals adopted by the United Nations in
-                2015, a social movement on “Zero Waste Europe” was brought into
-                limelight supporting the Sustainable Development Goal for
-                “Responsible consumption and production”. The directive of this
-                movement is to curtail the plastic litter and its associated
-                impact through “Transforming our world: the 2030 Agenda for
-                Sustainable Development” [2]. In a broader picture, the term
-                “waste” contributes countless elements in everyday routine. Some
-                common wastes produced on a daily basis includes: household
-                waste, organic waste, grünabfälle, packing waste (papers,
-                cardboards), glass products and other waste products. This
-                inturn signifies the importance of proper waste management or
-                recycling measures to harmonise sustainability.
+              According to the global goals adopted by the United Nations in 2015, a social movement on <b style={{color:"#06aa6e"}}>“Zero Waste Europe”</b> was brought into limelight supporting the Sustainable Development Goal (SDG) 12 - <b style={{color:"#06aa6e"}}>“Responsible consumption and production”</b>. The directive of this movement is to curtail the plastic litter and its associated impact through <b style={{color:"#06aa6e"}}>“Transforming our world: the 2030 Agenda for Sustainable Development”</b>. In a broader picture, the term <b style={{color:"#06aa6e"}}>“waste”</b> contributes countless elements in our everyday routine. 
               </p>
               <p>
-                The total household waste generated in the European Union
-                accounts for about 202 million tonnes in 2018. As per the waste
-                statistics, each inhabitant generated 5.2 tonnes of waste during
-                2018. Among the EU- 27 countries, per capita waste generation of
-                Finland was larger (23.2 tonnes) whereas, per capita waste
-                generation for North Macedonia was the least (0.54 tonnes).
+              The waste statistics displays the household waste in tonnes for Europe as of 2018, of which the top ranked country is Turkey <b>(32.3 million)</b>, followed by the United Kingdom <b>(31.9 million)</b>, France <b>(21 million)</b> and <b style={{color:"#00441b"}}>Germany (20.6 million)</b>. 
               </p>
               <p>
-                <b>Interact with the map to compare each country. --------></b>
+                <b style={{color:"red"}}>Click on any country on the map to compare each country. -></b>
               </p>
-              <p>
-                It was estimated that nearly 36% of total waste was from
-                construction, 26.2% waste from mining and quarrying, 10.6% of
-                manufacturing waste, 9.9% from waste/water services, 8.2% from
-                households and the rest 9.1% of waste included other economic
-                activities. In the European Union, food waste per year per
-                person accounts for between 158 - 290 kg.
-              </p>
+              <p style={{color:"#06aa6e"}}>Let’s go one step further to our country..!</p>
+              
             </div>
           </Step>
           <Step data={2} key={2}>
@@ -343,20 +320,9 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
               }>
               <h2>This is about Germany</h2>
               <p>
-                The total waste generated in Germany was 37.7 million tonnes and
-                the per capita waste generated was 4.8 tonnes in the year 2018
-                which was increased by 0.8% in 2019. According to the Federal
-                Government report, 11 million tonnes of food is wasted each
-                year. Construction and demolition waste contributes a larger
-                portion of the total waste produced in Germany every year. About
-                12 million tonnes of recyclable wastes such as glass,
-                paper/cardboards, metals, wood, plastics, textiles and 10.1
-                million tonnes of organic wastes including wastes from bio-bin,
-                biodegradable wastes were separately collected from total waste
-                generated in the year 2019. The data of 2019 for Germany when
-                compared with 2018 clearly portrays a significant rise in
-                generation of waste in each category.
+              According to the Federal Government report, a larger portion of household waste generated in Germany was increased by <b>0.8%</b> in <b>2019</b>. Ranking of states is based on waste generated per inhabitant in Kilograms (Kg/E). At a glance, states like Rheinland-Pfalz <b>(525 Kg)</b>, Niedersachsen <b>(511 Kg)</b>, Bayern <b>(479 Kg)</b>, Saarland <b>(476 Kg)</b> is  followed by <b style={{color:"#bd0026"}}>Nordrhein-Westfalen (461 Kg)</b>.
               </p>
+              <p style={{color:"#06aa6e"}}>Eager to know the condition of our state..! </p>
             </div>
           </Step>
           <Step data={3} key={3}>
@@ -368,16 +334,9 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
               }>
               <h2>This is about North-Rhine Westphalia</h2>
               <p>
-                In 2018, the total generated household and bulky waste was
-                12209.9 kg/E whereas in 2019, it was 12399.6 kg/E. Similarly,
-                the generated organic and green waste also increased from 6713
-                kg/E in 2018 to 6788.6 kg/E in 2019. In contrast, the amount of
-                paper waste generated in 2018 was 3898.3 kg/E, that was
-                decreased to 3894.8 kg/E in 2019. Amount of glass wastes was
-                1185.62 kg/E in 2018 and 1192.7 kg/E in 2019. Likewise,
-                generation of lightweight particle wastes arose from 1900.05
-                kg/E to 1936.05 kg/E during 2018 and 2019 respectively.
+              Looking into the statistics of the five Stadts in NRW, <b style={{color:"#bd0026"}}>Münster</b> generates the highest amount of household waste per inhabitant <b>(496.71 Kg)</b>, followed by Köln <b>(477.26 Kg)</b>, Arnsberg <b>(461 Kg)</b>, Düsseldorf <b>(454.31 Kg)</b>, Detmold <b>(422.9 Kg)</b>. 
               </p>
+              <p style={{color:"#06aa6e"}}>Time for action, Let’s start from our hometown..!</p>
             </div>
           </Step>
 
@@ -390,20 +349,10 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
               }>
               <h2>This is about Münsterland</h2>
               <p>
-                The total sum of household and bulky waste generated in Münster
-                during 2018 was 1799.8 kg/E, which surged to 1808.8 kg/E in
-                2019. There was a decrease in the total amount of organic and
-                green waste generated in 2019 (1374.01 kg/E) when compared to
-                2018 (1381.2 kg/E). Similarly, there was a decline in the
-                generation of glass wastes from 183.7 kg/E to 182 kg/E between
-                the years 2018 and 2019, respectively. There was an increase in
-                the generation of paper waste in Münster, which rose from 590.7
-                kg/E in 2018 to 597.03 kg/E in 2019. The generation of
-                lightweight particle waste was 308.1 kg/E in 2018 which
-                escalated to 313 kg/E in 2019. Other valuable wastes and weight
-                containing pollutants increased in 2019 when compared to that of
-                2018.
+              Here is a small comparison on each category of waste from Münster generated in <b>2018</b> and <b>2019</b>, where household and bulky waste was <b>1799.8 kg/E</b>, which surged to <b>1808.8 kg/E</b> in <b>2019</b>. There was a decrease in the total amount of organic and green waste generated in <b>2019 (1374.01 kg/E)</b> when compared to <b>2018 (1381.2 kg/E)</b>. Similarly, there was a decline in the generation of glass wastes from<b> 183.7 kg/E</b> to <b>182 kg/E</b> between the years <b>2018</b> and <b>2019</b>. There was an increase in the generation of paper waste in Münster, which rose from <b>590.7 kg/E</b> in <b>2018</b> to <b>597.03 kg/E</b> in <b>2019</b> quantifying waste from each category.</p>
+              <p style={{color:"#06aa6e"}}>Gain a better insight on the amount of household waste produced per inhabitant in your Stadtteil today ! 
               </p>
+              <p style={{color:"#06aa6e"}}>Small steps make a big difference, Towards <b>MÜNSTAINABLE..!</b></p>
             </div>
           </Step>
 
