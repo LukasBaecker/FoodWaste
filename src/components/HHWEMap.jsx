@@ -18,11 +18,55 @@ const nrwCenterMobile = [51.960667, 7.626135];
 const muensterCenterMobile = [51.961869, 7.383207];
 const stadtCenterMobile = [51.960667, 7.626135];
 
+const europeLegendVal = {
+  heading: "Waste in t",
+  zero: "< 408.103",
+  one: "408.103 - 1.478.967",
+  two: "1.478.968 - 2.591.187",
+  three: "2.591.188 - 6.746.344",
+  four: "> 6.746.344",
+};
+const germanyLegendVal = {
+  heading: "Waste in kg per capita",
+  zero: "< 429",
+  one: "429 - 444",
+  two: "445 - 457",
+  three: "458 - 479",
+  four: "> 479",
+};
+const nrwLegendVal = {
+  heading: "Waste in kg per capita",
+  zero: "< 448",
+  one: "449 - 458",
+  two: "459 - 467",
+  three: "468 - 481",
+  four: "> 481",
+};
+const muensterlandLegendVal = {
+  heading: "Waste in kg per capita",
+  zero: "< 112",
+  one: "112 - 125",
+  two: "125 - 154",
+  three: "155 - 236",
+  four: "> 236",
+};
+const muensterCityLegendVal = {
+  heading: "Waste in kg per capita",
+  zero: "< 529",
+  one: "529 - 845",
+  two: "846 - 1079",
+  three: "1080 - 1326",
+  four: "> 1327",
+};
+
 const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1150px)" });
   const [currentStepIndex, setCurrentStepIndex] = useState(null);
   const [currentCenter, setCurrentCenter] = useState(
     isTabletOrMobile ? europeCenterMobile : europeCenter
+  );
+  const [currentLegendNumbers, setCurrentLegendNumbers] = useState(
+    europeLegendVal
   );
   const [currentZoom, setCurrentZoom] = useState(3);
   const [geoData, setGeoData] = useState(countries);
@@ -132,21 +176,25 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
   const onStepEnter = ({ data }) => {
     setCurrentStepIndex(data);
     if (data === 0 || data === 1) {
+      setCurrentLegendNumbers(europeLegendVal);
       setCurrentCenter(isTabletOrMobile ? europeCenterMobile : europeCenter);
-      setCurrentZoom(3);
+      setCurrentZoom(isTabletOrMobile ? 3 : 3.35);
       setGeoData(countries);
     }
     if (data === 2) {
+      setCurrentLegendNumbers(germanyLegendVal);
       setCurrentCenter(isTabletOrMobile ? germanyCenterMobile : germanyCenter);
       setCurrentZoom(isTabletOrMobile ? 5 : 5.9);
       setGeoData(fedStates);
     }
     if (data === 3) {
+      setCurrentLegendNumbers(nrwLegendVal);
       setCurrentCenter(isTabletOrMobile ? nrwCenterMobile : nrwCenter);
       setCurrentZoom(isTabletOrMobile ? 7 : 7.5);
       setGeoData(districts);
     }
     if (data === 4) {
+      setCurrentLegendNumbers(muensterlandLegendVal);
       setCurrentCenter(
         isTabletOrMobile ? muensterCenterMobile : muensterCenter
       );
@@ -154,6 +202,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
       setGeoData(muenster);
     }
     if (data === 5) {
+      setCurrentLegendNumbers(muensterCityLegendVal);
       setCurrentCenter(isTabletOrMobile ? stadtCenterMobile : stadtCenter);
       setCurrentZoom(isTabletOrMobile ? 10.5 : 10.9);
       setGeoData(stadt);
@@ -192,25 +241,26 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
             </div>
           </MapContainer>
           <div className='legend-div info'>
-            <h4>Tonnes of Waste</h4>
+            <h4>{currentLegendNumbers.heading}</h4>
             <p>
               <i style={{ background: "#bd0026" }}></i>
-              more than 6.746.343
+              {currentLegendNumbers.zero}
             </p>
             <p>
               <i style={{ background: "#f03b20" }}></i>
-              2.591.187 - 6.746.343
+              {currentLegendNumbers.one}
             </p>
             <p>
               <i style={{ background: "#fd8d3c" }}></i>
-              1.478.966- 2.591.187
+              {currentLegendNumbers.two}
             </p>
             <p>
               <i style={{ background: "#fecc5c" }}></i>
-              408.103 - 1.478.966
+              {currentLegendNumbers.three}
             </p>
             <p>
-              <i style={{ background: "#ffffb2" }}></i>0 - 408.103
+              <i style={{ background: "#ffffb2" }}></i>
+              {currentLegendNumbers.four}
             </p>
             <p>
               <i style={{ background: "#ffffff" }}></i>
