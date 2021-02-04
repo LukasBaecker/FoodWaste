@@ -9,15 +9,6 @@ import { InView } from "react-intersection-observer";
 const MapPage = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    document.body.style.overflowY = "hidden";
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      document.body.style.overflowY = "visible";
-    };
-  }, []);
   return (
     <>
       <Navbar />

@@ -53,7 +53,7 @@
 .toMap-image.mobile {
   left: 50vw;
   margin-left: -120px;
-  margin-top: 125px;
+  margin-top: 225px;
   z-index: 11;
 }
 .toMap-img {
@@ -77,9 +77,6 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-.iconsBubble.mobile {
-}
-
 .bubble-img {
   width: 100px;
   height: auto;
@@ -166,7 +163,7 @@
   -webkit-transition: 0.2s ease-in-out;
 }
 #bubbleDiv.mobile {
-  margin-top: 500px;
+  margin-top: 600px;
   padding-bottom: 40vh;
 }
 #bubbleDiv:hover {
@@ -214,4 +211,10 @@
 }
 #bubbleDiv a:hover {
   text-decoration: none;
+}
+#bubbleShow.mobile {
+  margin-left: unquote("calc(50vw - 150px)");
+}
+#bubblePointCounter.mobile {
+  margin-left: unquote("calc(50vw - 150px)");
 }
