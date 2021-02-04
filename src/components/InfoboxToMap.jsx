@@ -26,7 +26,7 @@ const icons = [
 ];
 const ContainerToMap = () => {
   const pointsNumber = useSelector((state) => state.pointNumber);
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1150px)" });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 991px)" });
 
   return (
     <>
@@ -60,7 +60,7 @@ const ContainerToMap = () => {
                 <Col
                   xs={12}
                   lg={{ span: 8, offset: 4 }}
-                  md={{ span: 7, offset: 5 }}
+                  md={12}
                   className={
                     isTabletOrMobile ? "textMessage mobile" : "textMessage"
                   }>
