@@ -5,11 +5,13 @@ import LoadCountriesTask from "../tasks/LoadCountriesTask.js";
 import LoadFedStatesTask from "../tasks/LoadFedStatesTask.js";
 import LoadDistrictsTask from "../tasks/LoadDistrictsTask.js";
 import LoadMuensterTask from "../tasks/LoadMuensterTask.js";
+import LoadStadtTask from "../tasks/LoadStadtTask.js";
 const HHWEurope = () => {
     const [countries, setCountries]=useState([]);
     const [fedStates, setFedStates]=useState([]);
     const [districts, setDistricts]=useState([]);
     const [muenster, setMuenster]=useState([]);
+    const [stadt, setStadt]=useState([]);
 
 
     const load = () => {
@@ -21,6 +23,8 @@ const HHWEurope = () => {
         loadDistrictsTask.load(setDistricts);
         const loadMuensterTask=new LoadMuensterTask();
         loadMuensterTask.load(setMuenster);
+        const loadStadtTask=new LoadStadtTask();
+        loadStadtTask.load(setStadt);
     };
 
     useEffect(load, []); //page load we tell it that it will track [] componentDidMount
@@ -31,7 +35,7 @@ const HHWEurope = () => {
             <Loading />
         ):(
             <div>
-                <HHWEMap countries={countries} fedStates={fedStates} districts={districts} muenster={muenster}/>
+                <HHWEMap countries={countries} fedStates={fedStates} districts={districts} muenster={muenster} stadt={stadt}/>
             </div>
         )}
     </div> 

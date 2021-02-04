@@ -1,19 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import { TileLayer, MapContainer, GeoJSON } from "react-leaflet";
-import L from "leaflet";
+import L, { Polygon } from "leaflet";
 import ChangeView from "./ChangeView.jsx";
-import legendItems from "../entities/LegendItems.js";
 delete L.Icon.Default.prototype._getIconUrl;
+import legendItems from "../entities/LegendItems.js";
 
-const europeCenter = [51.960667, 7.626135];
-const germanyCenter = [51.746079, 10.601846];
-const nrwCenter = [51.960667, 7.626135];
-const muensterCenter = [51.961869, 7.383207];
-//muenster city center:
-//const muensterCenter = [51.960667, 7.626135];
+const europeCenter = [58.5, -25];
+const germanyCenter = [51.8, 3.4];
+const nrwCenter = [51.5,5.2];
+const muensterCenter = [52.05,6.3];
+const stadtCenter = [51.9583, 7.4];
 
-const StoryMap = ({ countries, fedStates, districts, muenster }) => {
+const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(null);
   const [currentCenter, setCurrentCenter] = useState(europeCenter);
   const [currentZoom, setCurrentZoom] = useState(3);
@@ -63,28 +62,33 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
   }, [geoData]);
 
   const onEachPolygon = (polygon, layer) => {
-    if (polygon.properties.Country != undefined) {
+    if (polygon.properties.NAME_STATI != undefined) {
       layer.options.fillColor = polygon.properties.color;
-      const name = polygon.properties.Country;
-      const unit = polygon.properties.Units;
-      //const HHW2018 = polygon.properties.[2018];
-      const HHW2018 = polygon.properties.confirmedText;
-      layer.bindPopup(`${name}<br> ${unit} ${HHW2018} t`);
+      const name = polygon.properties.NAME_STATI;
+      const HHW2019 = polygon.properties.confirmedText;
+      const unit = "kg"
+      layer.bindPopup(`${name.bold().fontsize(4)} <br> ${HHW2019.bold().fontsize(1.7)}<br> of Household waste <br> per inhabitant in 2019.`);
     } else {
-      if (polygon.properties.POP == undefined) {
-        layer.options.fillColor = polygon.properties.color;
-        const name = polygon.properties.BUNDESLAN;
-        //const unit = fedState.properties.Units;
-        //const HHW2019 = fedState.properties.[2018];
-        const HHW2019 = polygon.properties.confirmedText;
-        layer.bindPopup(`${name}<br> ${HHW2019} t`);
-      } else {
+      if (polygon.properties.REGIERUNG != undefined) {
         layer.options.fillColor = polygon.properties.color;
         const name = polygon.properties.REGIERUNG;
-        //const unit = fedState.properties.Units;
-        //const HHW2019 = fedState.properties.[2018];
         const HHW2019 = polygon.properties.confirmedText;
-        layer.bindPopup(`${name}<br> ${HHW2019} t`);
+        const unit = "kg"
+        layer.bindPopup(`${name.bold().fontsize(4)}<br> ${HHW2019.bold().fontsize(1.7)} ${unit.bold()} <br> of Household waste <br> per inhabitant in 2019.`);
+      } else {
+        if (polygon.properties.BUNDESLAN != undefined) {
+        layer.options.fillColor = polygon.properties.color;
+        const name = polygon.properties.BUNDESLAN;
+        const HHW2019 = polygon.properties.confirmedText;
+        const unit = "kg"
+        layer.bindPopup(`${name.bold().fontsize(4)}<br> ${HHW2019.bold().fontsize(1.7)} ${unit.bold()} <br> of Household waste <br> per inhabitant in 2019.`);
+        } else {
+        layer.options.fillColor = polygon.properties.color;
+        const name = polygon.properties.Country;
+        const HHW2018 = polygon.properties.confirmedText;
+        const unit = "tonnes"
+        layer.bindPopup(`${name.bold().fontsize(4)} <br> ${HHW2018.bold().fontsize(1.7)} ${unit.bold()} <br> of Household waste in 2018.`);
+        }
       }
     }
   };
@@ -96,37 +100,46 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
     fillOpacity: 1,
   };
 
+  const intmap = "You can interact with the map to compare each country."
+
   // This callback fires when a Step hits the offset threshold. It receives the
   // data prop of the step, which in this demo stores the index of the step.
   const onStepEnter = ({ data }) => {
     setCurrentStepIndex(data);
     if (data == 0 || data == 1) {
       setCurrentCenter(europeCenter);
-      setCurrentZoom(3);
+      setCurrentZoom(3.35);
       setGeoData(countries);
     }
     if (data == 2) {
       setCurrentCenter(germanyCenter);
-      setCurrentZoom(5);
+      setCurrentZoom(5.9);
       setGeoData(fedStates);
     }
     if (data == 3) {
       setCurrentCenter(nrwCenter);
-      setCurrentZoom(7);
+      setCurrentZoom(7.5);
       setGeoData(districts);
     }
     if (data == 4) {
       setCurrentCenter(muensterCenter);
-      setCurrentZoom(8);
+      setCurrentZoom(8.7);
       setGeoData(muenster);
+    }
+    if (data == 5) {
+      setCurrentCenter(stadtCenter);
+      setCurrentZoom(10.9);
+      setGeoData(stadt);
     }
     return null;
   };
 
   return (
     <>
-      <div style={{ margin: "0 0" }}>
-        <div style={{ position: "sticky", top: 0 }}>
+      <div className='' style={{ margin: "0 0" }}>
+        <div
+          className='storymap-container'
+          style={{ position: "sticky", top: 0 }}>
           <MapContainer
             className='storymap'
             center={europeCenter}
@@ -151,81 +164,50 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
               <button onClick={() => console.log("yes")}>Reset View</button>
             </div>
           </MapContainer>
-          <div className='legend-div info'>
-            <h4>Tonnes of Waste</h4>
-            <p>
-              <i style={{ background: "#bd0026", opacity: "0.8" }}></i>
-              more than 6.746.343
-            </p>
-            <p>
-              <i style={{ background: "#f03b20" }}></i>
-              2.591.187 - 6.746.343
-            </p>
-            <p>
-              <i style={{ background: "#fd8d3c" }}></i>
-              1.478.966- 2.591.187
-            </p>
-            <p>
-              <i style={{ background: "#fecc5c" }}></i>
-              408.103 - 1.478.966
-            </p>
-            <p>
-              <i style={{ background: "#ffffb2" }}></i>0 - 408.103
-            </p>
-            <p>
-              <i style={{ background: "#ffffff" }}></i>
-              No Data
-            </p>
-          </div>
         </div>
-        <Scrollama onStepEnter={onStepEnter}>
+        <Scrollama onStepEnter={onStepEnter} debug>
           <Step data={1} key={1}>
             <div
               style={{
                 marginTop: "1vh",
                 marginLeft: "5vw",
-                marginRight: "5vw",
+                marginRight: "50vw",
                 border: "1px solid gray",
                 backgroundColor: "white",
                 opacity: "0.99",
                 padding: "30px",
-                borderRadius: "8px",
               }}>
               <h2>This is about Europe</h2>
               <p>
-                Nulla aliqua voluptate nulla laborum quis ea commodo Lorem
-                reprehenderit irure. Officia irure nisi nisi do id aliquip nisi
-                consectetur id aute veniam ipsum. Ut in mollit consequat ullamco
-                incididunt incididunt duis incididunt esse. Ea labore voluptate
-                laborum voluptate consequat enim id fugiat aliqua ipsum qui
-                cupidatat non. Labore in commodo deserunt cupidatat labore culpa
-                elit mollit. Mollit aute cillum sunt qui adipisicing incididunt
-                eiusmod exercitation voluptate commodo laborum culpa non. Non
-                culpa cupidatat irure qui consectetur id officia.
+              According to the global goals adopted by the United Nations in 2015,
+              a social movement on “Zero Waste Europe” was brought into limelight
+              supporting the Sustainable Development Goal for “Responsible consumption and production”.
+              The directive of this movement is to curtail the plastic litter and its associated impact
+              through “Transforming our world: the 2030 Agenda for Sustainable
+              Development” [2]. In a broader picture, the term “waste” contributes countless elements in everyday
+              routine. Some common wastes produced on a daily basis includes: household
+              waste, organic waste, grünabfälle, packing waste (papers, cardboards),
+              glass products and other waste products. This inturn signifies the importance
+              of proper waste management or recycling measures to harmonise sustainability.
               </p>
-              Officia magna ea deserunt irure sunt est ea cupidatat non do.
-              Proident magna sit ad occaecat nostrud. Exercitation sunt eu velit
-              esse amet ut veniam incididunt velit ex exercitation aute qui. Ut
-              ea irure aliqua cupidatat amet sunt nulla. Veniam laborum
-              exercitation minim mollit deserunt eiusmod tempor Lorem velit elit
-              consectetur do. Sunt incididunt fugiat officia cupidatat aliqua
-              nisi excepteur ex voluptate qui ullamco. Nisi amet enim nisi
-              laboris laboris et. Exercitation sint incididunt amet sint
-              pariatur culpa eiusmod aliqua cupidatat mollit laboris laborum
-              adipisicing duis. Id culpa eiusmod id et et anim occaecat magna
-              quis laborum elit commodo non id. Enim est adipisicing pariatur
-              consequat dolore cillum. Velit aliqua ea irure laborum cupidatat
-              sit. Adipisicing reprehenderit minim velit cupidatat cupidatat
-              laboris ut sunt ex et aute amet. Nostrud occaecat nostrud est
-              nostrud officia culpa non. Aliquip culpa enim occaecat sint
-              eiusmod. Adipisicing magna irure ipsum Lorem. Ullamco voluptate
-              Lorem reprehenderit duis nisi consectetur laboris. Lorem culpa
-              quis excepteur officia. Deserunt elit quis irure non consequat
-              mollit aute amet pariatur pariatur consequat duis. Duis nisi nulla
-              consectetur in officia magna duis deserunt dolor culpa duis
-              laborum. Officia qui ullamco consequat eiusmod non excepteur amet
-              do amet. Pariatur ea pariatur sit eiusmod sit est culpa. In in ex
-              tempor aliquip nisi sunt reprehenderit nostrud reprehenderit.
+              <p>
+              The total household waste generated in the European Union accounts for about
+              202 million tonnes in 2018.  As per the waste statistics, each inhabitant
+              generated 5.2 tonnes of waste during 2018. Among the EU- 27 countries, per capita
+              waste generation of Finland was larger (23.2 tonnes) whereas, per capita waste
+              generation for North Macedonia was the least (0.54 tonnes).
+              </p>
+              <p>
+              <b>Interact with the map to compare each country. --------></b> 
+              </p>
+              <p>
+              It was estimated that
+              nearly 36% of total waste was from construction, 26.2% waste from mining and
+              quarrying, 10.6% of manufacturing waste, 9.9% from waste/water services, 8.2%
+              from households and the rest 9.1% of waste included other economic activities.
+              In the European Union, food waste per year per person accounts for between
+              158 - 290 kg.
+              </p>    
             </div>
           </Step>
           <Step data={2} key={2}>
@@ -233,24 +215,26 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
               style={{
                 marginTop: "100vh",
                 marginLeft: "5vw",
-                marginRight: "5vw",
+                marginRight: "50vw",
                 border: "1px solid gray",
                 backgroundColor: "white",
                 opacity: "0.99",
                 padding: "30px",
-                borderRadius: "8px",
               }}>
-              <h2>This is Germany</h2>
+              <h2>This is about Germany</h2>
               <p>
-                Exercitation occaecat consectetur sit labore id sunt incididunt
-                deserunt pariatur incididunt minim occaecat. Culpa irure commodo
-                sunt sit ea ipsum magna dolore. Id consectetur ipsum fugiat in
-                enim sint enim nulla occaecat nulla do. Lorem consectetur eu
-                proident aliqua reprehenderit deserunt ad est laborum
-                incididunt. Amet aliquip nulla sint velit sit quis laboris elit
-                id. Nulla dolor cupidatat incididunt laboris commodo duis aliqua
-                sunt incididunt elit esse cupidatat dolor.
+              The total waste generated in Germany was 37.7 million tonnes and the per capita waste
+              generated was 4.8 tonnes in the year 2018 which was increased by 0.8% in 2019. According 
+              to the Federal Government report, 11 million tonnes of food is wasted each year. 
+              Construction and demolition waste contributes a larger portion of the total waste 
+              produced in Germany every year. About 12 million tonnes of recyclable wastes such as
+              glass, paper/cardboards, metals, wood, plastics, textiles and 10.1 million tonnes of 
+              organic wastes including wastes from bio-bin, biodegradable wastes were separately 
+              collected from total waste generated in the year 2019. The data of 2019 for Germany 
+              when compared with 2018 clearly portrays a significant rise in generation of waste in 
+              each category. 
               </p>
+                
             </div>
           </Step>
           <Step data={3} key={3}>
@@ -258,20 +242,21 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
               style={{
                 marginTop: "100vh",
                 marginLeft: "5vw",
-                marginRight: "5vw",
+                marginRight: "50vw",
                 border: "1px solid gray",
                 backgroundColor: "white",
                 opacity: "0.99",
                 padding: "30px",
-                borderRadius: "8px",
               }}>
-              <h2>This is about NRW</h2>
+              <h2>This is about North-Rhine Westphalia</h2>
               <p>
-                Non enim proident aute id veniam ea duis elit do qui esse anim
-                nostrud nisi. Aliqua ullamco veniam consequat laboris proident
-                eiusmod culpa cupidatat excepteur reprehenderit non consequat.
-                In do consequat consequat quis mollit non pariatur ad eu
-                voluptate aliquip incididunt.
+              In 2018, the total generated household and bulky waste was 12209.9 kg/E whereas
+              in 2019, it was 12399.6 kg/E. Similarly, the generated organic and green waste also 
+              increased from 6713 kg/E in 2018 to 6788.6 kg/E in 2019. In contrast, the amount of 
+              paper waste generated in 2018 was 3898.3 kg/E, that was decreased to 3894.8 kg/E in 2019. 
+              Amount of glass wastes was 1185.62 kg/E in 2018 and 1192.7 kg/E in 2019. Likewise, 
+              generation of lightweight particle wastes arose from 1900.05 kg/E to 1936.05 kg/E during 
+              2018 and 2019 respectively.
               </p>
             </div>
           </Step>
@@ -281,24 +266,113 @@ const StoryMap = ({ countries, fedStates, districts, muenster }) => {
               style={{
                 marginTop: "100vh",
                 marginLeft: "5vw",
-                marginRight: "5vw",
+                marginRight: "50vw",
                 border: "1px solid gray",
                 backgroundColor: "white",
                 opacity: "0.99",
                 padding: "30px",
-                borderRadius: "8px",
               }}>
-              <h2>This is about Münster</h2>
+              <h2>This is about Münsterland</h2>
               <p>
-                Mollit amet laborum consectetur consectetur sint minim. Cillum
-                non duis eu occaecat est. Nisi dolore deserunt occaecat quis
-                fugiat. Ullamco pariatur deserunt id ipsum laboris enim laboris
-                magna. Nostrud laborum deserunt dolore Lorem excepteur dolore
-                elit.
+              The total sum of household and bulky waste generated in Münster during 2018 was 
+              1799.8 kg/E, which surged to 1808.8 kg/E in 2019. There was a decrease in the total 
+              amount of organic and green waste generated in 2019 (1374.01 kg/E) when compared to 
+              2018 (1381.2 kg/E). Similarly, there was a decline in the generation of glass wastes 
+              from 183.7 kg/E to 182 kg/E between the years 2018 and 2019, respectively. There was 
+              an increase in the generation of paper waste in Münster, which rose from 590.7 kg/E 
+              in 2018 to 597.03 kg/E in 2019. The generation of lightweight particle waste was 
+              308.1 kg/E in 2018 which escalated to 313 kg/E in 2019. Other valuable wastes and weight 
+              containing pollutants increased in 2019 when compared to that of 2018.
               </p>
             </div>
           </Step>
+
           <Step data={5} key={5}>
+            <div
+              style={{
+                marginTop: "100vh",
+                marginLeft: "5vw",
+                marginRight: "50vw",
+                border: "1px solid gray",
+                backgroundColor: "white",
+                opacity: "0.99",
+                padding: "30px",
+              }}>
+              <h2>This is about Münster</h2>
+              <p>
+                <table style= {{fontSize:16}}>
+                  <tr style= {{border: "1px solid #000000"}}>
+                    <th style={{border:"1px solid #000000"},{backgroundColor:"#353a40"}}></th>
+                    <th style={{border:"1px solid #000000"},{backgroundColor:"#353a40"}}><div style={{color:"#8f9195"}}>Us</div></th>
+                    <th style={{border:"1px solid #000000"},{backgroundColor:"#353a40"}}><div style={{color:"#8f9195"}}>Maximum</div></th>
+                    <th style={{border:"1px solid #000000"},{backgroundColor:"#353a40"}}><div style={{color:"#8f9195"}}>Minimum</div></th>
+                  </tr>
+                  <tr style= {{border: "1px solid #000000"}}>
+                    <td style={{backgroundColor:"#353a40"}}><b style={{color:"#8f9195"}}>Country</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Germany</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Turkey</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Iceland</b></td>
+                  </tr>
+                  <tr style= {{border: "1px solid #000000"}}>
+                    <td style={{backgroundColor:"#353a40"}}><div style={{color:"#8f9195"}}>Total HH. Waste in 2018</div></td>
+                    <td style={{backgroundColor:"#bd0026"}}>20.6M tonnes</td>
+                    <td style={{backgroundColor:"#bd0026"}}>32.3M tonnes</td>
+                    <td style={{backgroundColor:"#ffffb2"}}>147K tonnes</td> 
+                  </tr>
+                  <tr style= {{border: "1px solid #000000"}}>
+                    <td style={{backgroundColor:"#353a40"}}><b style={{color:"#8f9195"}}>Federal State</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>NRW</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Rheinlad-Pfalz</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Sachsen</b></td>
+                  </tr>
+                  <tr style= {{border: "1px solid #000000"}}>
+                    <td style={{backgroundColor:"#353a40"}}><div style={{color:"#8f9195"}}>HH. Waste per inh. in 2019</div></td>
+                    <td style={{backgroundColor:"#f03b20"}}>461 kg</td>
+                    <td style={{backgroundColor:"#bd0026"}}>525 kg</td>
+                    <td style={{backgroundColor:"#ffffb2"}}>339 kg</td>
+                  </tr>
+                  <tr style= {{border: "1px solid #000000"}}>
+                    <td style={{backgroundColor:"#353a40"}}><b style={{color:"#8f9195"}}>Regierungsbezirke</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Münster</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Detmold</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Düsseldorf</b></td>
+                  </tr>
+                  <tr style= {{border: "1px solid #000000"}}>
+                    <td style={{backgroundColor:"#353a40"}}><div style={{color:"#8f9195"}}>HH. Waste per inh. in 2019</div></td>
+                    <td style={{backgroundColor:"#bd0026"}}>195 kg</td>
+                    <td style={{backgroundColor:"#bd0026"}}>138 kg</td>
+                    <td style={{backgroundColor:"#ffffb2"}}>240 kg</td>
+                  </tr>
+                  <tr style={{border:"1px solid #000000"}}>
+                  <td style={{backgroundColor:"#353a40"}}><b style={{color:"#8f9195"}}>District</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Münster</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Bottrop</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Münster</b></td>
+                  </tr>
+                  <tr style= {{border: "1px solid #000000"}}>
+                  <td style={{backgroundColor:"#353a40"}}><div style={{color:"#8f9195"}}>HH. Waste per inh. in 2019</div></td>
+                    <td style={{backgroundColor:"#bd0026"}}>436 kg</td>
+                    <td style={{backgroundColor:"#bd0026"}}>608 kg</td>
+                    <td style={{backgroundColor:"#ffffb2"}}>436 kg</td>
+                  </tr>
+                  <tr style= {{border: "1px solid #000000"}}>
+                  <td style={{backgroundColor:"#353a40"}}><b style={{color:"#8f9195"}}>City district</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Yours</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Gievenbeck</b></td>
+                    <td style={{backgroundColor:"#8f9195"}}><b>Hafen</b></td>
+                  </tr>
+                  <tr style= {{border: "1px solid #000000"}}>
+                  <td style={{backgroundColor:"#353a40"}}><div style={{color:"#8f9195"}}>HH. Waste per inh. in 2019</div></td>
+                    <td>?</td>
+                    <td style={{backgroundColor:"#bd0026"}}>2921 kg</td>
+                    <td style={{backgroundColor:"#ffffb2"}}>156 kg</td>
+                  </tr>
+            </table>
+              </p>
+            </div>
+          </Step>
+
+          <Step data={6} key={6}>
             <div
               style={{
                 marginTop: "100vh",

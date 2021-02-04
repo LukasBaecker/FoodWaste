@@ -1,37 +1,37 @@
 import LegendItem from "./LegendItem"
 
-const legendItems = [
+const legendItemsM = [
     new LegendItem(
-        "6.746.343 +",
+        "481.15 +",
         "#bd0026",
-        (quantity) => quantity >= 6746343,
+        (quantity) => quantity >= 4190,
         "white",
     ),
     new LegendItem(
-        "2.591.187 - 6.746.343",
+        "467.5 - 481.15",
         "#f03b20",
-        (quantity) => quantity >= 2591187 && quantity< 6746343,
+        (quantity) => quantity >= 3410 && quantity< 4190,
         "white",
     ),
     new LegendItem(
-        "1.478.966- 2.591.187",
+        "458.3 - 467.5",
         "#fd8d3c",
-        (quantity) => quantity >= 1478966 && quantity< 2591187,
+        (quantity) => quantity >= 2671 && quantity< 3410,
     ),
     new LegendItem(
-        "408.103 - 1.478.966",
+        "448 - 459.3",
         "#fecc5c",
-        (quantity) => quantity >= 408103 && quantity< 1478966,
+        (quantity) => quantity >= 1671 && quantity< 2671,
     ),
     new LegendItem(
-        "0 - 408.103",
+        "0 - 448",
         "#ffffb2",
-        (quantity) => quantity >0 && quantity< 408103,
+        (quantity) => quantity >0 && quantity< 1671,
     ),
     new LegendItem ("No Data", "#ffffff", (quantity) => true),
 ];
 
-export default legendItems;
+export default legendItemsM;
 
 
 /*
