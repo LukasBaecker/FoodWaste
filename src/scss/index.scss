@@ -294,6 +294,14 @@ $theme-colors: (
   background-color: $primary;
   color: rgb(196, 212, 197);
 }
+button.grey {
+  background-color: $secondary_opac;
+  border-color: $secondary_opac;
+}
+button.grey:focus {
+  background-color: $secondary_opac;
+  border-color: $secondary_opac;
+}
 .column {
   float: left;
   padding: 10px;
