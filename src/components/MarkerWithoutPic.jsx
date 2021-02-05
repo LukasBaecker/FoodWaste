@@ -12,8 +12,7 @@ import repair from "../img/repair.png";
 import trash from "../img/trash.png";
 import recyc from "../img/recyclingPoints.png";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
-const OwnMarker = (point) => {
+const OwnMarkerWithoutPic = (point) => {
   var iconM = marker_ico;
   var xM = 42;
   var iconS = [25, 41];
@@ -242,9 +241,7 @@ const OwnMarker = (point) => {
       icon={orangeIcon}
       key={"key" + point.geometry.coordinates + point.properties.id}
       position={[point.geometry.coordinates[1], point.geometry.coordinates[0]]}>
-      <Popup className='request-popup'>
-        <img className='center' src={iconM} alt='this is a marker' />
-
+      <Popup className='request-popup withoutPicture'>
         {type_desc}
         {name}
         {add_desc}
@@ -255,4 +252,4 @@ const OwnMarker = (point) => {
     </Marker>
   );
 };
-export default OwnMarker;
+export default OwnMarkerWithoutPic;

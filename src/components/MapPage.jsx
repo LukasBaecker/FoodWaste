@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Selection from "./Selection.jsx";
 import Sidebar from "./Sidebar.jsx";
 import Map from "./Map.jsx";
