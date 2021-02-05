@@ -62,7 +62,7 @@ const Leaflet = () => {
             : points.features.map((p) => OwnMarker(p))}
         </MarkerClusterGroup>
       </MapContainer>
-      <div className='location-div'>
+      <div id='positioningDiv' className='location-div'>
         <button
           className={
             locationActivate ? "btn btn-primary" : "btn btn-primary grey"

@@ -13,23 +13,8 @@ import trash from "../img/trash.png";
 import recyc from "../img/recyclingPoints.png";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import L from "leaflet";
-import Alert from "react-bootstrap/Alert";
-
+import Button from "react-bootstrap/Button";
 const OwnMarker = (point) => {
-  const [activate, setActive] = useState(false);
-
-  const onShowAlert = () => {
-    setActive(true);
-  };
-
-  useEffect(() => {
-    if (activate === true) {
-      window.setTimeout(() => {
-        setActive(false);
-      }, 2000);
-    }
-  }, [activate]);
-
   var iconM = marker_ico;
   var xM = 42;
   var iconS = [25, 41];
@@ -163,16 +148,12 @@ const OwnMarker = (point) => {
   var loc = (
     <div>
       <CopyToClipboard text={locString}>
-        <button
-          className='copy-link-button'
-          onClick={() => {
-            onShowAlert();
-          }}>
+        <Button className='copy-link-button' onClick={() => {}}>
           <p style={{ fontSize: 15, fontFamily: "Arial", float: "left" }}>
             click here to copy coordinates: {point.geometry.coordinates[1]} °N,{" "}
             {point.geometry.coordinates[0]} °E
           </p>
-        </button>
+        </Button>
       </CopyToClipboard>
     </div>
   );
@@ -260,14 +241,15 @@ const OwnMarker = (point) => {
   return (
     <>
       <Marker
-        position={relative}
         icon={orangeIcon}
         key={"key" + point.geometry.coordinates + point.properties.id}
         position={[
           point.geometry.coordinates[1],
           point.geometry.coordinates[0],
         ]}>
-        <Popup className='request-popup'>
+        <Popup
+          key={"keyPopup" + point.geometry.coordinates + point.properties.id}
+          className='request-popup'>
           <img className='center' src={iconM} alt='this is a marker' />
 
           {type_desc}
@@ -278,9 +260,6 @@ const OwnMarker = (point) => {
           {web_desc}
         </Popup>
       </Marker>
-      <Alert className='clipboard-alert' show={activate} variant={"light"}>
-        location copied to clipboard.
-      </Alert>
     </>
   );
 };
