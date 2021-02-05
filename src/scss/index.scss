@@ -38,13 +38,13 @@ body {
   display: none;
 }
 
-.leaflet-container {
-  top: 0;
+.pointMap.leaflet-container {
+  position: fixed;
+  top: 64px;
   left: 0;
   width: 100vw;
   height: unquote("calc(100vh - 64px)");
-  margin-top: 64px;
-  z-index: 0;
+  z-index: 2;
 }
 
 .main-container {
@@ -250,6 +250,11 @@ $theme-colors: (
 .sidenav---sidenav---_2tBP {
   background: $primare_opac;
 }
+
+.sidenav---collapsed---LQDEv {
+  height: 214px;
+}
+
 // Import Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap.scss";
 
@@ -275,12 +280,20 @@ $theme-colors: (
 //}
 
 .leaflet-right {
-  margin-top: 20px;
+  margin-top: 64px;
 }
 .leaflet-control-layers {
-  background-color: $primare_opac;
+  background-color: $primary;
+  color: rgb(196, 212, 197);
 }
-
+.location-div button {
+  position: absolute;
+  top: 74px;
+  right: 10px;
+  z-index: 1006;
+  background-color: $primary;
+  color: rgb(196, 212, 197);
+}
 .column {
   float: left;
   padding: 10px;
@@ -301,9 +314,13 @@ $theme-colors: (
 }
 
 .leaflet-popup-content-wrapper {
-  background-color: rgba(250, 220, 210, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
+  min-height: 341px;
 }
-
+.leaflet-popup-content {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 .table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -383,6 +400,9 @@ div.transbox p {
 
 .request-popup .leaflet-popup-content-wrapper {
   border-radius: 0px;
+}
+.withoutPicture {
+  max-width: 250px;
 }
 .center {
   display: block;
