@@ -11,10 +11,10 @@ const App = () => {
     <>
       <Router basename={"FoodWaste"}>
         <Switch>
-          <Route exact path='/map'>
+          <Route exact path='/'>
             <HomePage />
           </Route>
-          <Route exact path='/'>
+          <Route exact path='/map'>
             <MapPage />
           </Route>
         </Switch>
