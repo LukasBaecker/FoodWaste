@@ -20,12 +20,12 @@ const muensterCenterMobile = [51.961869, 7.383207];
 const stadtCenterMobile = [51.960667, 7.626135];
 
 const europeLegendVal = {
-  heading: "Waste in t",
-  zero: "> 6.746.344",
-  one: "2.591.188 - 6.746.344",
-  two: "1.478.968 - 2.591.187",
-  three: "408.103 - 1.478.967",
-  four: "< 408.103",
+  heading: "Waste in tons",
+  zero: "> 6,746,344",
+  one: "2,591,188 - 6,746,344",
+  two: "1,478,968 - 2,591,187",
+  three: "408,103 - 1,478,967",
+  four: "< 408,103",
 };
 const germanyLegendVal = {
   heading: "Waste in kg per capita",
@@ -242,8 +242,8 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
             center={europeCenterMobile}
             zoom={3}
             scrollWheelZoom={false}
-            zoomControl={false}
-            dragging={false}
+            zoomControl={isTabletOrMobile ? false : true}
+            dragging={isTabletOrMobile ? false : true}
             tap={false}>
             <ChangeView center={currentCenter} zoom={currentZoom} />
             <TileLayer
@@ -297,18 +297,41 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                   ? "storymap-description mobile first"
                   : "storymap-description first"
               }>
-              <h2>This is about Europe</h2>
+              <h2>about Europe</h2>
               <p>
-              According to the global goals adopted by the United Nations in 2015, a social movement on <b style={{color:"#06aa6e"}}>“Zero Waste Europe”</b> was brought into limelight supporting the Sustainable Development Goal (SDG) 12 - <b style={{color:"#06aa6e"}}>“Responsible consumption and production”</b>. The directive of this movement is to curtail the plastic litter and its associated impact through <b style={{color:"#06aa6e"}}>“Transforming our world: the 2030 Agenda for Sustainable Development”</b>. In a broader picture, the term <b style={{color:"#06aa6e"}}>“waste”</b> contributes countless elements in our everyday routine. 
+                According to the global goals adopted by the United Nations in
+                2015, a social movement on{" "}
+                <b style={{ color: "#06aa6e" }}>“Zero Waste Europe”</b> was
+                brought into limelight supporting the Sustainable Development
+                Goal (SDG) 12 -{" "}
+                <b style={{ color: "#06aa6e" }}>
+                  “Responsible consumption and production”
+                </b>
+                . The directive of this movement is to curtail the plastic
+                litter and its associated impact through{" "}
+                <b style={{ color: "#06aa6e" }}>
+                  “Transforming our world: the 2030 Agenda for Sustainable
+                  Development”
+                </b>
+                . In a broader picture, the term{" "}
+                <b style={{ color: "#06aa6e" }}>“waste”</b> contributes
+                countless elements in our everyday routine.
               </p>
               <p>
-              The waste statistics displays the household waste in tonnes for Europe as of 2018, of which the top ranked country is Turkey <b>(32.3 million)</b>, followed by the United Kingdom <b>(31.9 million)</b>, France <b>(21 million)</b> and <b style={{color:"#00441b"}}>Germany (20.6 million)</b>. 
+                The waste statistics displays the household waste in tonnes for
+                Europe as of 2018, of which the top ranked country is Turkey{" "}
+                <b>(32.3 million)</b>, followed by the United Kingdom{" "}
+                <b>(31.9 million)</b>, France <b>(21 million)</b> and{" "}
+                <b style={{ color: "#00441b" }}>Germany (20.6 million)</b>.
               </p>
               <p>
-                <b style={{color:"red"}}>Click on any country on the map to compare each country. -></b>
+                <b style={{ color: "red" }}>
+                  Click on any country on the map to compare them.
+                </b>
               </p>
-              <p style={{color:"#06aa6e"}}>Let’s go one step further to our country..!</p>
-              
+              <p style={{ color: "#06aa6e" }}>
+                Let’s go one step further to our country!
+              </p>
             </div>
           </Step>
           <Step data={2} key={2}>
@@ -318,11 +341,21 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                   ? "storymap-description mobile"
                   : "storymap-description"
               }>
-              <h2>This is about Germany</h2>
+              <h2>about Germany</h2>
               <p>
-              According to the Federal Government report, a larger portion of household waste generated in Germany was increased by <b>0.8%</b> in <b>2019</b>. Ranking of states is based on waste generated per inhabitant in Kilograms (Kg/E). At a glance, states like Rheinland-Pfalz <b>(525 Kg)</b>, Niedersachsen <b>(511 Kg)</b>, Bayern <b>(479 Kg)</b>, Saarland <b>(476 Kg)</b> is  followed by <b style={{color:"#bd0026"}}>Nordrhein-Westfalen (461 Kg)</b>.
+                According to the Federal Government report, a larger portion of
+                household waste generated in Germany was increased by{" "}
+                <b>0.8%</b> in <b>2019</b>. Ranking of states is based on waste
+                generated per inhabitant in Kilograms (Kg/E). At a glance,
+                states like Rheinland-Pfalz <b>(525 Kg)</b>, Niedersachsen{" "}
+                <b>(511 Kg)</b>, Bayern <b>(479 Kg)</b>, Saarland{" "}
+                <b>(476 Kg)</b> is followed by{" "}
+                <b style={{ color: "#bd0026" }}>Nordrhein-Westfalen (461 Kg)</b>
+                .
               </p>
-              <p style={{color:"#06aa6e"}}>Eager to know the condition of our state..! </p>
+              <p style={{ color: "#06aa6e" }}>
+                Eager to know the condition of our state!{" "}
+              </p>
             </div>
           </Step>
           <Step data={3} key={3}>
@@ -332,11 +365,18 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                   ? "storymap-description mobile"
                   : "storymap-description"
               }>
-              <h2>This is about North-Rhine Westphalia</h2>
+              <h2>about North Rhine-Westphalia</h2>
               <p>
-              Looking into the statistics of the five Stadts in NRW, <b style={{color:"#bd0026"}}>Münster</b> generates the highest amount of household waste per inhabitant <b>(496.71 Kg)</b>, followed by Köln <b>(477.26 Kg)</b>, Arnsberg <b>(461 Kg)</b>, Düsseldorf <b>(454.31 Kg)</b>, Detmold <b>(422.9 Kg)</b>. 
+                Looking into the statistics of the five Regierungsbezirke in
+                NRW, <b style={{ color: "#bd0026" }}>Münster</b> generates the
+                highest amount of household waste per inhabitant{" "}
+                <b>(496.71 Kg)</b>, followed by Köln <b>(477.26 Kg)</b>,
+                Arnsberg <b>(461 Kg)</b>, Düsseldorf <b>(454.31 Kg)</b>, Detmold{" "}
+                <b>(422.9 Kg)</b>.
               </p>
-              <p style={{color:"#06aa6e"}}>Time for action, Let’s start from our hometown..!</p>
+              <p style={{ color: "#06aa6e" }}>
+                Time for action, Let’s start from our hometown!
+              </p>
             </div>
           </Step>
 
@@ -347,23 +387,41 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                   ? "storymap-description mobile"
                   : "storymap-description"
               }>
-              <h2>This is about Münsterland</h2>
+              <h2>about Münsterland</h2>
               <p>
-              Here is a small comparison on each category of waste from Münster generated in <b>2018</b> and <b>2019</b>, where household and bulky waste was <b>1799.8 kg/E</b>, which surged to <b>1808.8 kg/E</b> in <b>2019</b>. There was a decrease in the total amount of organic and green waste generated in <b>2019 (1374.01 kg/E)</b> when compared to <b>2018 (1381.2 kg/E)</b>. Similarly, there was a decline in the generation of glass wastes from<b> 183.7 kg/E</b> to <b>182 kg/E</b> between the years <b>2018</b> and <b>2019</b>. There was an increase in the generation of paper waste in Münster, which rose from <b>590.7 kg/E</b> in <b>2018</b> to <b>597.03 kg/E</b> in <b>2019</b> quantifying waste from each category.</p>
-              <p style={{color:"#06aa6e"}}>Gain a better insight on the amount of household waste produced per inhabitant in your Stadtteil today ! 
+                Here is a small comparison on each category of waste from the
+                Regierungsbezirk Münster generated in <b>2018</b> and{" "}
+                <b>2019</b>, where household and bulky waste was{" "}
+                <b>1799.8 kg/E</b>, which surged to <b>1808.8 kg/E</b> in{" "}
+                <b>2019</b>. There was a decrease in the total amount of organic
+                and green waste generated in <b>2019 (1374.01 kg/E)</b> when
+                compared to <b>2018 (1381.2 kg/E)</b>. Similarly, there was a
+                decline in the generation of glass wastes from<b> 183.7 kg/E</b>{" "}
+                to <b>182 kg/E</b> between the years <b>2018</b> and <b>2019</b>
+                . There was an increase in the generation of paper waste in
+                Münster, which rose from <b>590.7 kg/E</b> in <b>2018</b> to{" "}
+                <b>597.03 kg/E</b> in <b>2019</b> quantifying waste from each
+                category.
               </p>
-              <p style={{color:"#06aa6e"}}>Small steps make a big difference, Towards <b>MÜNSTAINABLE..!</b></p>
+              <p style={{ color: "#06aa6e" }}>
+                Gain a better insight on the amount of household waste produced
+                per inhabitant in your Stadtteil today !
+              </p>
+              <p style={{ color: "#06aa6e" }}>
+                Small steps make a big difference, Towards <b>MÜNSTAINABLE!</b>
+              </p>
             </div>
           </Step>
 
           <Step data={5} key={5}>
             <div
+              id='table-box'
               className={
                 isTabletOrMobile
                   ? "storymap-description mobile"
                   : "storymap-description"
               }>
-              <h2>This is about Münster</h2>
+              <h2>about Münster</h2>
 
               <Table striped bordered hover>
                 <thead>
@@ -417,8 +475,12 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                         Total HH. Waste in 2018
                       </div>
                     </td>
-                    <td style={{ backgroundColor: "#bd0026" }}>20.6M tonnes</td>
-                    <td style={{ backgroundColor: "#bd0026" }}>32.3M tonnes</td>
+                    <td style={{ backgroundColor: "#bd0026", color: "white" }}>
+                      20.6M tonnes
+                    </td>
+                    <td style={{ backgroundColor: "#bd0026", color: "white" }}>
+                      32.3M tonnes
+                    </td>
                     <td style={{ backgroundColor: "#ffffb2" }}>147K tonnes</td>
                   </tr>
                   <tr style={{ border: "1px solid #000000" }}>
@@ -441,8 +503,12 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                         HH. Waste per inh. in 2019
                       </div>
                     </td>
-                    <td style={{ backgroundColor: "#f03b20" }}>461 kg</td>
-                    <td style={{ backgroundColor: "#bd0026" }}>525 kg</td>
+                    <td style={{ backgroundColor: "#f03b20", color: "white" }}>
+                      461 kg
+                    </td>
+                    <td style={{ backgroundColor: "#bd0026", color: "white" }}>
+                      525 kg
+                    </td>
                     <td style={{ backgroundColor: "#ffffb2" }}>339 kg</td>
                   </tr>
                   <tr style={{ border: "1px solid #000000" }}>
@@ -465,8 +531,12 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                         HH. Waste per inh. in 2019
                       </div>
                     </td>
-                    <td style={{ backgroundColor: "#bd0026" }}>195 kg</td>
-                    <td style={{ backgroundColor: "#bd0026" }}>138 kg</td>
+                    <td style={{ backgroundColor: "#bd0026", color: "white" }}>
+                      195 kg
+                    </td>
+                    <td style={{ backgroundColor: "#bd0026", color: "white" }}>
+                      138 kg
+                    </td>
                     <td style={{ backgroundColor: "#ffffb2" }}>240 kg</td>
                   </tr>
                   <tr style={{ border: "1px solid #000000" }}>
@@ -489,8 +559,12 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                         HH. Waste per inh. in 2019
                       </div>
                     </td>
-                    <td style={{ backgroundColor: "#bd0026" }}>436 kg</td>
-                    <td style={{ backgroundColor: "#bd0026" }}>608 kg</td>
+                    <td style={{ backgroundColor: "#bd0026", color: "white" }}>
+                      436 kg
+                    </td>
+                    <td style={{ backgroundColor: "#bd0026", color: "white" }}>
+                      608 kg
+                    </td>
                     <td style={{ backgroundColor: "#ffffb2" }}>436 kg</td>
                   </tr>
                   <tr style={{ border: "1px solid #000000" }}>
@@ -514,7 +588,9 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
                       </div>
                     </td>
                     <td>?</td>
-                    <td style={{ backgroundColor: "#bd0026" }}>2921 kg</td>
+                    <td style={{ backgroundColor: "#bd0026", color: "white" }}>
+                      2921 kg
+                    </td>
                     <td style={{ backgroundColor: "#ffffb2" }}>156 kg</td>
                   </tr>
                 </tbody>

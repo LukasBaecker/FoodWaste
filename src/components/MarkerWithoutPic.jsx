@@ -1,5 +1,5 @@
 import { relative } from "path";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Marker } from "react-leaflet";
 import { Popup } from "react-leaflet";
 import marker_ico from "../img/markerIcon.png";
@@ -12,7 +12,23 @@ import repair from "../img/repair.png";
 import trash from "../img/trash.png";
 import recyc from "../img/recyclingPoints.png";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import L from "leaflet";
+import Alert from "react-bootstrap/Alert";
 const OwnMarkerWithoutPic = (point) => {
+  const [activate, setActive] = useState(false);
+
+  const onShowAlert = () => {
+    setActive(true);
+  };
+
+  useEffect(() => {
+    if (activate === true) {
+      window.setTimeout(() => {
+        setActive(false);
+      }, 2000);
+    }
+  }, [activate]);
+
   var iconM = marker_ico;
   var xM = 42;
   var iconS = [25, 41];
@@ -147,10 +163,16 @@ const OwnMarkerWithoutPic = (point) => {
   var loc = (
     <div>
       <CopyToClipboard text={locString}>
-        <p style={{ fontSize: 15, fontFamily: "Arial", float: "left" }}>
-          click here to copy coordinates: {point.geometry.coordinates[1]} °N,{" "}
-          {point.geometry.coordinates[0]} °E
-        </p>
+        <button
+          className='copy-link-button'
+          onClick={() => {
+            onShowAlert();
+          }}>
+          <p style={{ fontSize: 15, fontFamily: "Arial", float: "left" }}>
+            click here to copy coordinates: {point.geometry.coordinates[1]} °N,{" "}
+            {point.geometry.coordinates[0]} °E
+          </p>
+        </button>
       </CopyToClipboard>
     </div>
   );
@@ -236,20 +258,28 @@ const OwnMarkerWithoutPic = (point) => {
   }
 
   return (
-    <Marker
-      position={relative}
-      icon={orangeIcon}
-      key={"key" + point.geometry.coordinates + point.properties.id}
-      position={[point.geometry.coordinates[1], point.geometry.coordinates[0]]}>
-      <Popup className='request-popup withoutPicture'>
-        {type_desc}
-        {name}
-        {add_desc}
-        {hours_desc}
-        {loc}
-        {web_desc}
-      </Popup>
-    </Marker>
+    <>
+      <Marker
+        position={relative}
+        icon={orangeIcon}
+        key={"key" + point.geometry.coordinates + point.properties.id}
+        position={[
+          point.geometry.coordinates[1],
+          point.geometry.coordinates[0],
+        ]}>
+        <Popup className='request-popup withoutPicture'>
+          {type_desc}
+          {name}
+          {add_desc}
+          {hours_desc}
+          {loc}
+          {web_desc}
+        </Popup>
+      </Marker>
+      <Alert className='clipboard-alert' show={activate} variant={"light"}>
+        location copied to clipboard.
+      </Alert>
+    </>
   );
 };
 export default OwnMarkerWithoutPic;

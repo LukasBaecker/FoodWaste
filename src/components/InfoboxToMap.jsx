@@ -214,7 +214,7 @@ const ContainerToMap = () => {
                         ) : (
                           0
                         )}
-                        <p style={{ fontSize: "1.5rem" }}>points</p>
+                        <p style={{ fontSize: "1.5rem" }}>locations</p>
                       </div>
                     </a>
                     <a href='/FoodWaste/#/map'>

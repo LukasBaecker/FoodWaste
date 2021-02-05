@@ -39,7 +39,7 @@ const Leaflet = () => {
         center={[51.960667, 7.626135]}
         zoom={13}
         zoomControl={false}
-        className='pointMap'>
+        className={isTabletOrMobile ? "pointMap mobile" : "pointMap"}>
         <LayersControl position='topright'>
           <LayersControl.BaseLayer name='OpenStreetMap'>
             <TileLayer
