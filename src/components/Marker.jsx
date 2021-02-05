@@ -1,5 +1,5 @@
 import { relative } from "path";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Marker } from "react-leaflet";
 import { Popup } from "react-leaflet";
 import marker_ico from "../img/markerIcon.png";
@@ -12,8 +12,24 @@ import repair from "../img/repair.png";
 import trash from "../img/trash.png";
 import recyc from "../img/recyclingPoints.png";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import L from "leaflet";
+import Alert from "react-bootstrap/Alert";
 
 const OwnMarker = (point) => {
+  const [activate, setActive] = useState(false);
+
+  const onShowAlert = () => {
+    setActive(true);
+  };
+
+  useEffect(() => {
+    if (activate === true) {
+      window.setTimeout(() => {
+        setActive(false);
+      }, 2000);
+    }
+  }, [activate]);
+
   var iconM = marker_ico;
   var xM = 42;
   var iconS = [25, 41];
@@ -64,7 +80,7 @@ const OwnMarker = (point) => {
 
   // make first sentences
   // use obj type and rec type
-  if (point.properties.recycling_type != "store") {
+  if (point.properties.recycling_type !== "store") {
     // rec type is not ALSO store
     var type_desc = (
       <p style={{ fontSize: 15, fontFamily: "Arial", float: "left" }}>
@@ -82,7 +98,7 @@ const OwnMarker = (point) => {
   }
 
   // name
-  if (point.properties.name != "FALSE") {
+  if (point.properties.name !== "FALSE") {
     // name given
     var name = (
       <p style={{ fontSize: 15, fontFamily: "Arial", float: "left" }}>
@@ -95,8 +111,8 @@ const OwnMarker = (point) => {
   }
 
   // add_desc out of address and location_desc
-  if (point.properties.address != "FALSE") {
-    if (point.properties.location_desc != "FALSE") {
+  if (point.properties.address !== "FALSE") {
+    if (point.properties.location_desc !== "FALSE") {
       // if address and loca_disc given
       var add_desc = (
         <p style={{ fontSize: 15, fontFamily: "Arial", float: "left" }}>
@@ -113,7 +129,7 @@ const OwnMarker = (point) => {
       );
     }
   } else {
-    if (point.properties.location_desc != "FALSE") {
+    if (point.properties.location_desc !== "FALSE") {
       // if loc_disc given
       var add_desc = (
         <p style={{ fontSize: 15, fontFamily: "Arial", float: "left" }}>
@@ -127,7 +143,7 @@ const OwnMarker = (point) => {
   }
 
   // hours
-  if (point.properties.hours != "FALSE") {
+  if (point.properties.hours !== "FALSE") {
     //hours given
     var hours_desc = (
       <p style={{ fontSize: 15, fontFamily: "Arial", float: "left" }}>
@@ -147,17 +163,23 @@ const OwnMarker = (point) => {
   var loc = (
     <div>
       <CopyToClipboard text={locString}>
-        <p style={{ fontSize: 15, fontFamily: "Arial", float: "left" }}>
-          click here to copy coordinates: {point.geometry.coordinates[1]} °N,{" "}
-          {point.geometry.coordinates[0]} °E
-        </p>
+        <button
+          className='copy-link-button'
+          onClick={() => {
+            onShowAlert();
+          }}>
+          <p style={{ fontSize: 15, fontFamily: "Arial", float: "left" }}>
+            click here to copy coordinates: {point.geometry.coordinates[1]} °N,{" "}
+            {point.geometry.coordinates[0]} °E
+          </p>
+        </button>
       </CopyToClipboard>
     </div>
   );
 
   // website, tel
-  if (point.properties.website != "FALSE") {
-    if (point.properties.telephone != "FALSE") {
+  if (point.properties.website !== "FALSE") {
+    if (point.properties.telephone !== "FALSE") {
       // web and phone given
       var web_desc = (
         <table>
@@ -236,22 +258,30 @@ const OwnMarker = (point) => {
   }
 
   return (
-    <Marker
-      position={relative}
-      icon={orangeIcon}
-      key={"key" + point.geometry.coordinates + point.properties.id}
-      position={[point.geometry.coordinates[1], point.geometry.coordinates[0]]}>
-      <Popup className='request-popup'>
-        <img className='center' src={iconM} alt='this is a marker' />
+    <>
+      <Marker
+        position={relative}
+        icon={orangeIcon}
+        key={"key" + point.geometry.coordinates + point.properties.id}
+        position={[
+          point.geometry.coordinates[1],
+          point.geometry.coordinates[0],
+        ]}>
+        <Popup className='request-popup'>
+          <img className='center' src={iconM} alt='this is a marker' />
 
-        {type_desc}
-        {name}
-        {add_desc}
-        {hours_desc}
-        {loc}
-        {web_desc}
-      </Popup>
-    </Marker>
+          {type_desc}
+          {name}
+          {add_desc}
+          {hours_desc}
+          {loc}
+          {web_desc}
+        </Popup>
+      </Marker>
+      <Alert className='clipboard-alert' show={activate} variant={"light"}>
+        location copied to clipboard.
+      </Alert>
+    </>
   );
 };
 export default OwnMarker;

@@ -18,7 +18,10 @@ const ExportThis = () => {
   };
 
   return (
-    <Container fluid>
+    <Container
+      fluid
+      id='plot-container-3'
+      className={isTabletOrMobile ? "mobile" : ""}>
       <Row>
         <InView triggerOnce={true} threshold={0.7}>
           {({ inView, ref, entry }) => (

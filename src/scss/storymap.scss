@@ -30,6 +30,10 @@
   height: unquote("calc(100vh - 25px)") !important;
   z-index: 0;
   margin-top: 0px !important;
+
+  .leaflet-left {
+    margin-top: 74px;
+  }
 }
 .storymap-text {
   width: 50vw;
@@ -90,11 +94,29 @@
   border: 1px solid gray;
   background-color: white;
   opacity: 0.99;
-  padding: 30px;
+  padding: 50px;
+  text-align: justify;
+
+  h2 {
+    margin-bottom: 30px;
+  }
 }
 .storymap-description.first {
   margin-top: -10vh;
 }
 .storymap-description.mobile {
   margin-right: 5vw;
+  padding: 30px;
+}
+.storymap-description.mobile#table-box {
+  overflow: auto;
+  td {
+    padding: 5px;
+  }
+}
+
+.storymap-description.mobile#table-box > table {
+  width: 200%;
+  height: 100%;
+  background: Lavender;
 }

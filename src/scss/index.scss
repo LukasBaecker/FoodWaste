@@ -323,11 +323,20 @@ button.grey:focus {
 
 .leaflet-popup-content-wrapper {
   background-color: rgba(255, 255, 255, 0.9);
-  min-height: 341px;
+}
+.pointMap .leaflet-popup-content-wrapper {
+  min-height: 350px;
+}
+.pointMap.mobile .leaflet-popup-content-wrapper {
+  min-height: 160px;
 }
 .leaflet-popup-content {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+.leaflet-popup-content p {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .table {
   font-family: arial, sans-serif;
@@ -470,6 +479,32 @@ div.transbox p {
     margin-right: 0;
   }
 }
+
+@mixin makeFontSizeDesktop() {
+  font-size: 1.5rem;
+}
+@mixin makeFontSizeMobile() {
+  font-size: 1rem;
+}
+#plot-container-1 p {
+  @include makeFontSizeDesktop();
+}
+#plot-container-1.mobile p {
+  @include makeFontSizeMobile();
+}
+#plot-container-2 p {
+  @include makeFontSizeDesktop();
+}
+#plot-container-2.mobile p {
+  @include makeFontSizeMobile();
+}
+#plot-container-3 p {
+  @include makeFontSizeDesktop();
+}
+#plot-container-3.mobile p {
+  @include makeFontSizeMobile();
+}
+
 .text-col {
   background-color: $primary;
   color: white;
@@ -552,4 +587,23 @@ div.transbox p {
   to {
     transform: translateX(0);
   }
+}
+.clipboard-alert {
+  position: fixed;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11147;
+  background-color: rgb(196, 212, 197);
+  color: white;
+}
+
+.copy-link-button {
+  background-color: white;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-color: $primary;
 }

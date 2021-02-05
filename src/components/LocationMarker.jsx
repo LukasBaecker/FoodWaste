@@ -3,6 +3,7 @@ import { Marker } from "react-leaflet";
 import useGeoLocation from "../hooks/useGeoLocation.js";
 import positionMarker from "../img/markerIcon.png";
 import ChangeView from "./ChangeView.jsx";
+import L from "leaflet";
 const positionMarkerIcon = new L.Icon({
   iconUrl: positionMarker,
   iconSize: [25, 41], // size of the icon
