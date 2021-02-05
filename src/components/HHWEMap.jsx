@@ -305,7 +305,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
               The waste statistics displays the household waste in tonnes for Europe as of 2018, of which the top ranked country is Turkey <b>(32.3 million)</b>, followed by the United Kingdom <b>(31.9 million)</b>, France <b>(21 million)</b> and <b style={{color:"#00441b"}}>Germany (20.6 million)</b>. 
               </p>
               <p>
-                <b style={{color:"red"}}>Click on any country on the map to compare each country. -></b>
+                <b style={{color:"red"}}>Click on any country on the map to compare each country.</b>
               </p>
               <p style={{color:"#06aa6e"}}>Let’s go one step further to our country..!</p>
               
@@ -322,7 +322,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
               <p>
               According to the Federal Government report, a larger portion of household waste generated in Germany was increased by <b>0.8%</b> in <b>2019</b>. Ranking of states is based on waste generated per inhabitant in Kilograms (Kg/E). At a glance, states like Rheinland-Pfalz <b>(525 Kg)</b>, Niedersachsen <b>(511 Kg)</b>, Bayern <b>(479 Kg)</b>, Saarland <b>(476 Kg)</b> is  followed by <b style={{color:"#bd0026"}}>Nordrhein-Westfalen (461 Kg)</b>.
               </p>
-              <p style={{color:"#06aa6e"}}>Eager to know the condition of our state..! </p>
+              <p style={{color:"#06aa6e"}}>Eager to know the condition of our state..!</p>
             </div>
           </Step>
           <Step data={3} key={3}>
@@ -350,7 +350,7 @@ const StoryMap = ({ countries, fedStates, districts, muenster, stadt }) => {
               <h2>This is about Münsterland</h2>
               <p>
               Here is a small comparison on each category of waste from Münster generated in <b>2018</b> and <b>2019</b>, where household and bulky waste was <b>1799.8 kg/E</b>, which surged to <b>1808.8 kg/E</b> in <b>2019</b>. There was a decrease in the total amount of organic and green waste generated in <b>2019 (1374.01 kg/E)</b> when compared to <b>2018 (1381.2 kg/E)</b>. Similarly, there was a decline in the generation of glass wastes from<b> 183.7 kg/E</b> to <b>182 kg/E</b> between the years <b>2018</b> and <b>2019</b>. There was an increase in the generation of paper waste in Münster, which rose from <b>590.7 kg/E</b> in <b>2018</b> to <b>597.03 kg/E</b> in <b>2019</b> quantifying waste from each category.</p>
-              <p style={{color:"#06aa6e"}}>Gain a better insight on the amount of household waste produced per inhabitant in your Stadtteil today ! 
+              <p style={{color:"#06aa6e"}}>Gain a better insight on the amount of household waste produced per inhabitant in your Stadtteil today! 
               </p>
               <p style={{color:"#06aa6e"}}>Small steps make a big difference, Towards <b>MÜNSTAINABLE..!</b></p>
             </div>
