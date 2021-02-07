@@ -210,11 +210,16 @@ const ContainerToMap = () => {
                         />
                         <br />
                         {inView ? (
-                          <CountUp start={0} end={pointsNumber} delay={1} />
+                          <CountUp
+                            style={{ fontSize: "32px" }}
+                            start={0}
+                            end={pointsNumber}
+                            delay={1}
+                          />
                         ) : (
                           0
                         )}
-                        <p style={{ fontSize: "1.5rem" }}>locations</p>
+                        <p style={{ fontSize: "24px" }}>locations</p>
                       </div>
                     </a>
                     <a href='/FoodWaste/#/map'>
@@ -225,7 +230,7 @@ const ContainerToMap = () => {
                             : "floating iconsBubble"
                         }
                         id='bubbleShow'>
-                        <h1 style={{ fontSize: "2.5rem" }}>Show me how!</h1>
+                        <h1 style={{ fontSize: "40px" }}>Show me how!</h1>
                       </div>
                     </a>
                   </Col>
